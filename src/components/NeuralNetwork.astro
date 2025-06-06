@@ -1,0 +1,52 @@
+---
+const { nodos = 4, lineas = 5 } = Astro.props;
+function generarNodosSVG(cantidad: number) {
+  return Array.from({ length: cantidad }).map(() => ({
+    cx: Math.random() * 100,
+    cy: Math.random() * 100,
+  }));
+}
+function generarLineasSVG(cantidad: number) {
+  return Array.from({ length: cantidad }).map(() => ({
+    x1: Math.random() * 100,
+    y1: Math.random() * 100,
+    x2: Math.random() * 100,
+    y2: Math.random() * 100,
+  }));
+}
+const nodosData = generarNodosSVG(nodos);
+const lineasData = generarLineasSVG(lineas);
+---
+<div class="absolute inset-0 neural-network">
+  <svg width="100%" height="100%" class="w-full h-full">
+    <defs>
+      <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#e11d74;stop-opacity:0.3" />
+        <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.3" />
+      </linearGradient>
+    </defs>
+    <g class="neural-nodes">
+      {nodosData.map((nodo, i) => (
+        <circle
+          cx={`${nodo.cx}%`}
+          cy={`${nodo.cy}%`}
+          r="2"
+          fill="url(#neonGradient)"
+        />
+      ))}
+    </g>
+    <g class="neural-connections">
+      {lineasData.map((linea, i) => (
+        <line
+          x1={`${linea.x1}%`}
+          y1={`${linea.y1}%`}
+          x2={`${linea.x2}%`}
+          y2={`${linea.y2}%`}
+          stroke="url(#neonGradient)"
+          stroke-width="1"
+          opacity="0.15"
+        />
+      ))}
+    </g>
+  </svg>
+</div> 

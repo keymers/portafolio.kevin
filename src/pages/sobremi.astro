@@ -1,0 +1,498 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="KGL - Sobre mí">
+  <main
+    class="min-h-screen flex items-center justify-center bg-primary relative overflow-hidden page-transition"
+  >
+    {/* Efecto de partículas y fondo */}
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-primary/80 to-primary/60"
+    >
+    </div>
+    <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
+    <div class="absolute inset-0 glitch-bg"></div>
+
+    <div
+      class="relative w-full max-w-4xl h-[90vh] flex items-center justify-center"
+    >
+      <div
+        class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-hidden group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card"
+      >
+        <div class="absolute inset-0 scan-line"></div>
+        {/* Tarjeta principal con navbar */}
+        <div
+          class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-hidden group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card"
+        >
+          {/* Efecto de escaneo */}
+          <div class="absolute inset-0 scan-line"></div>
+
+          {/* Navbar centrado */}
+          <nav
+            class="relative flex items-center justify-center px-8 py-4 border-b border-accent/40 bg-secondary/80 backdrop-blur-sm"
+          >
+            {/* Logo a la izquierda, enlaces centrados */}
+            <span
+              class="absolute left-8 text-2xl font-extrabold text-accent tracking-widest drop-shadow-neon animate-pulse glitch-text"
+              style="position: absolute; left: 2rem;">KGL</span
+            >
+            <ul class="flex gap-8 text-lg font-medium">
+              <li>
+                <a
+                  href="/"
+                  class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link"
+                  >Home</a>
+              </li>
+              <li>
+                <a
+                  href="/proyectos"
+                  class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link page-link"
+                  >Proyectos</a>
+              </li>
+              <li>
+                <a
+                  href="/sobremi"
+                  class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link"
+                  >Sobre mí</a>
+              </li>
+            </ul>
+          </nav>
+          {/* Contenido principal */}
+          <div
+            class="flex-1 overflow-y-auto p-8 flex flex-col items-center justify-center"
+          >
+            <div
+              class="w-full max-w-md mx-auto flex flex-col items-center gap-6 p-6 pt-24"
+              style="margin-top:-120px;"
+            >
+              {/* Imagen de perfil */}
+              <div class="relative mb-2 w-[120px] h-[120px]">
+                <div class="absolute inset-0 rounded-full neon-glow-avatar">
+                </div>
+                <img
+                  src="/perfil.jpg"
+                  alt="Perfil"
+                  class="w-full h-full rounded-full object-cover object-top border-4 border-accent shadow-xl profile-glitch"
+                />
+              </div>
+              {/* Nombre y título */}
+              <h1
+                class="text-3xl font-extrabold text-white glitch-text text-center"
+              >
+                Kevin González Lister
+              </h1>
+              <h2 class="text-lg font-bold text-accent glitch-text text-center">
+                Ingeniero Informático
+              </h2>
+              {/* Frase breve */}
+              <p class="text-white/80 text-center max-w-xs">
+                Apasionado por la tecnología, la creatividad y el desarrollo de
+                soluciones innovadoras. Siempre aprendiendo y buscando nuevos
+                retos.
+              </p>
+              {/* Botones de LinkedIn y Email (idénticos a los de proyectos) */}
+              <div class="flex gap-4 mt-4">
+                <a
+                  href="https://www.linkedin.com/in/tuusuario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 bg-accent text-white rounded-lg hover:bg-pink-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(225,29,116,0.5)] glitch-text"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="mailto:kevin.gonzalez04@outlook.com"
+                  class="px-4 py-2 border-2 border-accent text-accent rounded-lg hover:bg-accent/10 transition-all duration-300 glitch-text"
+                >
+                  Email
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const btn = document.getElementById("easter-egg-btn");
+    const svg = document.getElementById("easter-egg-svg");
+    const msg = document.getElementById("easter-egg-msg");
+    let animating = false;
+    if (btn && svg && msg) {
+      btn.addEventListener("click", () => {
+        if (animating) return;
+        animating = true;
+        svg.classList.add("easter-egg-glitch");
+        btn.classList.add("easter-egg-flash");
+        msg.classList.remove("hidden");
+        setTimeout(() => {
+          svg.classList.remove("easter-egg-glitch");
+          btn.classList.remove("easter-egg-flash");
+          animating = false;
+        }, 1400);
+        setTimeout(() => {
+          msg.classList.add("hidden");
+        }, 3500);
+      });
+    }
+  </script>
+
+  <style>
+    @keyframes glitch {
+      0% {
+        background-position: 0% 0%;
+      }
+      100% {
+        background-position: 200% 200%;
+      }
+    }
+
+    /* Efecto de escaneo más suave */
+    .scan-line {
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(225, 29, 116, 0.03) 50%,
+        transparent 100%
+      );
+      background-size: 100% 8px;
+      animation: scan 6s linear infinite;
+      pointer-events: none;
+      opacity: 0.3;
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
+      }
+    }
+
+    /* Efecto de texto glitch */
+    .glitch-text {
+      position: relative;
+      text-shadow:
+        0.05em 0 0 #e11d74,
+        -0.05em -0.025em 0 #3b82f6;
+      animation: glitch-text 3s infinite;
+      transform: translateZ(0);
+      will-change: text-shadow;
+    }
+
+    @keyframes glitch-text {
+      0% {
+        text-shadow:
+          0.05em 0 0 #e11d74,
+          -0.05em -0.025em 0 #3b82f6;
+      }
+      14% {
+        text-shadow:
+          0.05em 0 0 #e11d74,
+          -0.05em -0.025em 0 #3b82f6;
+      }
+      15% {
+        text-shadow:
+          -0.05em -0.025em 0 #e11d74,
+          0.025em 0.025em 0 #3b82f6;
+      }
+      49% {
+        text-shadow:
+          -0.05em -0.025em 0 #e11d74,
+          0.025em 0.025em 0 #3b82f6;
+      }
+      50% {
+        text-shadow:
+          0.025em 0.05em 0 #e11d74,
+          0.05em 0 0 #3b82f6;
+      }
+      99% {
+        text-shadow:
+          0.025em 0.05em 0 #e11d74,
+          0.05em 0 0 #3b82f6;
+      }
+      100% {
+        text-shadow:
+          -0.025em 0 0 #e11d74,
+          -0.025em -0.025em 0 #3b82f6;
+      }
+    }
+
+    /* Efecto cyberpunk para tarjetas */
+    .cyberpunk-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyberpunk-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(225, 29, 116, 0.03),
+        transparent
+      );
+      transform: rotate(45deg);
+      animation: cyberpunk-shine 8s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes cyberpunk-shine {
+      0% {
+        transform: translateX(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) rotate(45deg);
+      }
+    }
+
+    /* Efecto para enlaces cyberpunk */
+    .cyberpunk-link {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cyberpunk-link::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, #e11d74, #3b82f6);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.5s ease;
+      opacity: 0.7;
+    }
+
+    .cyberpunk-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Animación para nodos neurales */
+    .neural-node {
+      filter: drop-shadow(0 0 1px currentColor);
+    }
+
+    .neural-connection {
+      stroke-dasharray: 5, 5;
+      animation: neural-dash 40s linear infinite;
+      opacity: 0.15;
+    }
+
+    @keyframes neural-dash {
+      to {
+        stroke-dashoffset: 1000;
+      }
+    }
+
+    /* Animaciones de transición de página */
+    .page-transition {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .page-link {
+      position: relative;
+    }
+
+    .page-link::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      transform: translateY(100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .page-link:hover::before {
+      transform: translateY(0);
+    }
+
+    /* Scrollbar cyberpunk */
+    ::-webkit-scrollbar {
+      width: 12px;
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(120deg, #e11d74 30%, #3b82f6 70%);
+      border-radius: 8px;
+      box-shadow:
+        0 0 8px #e11d74,
+        0 0 16px #3b82f6;
+      border: 2px solid #181b2b;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(120deg, #3b82f6 30%, #e11d74 70%);
+      box-shadow:
+        0 0 16px #e11d74,
+        0 0 32px #3b82f6,
+        0 0 24px #fff;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(24, 27, 43, 0.5);
+      border-radius: 8px;
+    }
+
+    /* Firefox */
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: #e11d74 #181b2b;
+    }
+
+    @media (max-width: 1024px) {
+      .max-w-4xl {
+        max-width: 95vw !important;
+      }
+      .p-8 {
+        padding: 1.5rem !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .max-w-4xl {
+        max-width: 99vw !important;
+      }
+      .p-8 {
+        padding: 1rem !important;
+      }
+      .text-4xl {
+        font-size: 1.5rem !important;
+      }
+      .text-xl {
+        font-size: 1.1rem !important;
+      }
+      .rounded-3xl {
+        border-radius: 1.2rem !important;
+      }
+      .border-4 {
+        border-width: 2px !important;
+      }
+      .gap-8 {
+        gap: 1rem !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .max-w-4xl {
+        max-width: 100vw !important;
+      }
+      .p-8 {
+        padding: 0.5rem !important;
+        padding-top: 2rem !important;
+      }
+      .rounded-3xl,
+      .rounded-xl {
+        border-radius: 0.7rem !important;
+      }
+      .border-4,
+      .border-2 {
+        border-width: 1px !important;
+      }
+      .shadow-2xl,
+      .shadow-lg {
+        box-shadow:
+          0 0 10px #e11d74,
+          0 0 20px #3b82f6;
+      }
+      .text-4xl {
+        font-size: 1.1rem !important;
+      }
+      .text-xl {
+        font-size: 1rem !important;
+      }
+      .grid-cols-2,
+      .md\:grid-cols-2 {
+        grid-template-columns: 1fr !important;
+      }
+      .gap-8,
+      .gap-6,
+      .gap-4 {
+        gap: 0.5rem !important;
+      }
+      .navbar,
+      nav,
+      .px-8,
+      .py-4 {
+        padding: 0.5rem !important;
+      }
+
+      nav {
+        padding: 0.75rem 1rem !important;
+      }
+      nav .glitch-text {
+        font-size: 1.25rem !important;
+        left: 1rem !important;
+      }
+      nav ul {
+        gap: 1rem !important;
+      }
+      nav ul li a {
+        font-size: 0.9rem !important;
+      }
+    }
+
+    /* Evitar overflow horizontal */
+    html,
+    body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none !important;
+      }
+      .hamburger-btn {
+        display: flex !important;
+      }
+    }
+    @media (min-width: 901px) {
+      .hamburger-btn {
+        display: none !important;
+      }
+      .mobile-menu {
+        display: none !important;
+      }
+    }
+    .mobile-menu {
+      animation: menu-fade-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow:
+        0 0 40px #e11d74,
+        0 0 80px #3b82f6;
+    }
+    @keyframes menu-fade-in {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</Layout>
