@@ -91,21 +91,29 @@ import Layout from "../layouts/Layout.astro";
                 soluciones innovadoras. Siempre aprendiendo y buscando nuevos
                 retos.
               </p>
-              {/* Botones de LinkedIn y Email (idénticos a los de proyectos) */}
-              <div class="flex gap-4 mt-4">
+              {/* Botones de LinkedIn, Email y CV */}
+              <div class="flex gap-4 mt-4 flex-wrap justify-center">
                 <a
                   href="https://www.linkedin.com/in/kevingonzalezlister/"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="px-4 py-2 bg-accent text-white rounded-lg hover:bg-pink-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(225,29,116,0.5)] glitch-text"
                 >
-                  LinkedIn
+                  💼 LinkedIn
                 </a>
                 <a
                   href="mailto:kevin.gonzalez04@outlook.com"
-                  class="px-4 py-2 border-2 border-accent text-accent rounded-lg hover:bg-accent/10 transition-all duration-300 glitch-text"
+                  class="px-4 py-2 bg-accent text-white rounded-lg hover:bg-pink-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(225,29,116,0.5)] glitch-text"
                 >
-                  Email
+                  ✉️ Email
+                </a>
+                <a
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all duration-300 hover:shadow-[0_0_15px_rgba(59,130,246,0.5)] glitch-text"
+                >
+                  📄 CV
                 </a>
               </div>
             </div>
