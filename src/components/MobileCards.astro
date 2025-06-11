@@ -1,0 +1,68 @@
+---
+// Componente para las tarjetas móviles
+---
+
+<div class="flex flex-col gap-4 w-full px-4 md:hidden">
+	{/* Cuadros apilados en móvil */}
+	<div class="w-full h-24 bg-secondary/80 backdrop-blur-sm rounded-xl border-2 border-accent neon-glow flex items-center justify-between px-4 hover:scale-105 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(225,29,116,0.3)]">
+		<div class="flex items-center gap-4">
+			<svg class="w-12 h-12 neon-icon animate-pulse" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<rect x="6" y="14" width="36" height="24" rx="4" fill="#181B2B" stroke="#3B82F6" stroke-width="2.5"/>
+				<path d="M6 18V14a4 4 0 0 1 4-4h8l4 6h20a4 4 0 0 1 4 4v4" stroke="#e11d74" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+				<circle cx="14" cy="34" r="2" fill="#e11d74"/>
+				<circle cx="24" cy="34" r="2" fill="#3B82F6"/>
+				<circle cx="34" cy="34" r="2" fill="#e11d74"/>
+				<rect x="12" y="22" width="24" height="4" rx="2" fill="#3B82F6" opacity="0.5"/>
+			</svg>
+			<div class="flex flex-col">
+				<span class="text-lg font-bold text-accent font-mono">Ver Proyectos</span>
+				<a href="/proyectos" class="text-sm text-white/80 hover:text-accent transition-all duration-300">Explorar →</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="w-full h-24 bg-secondary/80 backdrop-blur-sm rounded-xl border-2 border-accent neon-glow flex items-center justify-between px-4 hover:scale-105 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(225,29,116,0.3)]">
+		<div class="flex items-center gap-4">
+			<svg class="w-12 h-12 neon-icon animate-pulse" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="24" cy="18" r="8" fill="#181B2B" stroke="#3B82F6" stroke-width="2.5"/>
+				<ellipse cx="24" cy="34" rx="12" ry="7" fill="#181B2B" stroke="#e11d74" stroke-width="2.5"/>
+				<circle cx="24" cy="18" r="3" fill="#e11d74"/>
+				<path d="M20 16c0-2 8-2 8 0" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+				<path d="M18 22c2 2 10 2 12 0" stroke="#e11d74" stroke-width="1.5" stroke-linecap="round"/>
+			</svg>
+			<div class="flex flex-col">
+				<span class="text-lg font-bold text-accent font-mono">Sobre Mí</span>
+				<a href="/sobremi" class="text-sm text-white/80 hover:text-accent transition-all duration-300">Conocer →</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="w-full h-24 bg-secondary/80 backdrop-blur-sm rounded-xl border-2 border-accent neon-glow flex items-center justify-between px-4 hover:scale-105 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(225,29,116,0.3)]" style="overflow:visible;">
+		<div class="flex items-center gap-4">
+			<button id="easter-egg-btn-mobile" class="relative flex items-center gap-4 focus:outline-none z-10">
+				<svg id="easter-egg-svg" class="w-12 h-12 neon-icon animate-pulse" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 48 48">
+					<circle cx="24" cy="24" r="18" stroke="#e11d74" fill="#3B82F6" opacity="0.7"/>
+					<text x="24" y="30" text-anchor="middle" font-size="2.5rem" fill="#fff" font-family="monospace">?</text>
+				</svg>
+				<div class="flex flex-col">
+					<span class="text-lg font-bold text-accent font-mono">Easter Egg</span>
+					<span class="text-sm text-white/80">¿Te atreves?</span>
+				</div>
+			</button>
+			<span id="easter-egg-msg" class="hidden absolute right-4 text-accent font-bold text-lg glitch-text">¡Secreto! 🚀</span>
+		</div>
+	</div>
+
+	<div class="w-full h-24 bg-secondary/80 backdrop-blur-sm rounded-xl border-2 border-accent neon-glow flex items-center justify-between px-4 hover:scale-105 transition-all duration-500 group-hover:shadow-[0_0_20px_rgba(225,29,116,0.3)]">
+		<div class="flex items-center gap-4">
+			<svg class="w-12 h-12 neon-icon animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+				<circle cx="12" cy="12" r="10" stroke="#3B82F6" />
+				<path d="M8 12l2 2 4-4" stroke="#e11d74" />
+			</svg>
+			<div class="flex flex-col">
+				<span class="text-lg font-bold text-accent font-mono">Estado Actual</span>
+				<span class="text-sm bg-gradient-to-r from-pink-600 via-fuchsia-500 to-blue-500 text-white rounded px-2 py-1 animate-pulse">Próximamente+</span>
+			</div>
+		</div>
+	</div>
+</div> 
