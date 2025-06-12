@@ -1,0 +1,30 @@
+---
+// Este componente inyecta las variables de entorno en el cliente
+const envVars = {
+  VITE_SUPABASE_URL: import.meta.env.VITE_SUPABASE_URL,
+  VITE_SUPABASE_ANON_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY,
+  VITE_SUPABASE_PROJECT_ID: import.meta.env.VITE_SUPABASE_PROJECT_ID,
+  VITE_ADMIN_EMAIL: import.meta.env.VITE_ADMIN_EMAIL,
+  VITE_EMAILJS_SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  VITE_EMAILJS_TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  VITE_EMAILJS_PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  VITE_WEBHOOK_URL: import.meta.env.VITE_WEBHOOK_URL,
+  VITE_PRUEBA: import.meta.env.VITE_PRUEBA
+}
+---
+
+<script define:vars={{ envVars }}>
+  // Inyectar variables de entorno en el cliente
+  window.__ENV__ = envVars;
+  
+  // Hacer las variables disponibles globalmente
+  window.VITE_SUPABASE_URL = envVars.VITE_SUPABASE_URL;
+  window.VITE_SUPABASE_ANON_KEY = envVars.VITE_SUPABASE_ANON_KEY;
+  window.VITE_SUPABASE_PROJECT_ID = envVars.VITE_SUPABASE_PROJECT_ID;
+  window.VITE_ADMIN_EMAIL = envVars.VITE_ADMIN_EMAIL;
+  window.VITE_EMAILJS_SERVICE_ID = envVars.VITE_EMAILJS_SERVICE_ID;
+  window.VITE_EMAILJS_TEMPLATE_ID = envVars.VITE_EMAILJS_TEMPLATE_ID;
+  window.VITE_EMAILJS_PUBLIC_KEY = envVars.VITE_EMAILJS_PUBLIC_KEY;
+  window.VITE_WEBHOOK_URL = envVars.VITE_WEBHOOK_URL;
+  window.VITE_PRUEBA = envVars.VITE_PRUEBA;
+</script> 
