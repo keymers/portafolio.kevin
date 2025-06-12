@@ -6,6 +6,9 @@ let drops = [];
 let columns = 0;
 let fontSize = 22;
 
+let commandHistory = [];
+let historyIndex = -1;
+
 function startMatrixRain() {
 	const canvas = document.getElementById('matrix-canvas');
 	if (!(canvas instanceof HTMLCanvasElement)) return;
@@ -102,11 +105,22 @@ function handleEasterEggClick(btn) {
 	}
 }
 
-// Terminal Interactiva
-const terminalInput = document.getElementById('terminal-input');
-const terminalOutput = document.getElementById('terminal-output');
-let commandHistory = [];
-let historyIndex = -1;
+// Terminal Interactiva adaptada a móvil y escritorio
+function getTerminalElements() {
+	if (window.innerWidth < 768) {
+		// Móvil
+		return {
+			input: document.getElementById('terminal-input-mobile'),
+			output: document.getElementById('terminal-output-mobile')
+		};
+	} else {
+		// Escritorio
+		return {
+			input: document.getElementById('terminal-input-desktop'),
+			output: document.getElementById('terminal-output-desktop')
+		};
+	}
+}
 
 const projectsList = [
 	{
@@ -140,7 +154,6 @@ Comandos disponibles:
 - clear: Limpiar terminal
 - matrix: Activar efecto matrix
 - contact: Información de contacto
-- theme: Cambiar tema de la terminal
 - exit: Cerrar terminal
 	`,
 	about: () => `
@@ -176,7 +189,8 @@ Otros: .NET, TypeScript
 		}
 	},
 	clear: () => {
-		if (terminalOutput) terminalOutput.innerHTML = '';
+		const { output } = getTerminalElements();
+		if (output) output.innerHTML = '';
 		return '✓ Terminal limpiada';
 	},
 	matrix: () => {
@@ -197,19 +211,16 @@ Email: kevin.gonzalez04@outlook.com
 LinkedIn: linkedin.com/in/kevingonzalezlister
 GitHub: github.com/https://github.com/keymers
 	`,
-	theme: () => {
-		const themes = ['cyberpunk', 'matrix', 'retro', 'neon'];
-		const randomTheme = themes[Math.floor(Math.random() * themes.length)];
-		return `✓ Tema cambiado a: ${randomTheme}`;
-	},
 	exit: () => {
-		if (terminalInput) terminalInput.blur();
+		const { input } = getTerminalElements();
+		if (input) input.blur();
 		return '✓ Terminal cerrada. Escribe cualquier comando para reactivar.';
 	}
 };
 
 function addToOutput(text, isCommand = false, type = 'response') {
-	if (!terminalOutput) return;
+	const { output } = getTerminalElements();
+	if (!output) return;
 	const line = document.createElement('div');
 	line.className = 'terminal-line';
 	
@@ -234,18 +245,18 @@ function addToOutput(text, isCommand = false, type = 'response') {
 		}
 		line.textContent = text;
 	}
-	terminalOutput.appendChild(line);
-	terminalOutput.scrollTop = terminalOutput.scrollHeight;
+	output.appendChild(line);
+	output.scrollTop = output.scrollHeight;
 }
 
 function processCommand(cmd) {
 	const [command, ...args] = cmd.trim().toLowerCase().split(' ');
+	const { output } = getTerminalElements();
 	
 	if (command === '') return;
 	
-	// Limpiar la consola antes de mostrar el nuevo comando
-	if (terminalOutput) {
-		terminalOutput.innerHTML = '';
+	if (output) {
+		output.innerHTML = '';
 		addToOutput('Bienvenido al sistema KGL v1.0', false, 'welcome');
 		addToOutput('Escribe \'help\' para ver los comandos disponibles', false, 'info');
 		addToOutput('----------------------------------------', false, 'welcome');
@@ -279,7 +290,48 @@ function processCommand(cmd) {
 	}
 }
 
+function setupTerminalListeners() {
+	const { input } = getTerminalElements();
+	if (!input) return;
+	input.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') {
+			const command = input.value.trim();
+			if (command) {
+				commandHistory.push(command);
+				historyIndex = commandHistory.length;
+				processCommand(command);
+				input.value = '';
+			}
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			if (historyIndex > 0) {
+				historyIndex--;
+				input.value = commandHistory[historyIndex];
+			}
+		} else if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			if (historyIndex < commandHistory.length - 1) {
+				historyIndex++;
+				input.value = commandHistory[historyIndex];
+			} else {
+				historyIndex = commandHistory.length;
+				input.value = '';
+			}
+		}
+	});
+	input.addEventListener('focus', () => {
+		input.parentElement?.classList.add('border-accent');
+	});
+	input.addEventListener('blur', () => {
+		input.parentElement?.classList.remove('border-accent');
+	});
+}
+
 // Inicialización cuando el DOM esté listo
+function initTerminal() {
+	setupTerminalListeners();
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 	// Event listeners para Easter Egg
 	const btnMobile = document.getElementById('easter-egg-btn-mobile');
@@ -298,43 +350,9 @@ document.addEventListener('DOMContentLoaded', function() {
 			stopMatrixRain();
 			startMatrixRain();
 		}
+		// Reasignar listeners al cambiar de tamaño
+		initTerminal();
 	});
 
-	// Event listeners para la terminal
-	if (terminalInput) {
-		terminalInput.addEventListener('keydown', (e) => {
-			if (e.key === 'Enter') {
-				const command = terminalInput.value.trim();
-				if (command) {
-					commandHistory.push(command);
-					historyIndex = commandHistory.length;
-					processCommand(command);
-					terminalInput.value = '';
-				}
-			} else if (e.key === 'ArrowUp') {
-				e.preventDefault();
-				if (historyIndex > 0) {
-					historyIndex--;
-					terminalInput.value = commandHistory[historyIndex];
-				}
-			} else if (e.key === 'ArrowDown') {
-				e.preventDefault();
-				if (historyIndex < commandHistory.length - 1) {
-					historyIndex++;
-					terminalInput.value = commandHistory[historyIndex];
-				} else {
-					historyIndex = commandHistory.length;
-					terminalInput.value = '';
-				}
-			}
-		});
-
-		terminalInput.addEventListener('focus', () => {
-			terminalInput.parentElement?.classList.add('border-accent');
-		});
-
-		terminalInput.addEventListener('blur', () => {
-			terminalInput.parentElement?.classList.remove('border-accent');
-		});
-	}
+	initTerminal();
 }); 

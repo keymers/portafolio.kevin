@@ -16,6 +16,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
   const [stats, setStats] = useState<TestimonialStats | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [expanded, setExpanded] = useState<{ [key: number]: boolean }>({})
 
   const testSupabaseConnection = async () => {
     if (!supabase) return
@@ -72,6 +73,10 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         ★
       </span>
     ))
+  }
+
+  const toggleExpand = (id: number) => {
+    setExpanded((prev) => ({ ...prev, [id]: !prev[id] }))
   }
 
   if (supabaseError) {
@@ -164,11 +169,11 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {/* Testimonials Grid */}
         {testimonials.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               {(limit ? testimonials.slice(0, limit) : testimonials).map((testimonial) => (
                 <div
                   key={testimonial.id}
-                  className="bg-secondary/30 backdrop-blur-sm rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 border border-accent/30 hover:border-pink-400/60 hover:scale-105"
+                  className="bg-secondary/30 backdrop-blur-sm rounded-2xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 border border-accent/30 hover:border-pink-400/60 hover:scale-105"
                 >
                   {/* Rating */}
                   <div className="flex mb-4">
@@ -176,9 +181,29 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
                   </div>
 
                   {/* Comment */}
-                  <p className="text-accent/90 mb-6 italic">
-                    "{testimonial.comment}"
-                  </p>
+                  {(() => {
+                    const limite = 200; // Puedes ajustar el límite de caracteres
+                    const isLong = testimonial.comment.length > limite;
+                    const isExpanded = expanded[testimonial.id];
+                    const textoMostrar = isExpanded ? testimonial.comment : testimonial.comment.slice(0, limite) + (isLong ? "..." : "");
+
+                    return (
+                      <p
+                        className="text-accent/90 mb-6 text-left leading-relaxed break-words max-h-52 overflow-auto transition-all duration-300"
+                        style={{ whiteSpace: 'pre-line' }}
+                      >
+                        "{textoMostrar}"
+                        {isLong && (
+                          <span
+                            className="ml-2 text-pink-400 cursor-pointer font-semibold hover:underline"
+                            onClick={() => toggleExpand(testimonial.id)}
+                          >
+                            {isExpanded ? "Ver menos" : "Ver más"}
+                          </span>
+                        )}
+                      </p>
+                    );
+                  })()}
 
                   {/* Author */}
                   <div className="flex items-center">
