@@ -141,7 +141,7 @@ export default function AddTestimonialForm() {
   }
 
   return (
-    <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-gray-600/30">
+    <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-gray-600/30 max-w-4xl mx-auto">
       <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
         Comparte tu experiencia
       </h3>
