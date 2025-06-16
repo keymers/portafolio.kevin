@@ -1,5 +1,6 @@
 ---
 import EnvScript from '../components/EnvScript.astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
 	title: string;
@@ -48,6 +49,7 @@ const { title } = Astro.props;
 		{/* Fondo personalizado */}
 		<div class="fixed inset-0 -z-10 fondo-chipset"></div>
 		<slot />
+		<Analytics />
 	</body>
 </html>
 
