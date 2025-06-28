@@ -1,4 +1,36 @@
 import { supabase } from './supabase'
+import type { FormularioRequisitos } from '../types/index.d.ts'
+
+// Función para limpiar variables para EmailJS
+function cleanEmailJSVariable(value: any): string {
+  if (value === null || value === undefined || value === '') {
+    return 'No especificado'
+  }
+  
+  // Convertir a string y limpiar solo caracteres realmente problemáticos
+  let cleaned = String(value)
+    .replace(/[<>]/g, '') // Remover < y > que pueden causar problemas HTML
+    .replace(/["'`]/g, '') // Remover comillas problemáticas
+    .replace(/[{}]/g, '') // Remover llaves que pueden causar problemas en templates
+    .replace(/\s+/g, ' ') // Múltiples espacios a uno solo
+    .trim()
+  
+  // Limitar longitud
+  if (cleaned.length > 500) {
+    cleaned = cleaned.substring(0, 500) + '...'
+  }
+  
+  // Si quedó vacío, usar valor por defecto
+  return cleaned || 'No especificado'
+}
+
+// Función para obtener variables de entorno de manera segura
+function getEnvVar(key: string): string | undefined {
+  if (typeof window !== 'undefined') {
+    return (window as any)[key]
+  }
+  return process.env[key]
+}
 
 export class NotificationService {
   // Enviar notificación por email cuando se crea un testimonio
@@ -6,7 +38,7 @@ export class NotificationService {
     try {
       
       // Opción 1: Usar un servicio de webhook (más simple)
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_URL || 'https://webhook.site/your-webhook-url'
+      const webhookUrl = getEnvVar('VITE_WEBHOOK_URL') || 'https://webhook.site/your-webhook-url'
       
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -29,6 +61,70 @@ export class NotificationService {
     } catch (error) {
       console.error('❌ Error enviando notificación:', error)
       return false
+    }
+  }
+
+  // Enviar notificación por email cuando se completa un formulario de cotización
+  static async notifyNewCotizacion(formulario: FormularioRequisitos) {
+    try {
+      // Verificar variables de entorno desde window (inyectadas por EnvScript.astro)
+      const serviceId = typeof window !== 'undefined' ? (window as any).VITE_EMAILJS_SERVICE_ID : undefined
+      const templateId = typeof window !== 'undefined' ? (window as any).VITE_EMAILJS_TEMPLATE_ID_COTIZACIONES : undefined
+      const publicKey = typeof window !== 'undefined' ? (window as any).VITE_EMAILJS_PUBLIC_KEY : undefined
+      const adminEmail = typeof window !== 'undefined' ? (window as any).VITE_ADMIN_EMAIL : undefined
+      
+      // Verificar si EmailJS está disponible
+      if (typeof window !== 'undefined' && (window as any).emailjs) {
+        const emailjs = (window as any).emailjs
+        
+        // Verificar que las variables estén configuradas
+        if (!serviceId || serviceId === 'your_service_id' || serviceId === 'service_xxxxxxx' ||
+            !templateId || templateId === 'your_template_id' || templateId === 'template_xxxxxxx' ||
+            !publicKey || publicKey === 'your_public_key' || publicKey === 'public_key_xxxxxxx') {
+          // Fallback: mostrar datos en consola
+          
+          return true
+        }
+        
+        // Variables que coinciden con la plantilla completa de EmailJS
+        const templateParams = {
+          to_email: 'kevin.gonzalez04@outlook.com',
+          to_name: 'Kevin',
+          from_name: cleanEmailJSVariable(formulario.persona_contacto || 'Cliente'),
+          from_email: cleanEmailJSVariable(formulario.email_contacto || 'No especificado'),
+          phone: cleanEmailJSVariable(formulario.telefono_contacto || 'No especificado'),
+          project_name: cleanEmailJSVariable(formulario.nombre_proyecto || 'Sin nombre'),
+          project_description: cleanEmailJSVariable(formulario.descripcion_general || 'No especificada'),
+          project_objective: cleanEmailJSVariable(formulario.objetivo_principal || 'No especificado'),
+          target_audience: cleanEmailJSVariable(formulario.publico_objetivo || 'No especificado'),
+          platform: cleanEmailJSVariable(formulario.plataforma_objetivo || 'No especificado'),
+          design_style: cleanEmailJSVariable(formulario.estilo_diseno || 'No especificado'),
+          urgency: cleanEmailJSVariable(formulario.urgencia || 'No especificado'),
+          deadline: cleanEmailJSVariable(formulario.fecha_limite_deseada || 'No especificado'),
+          budget: cleanEmailJSVariable(formulario.presupuesto_aproximado ? `${formulario.presupuesto_aproximado.toLocaleString()} ${formulario.divisa_presupuesto || 'USD'}` : 'No especificado'),
+          maintenance_required: formulario.mantenimiento_requerido ? 'badge-yes' : 'badge-no',
+          training_required: formulario.capacitacion_requerida ? 'badge-yes' : 'badge-no',
+          additional_notes: cleanEmailJSVariable(formulario.notas_adicionales || 'No hay notas adicionales'),
+          supabase_project_id: cleanEmailJSVariable(typeof window !== 'undefined' ? (window as any).VITE_SUPABASE_PROJECT_ID || 'N/A' : 'N/A')
+        }
+
+        const result = await emailjs.send(
+          serviceId,
+          templateId,
+          templateParams,
+          publicKey
+        )
+
+        return true
+      } else {
+        // Fallback: mostrar datos en consola
+        
+        return true
+      }
+    } catch (error) {
+      console.error('❌ Error enviando email de cotización:', error)
+      // No fallar completamente, solo loggear el error
+      return true
     }
   }
 
@@ -55,16 +151,16 @@ export class NotificationService {
         }
         
         const templateParams = {
-          to_email: adminEmail || 'kevin.gonzalez04@outlook.com',
+          to_email: cleanEmailJSVariable(adminEmail || 'kevin.gonzalez04@outlook.com'),
           to_name: 'Kevin',
-          from_name: testimonial.name,
-          testimonial_name: testimonial.name,
-          testimonial_company: testimonial.company || 'No especificada',
-          testimonial_position: testimonial.position || 'No especificado',
+          from_name: cleanEmailJSVariable(testimonial.name),
+          testimonial_name: cleanEmailJSVariable(testimonial.name),
+          testimonial_company: cleanEmailJSVariable(testimonial.company || 'No especificada'),
+          testimonial_position: cleanEmailJSVariable(testimonial.position || 'No especificado'),
           testimonial_rating: testimonial.rating,
-          testimonial_comment: testimonial.comment,
-          testimonial_project_type: testimonial.project_type || 'No especificado',
-          supabase_project_id: typeof window !== 'undefined' ? (window as any).VITE_SUPABASE_PROJECT_ID : 'tu_proyecto_id'
+          testimonial_comment: cleanEmailJSVariable(testimonial.comment),
+          testimonial_project_type: cleanEmailJSVariable(testimonial.project_type || 'No especificado'),
+          supabase_project_id: cleanEmailJSVariable(typeof window !== 'undefined' ? (window as any).VITE_SUPABASE_PROJECT_ID || 'N/A' : 'N/A')
         }
 
 

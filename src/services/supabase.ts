@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import { createClient } from '@supabase/supabase-js'
 
 // Función para obtener las variables de entorno de manera segura
@@ -38,7 +40,11 @@ let supabaseInstance: any = null
 // Función para obtener o crear el cliente de Supabase
 export function getSupabaseClient() {
   if (!supabaseInstance && supabaseUrl && supabaseAnonKey) {
-    supabaseInstance = createClient(supabaseUrl, supabaseAnonKey)
+    supabaseInstance = createClient(supabaseUrl, supabaseAnonKey, {
+      auth: {
+        storageKey: 'supabase-main-auth' // Clave única para evitar conflictos
+      }
+    })
   }
   return supabaseInstance
 }
