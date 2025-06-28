@@ -86,6 +86,12 @@ export class NotificationService {
           return true
         }
         
+        // Función para formatear arrays como HTML
+        const formatArrayAsHTML = (arr: string[] | undefined): string => {
+          if (!arr || arr.length === 0) return 'No especificado'
+          return arr.map(item => `<span class="list-item">${cleanEmailJSVariable(item)}</span>`).join('')
+        }
+        
         // Variables que coinciden con la plantilla completa de EmailJS
         const templateParams = {
           to_email: 'kevin.gonzalez04@outlook.com',
@@ -93,15 +99,27 @@ export class NotificationService {
           from_name: cleanEmailJSVariable(formulario.persona_contacto || 'Cliente'),
           from_email: cleanEmailJSVariable(formulario.email_contacto || 'No especificado'),
           phone: cleanEmailJSVariable(formulario.telefono_contacto || 'No especificado'),
+          company: cleanEmailJSVariable('Empresa del cliente'), // Campo empresa no está en el formulario actual
+          preferred_schedule: cleanEmailJSVariable(formulario.horario_preferido || 'No especificado'),
           project_name: cleanEmailJSVariable(formulario.nombre_proyecto || 'Sin nombre'),
           project_description: cleanEmailJSVariable(formulario.descripcion_general || 'No especificada'),
           project_objective: cleanEmailJSVariable(formulario.objetivo_principal || 'No especificado'),
           target_audience: cleanEmailJSVariable(formulario.publico_objetivo || 'No especificado'),
+          main_features: formatArrayAsHTML(formulario.funcionalidades_principales),
+          secondary_features: formatArrayAsHTML(formulario.funcionalidades_secundarias),
+          integrations: formatArrayAsHTML(formulario.integraciones_necesarias),
+          preferred_technologies: formatArrayAsHTML(formulario.tecnologias_preferidas),
+          special_requirements: cleanEmailJSVariable(formulario.requisitos_especiales || 'No especificado'),
           platform: cleanEmailJSVariable(formulario.plataforma_objetivo || 'No especificado'),
           design_style: cleanEmailJSVariable(formulario.estilo_diseno || 'No especificado'),
+          preferred_colors: formatArrayAsHTML(formulario.colores_preferidos),
+          design_references: formatArrayAsHTML(formulario.referencias_diseno),
           urgency: cleanEmailJSVariable(formulario.urgencia || 'No especificado'),
           deadline: cleanEmailJSVariable(formulario.fecha_limite_deseada || 'No especificado'),
+          competition_analysis: cleanEmailJSVariable(formulario.competencia_analisis || 'No especificado'),
+          success_metrics: formatArrayAsHTML(formulario.metricas_exito),
           budget: cleanEmailJSVariable(formulario.presupuesto_aproximado ? `${formulario.presupuesto_aproximado.toLocaleString()} ${formulario.divisa_presupuesto || 'USD'}` : 'No especificado'),
+          currency: cleanEmailJSVariable(formulario.divisa_presupuesto || 'USD'),
           maintenance_required: formulario.mantenimiento_requerido ? 'badge-yes' : 'badge-no',
           training_required: formulario.capacitacion_requerida ? 'badge-yes' : 'badge-no',
           additional_notes: cleanEmailJSVariable(formulario.notas_adicionales || 'No hay notas adicionales'),

@@ -248,15 +248,25 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
       if (formulario?.descripcion_general) formularioActualizado.descripcion_general = formulario.descripcion_general;
       if (formulario?.objetivo_principal) formularioActualizado.objetivo_principal = formulario.objetivo_principal;
       if (formulario?.publico_objetivo) formularioActualizado.publico_objetivo = formulario.publico_objetivo;
+      if (formulario?.funcionalidades_principales?.length) formularioActualizado.funcionalidades_principales = formulario.funcionalidades_principales;
+      if (formulario?.funcionalidades_secundarias?.length) formularioActualizado.funcionalidades_secundarias = formulario.funcionalidades_secundarias;
+      if (formulario?.integraciones_necesarias?.length) formularioActualizado.integraciones_necesarias = formulario.integraciones_necesarias;
+      if (formulario?.plataforma_objetivo) formularioActualizado.plataforma_objetivo = formulario.plataforma_objetivo;
+      if (formulario?.tecnologias_preferidas?.length) formularioActualizado.tecnologias_preferidas = formulario.tecnologias_preferidas;
+      if (formulario?.requisitos_especiales) formularioActualizado.requisitos_especiales = formulario.requisitos_especiales;
       if (formulario?.estilo_diseno) formularioActualizado.estilo_diseno = formulario.estilo_diseno;
+      if (formulario?.colores_preferidos?.length) formularioActualizado.colores_preferidos = formulario.colores_preferidos;
+      if (formulario?.referencias_diseno?.length) formularioActualizado.referencias_diseno = formulario.referencias_diseno;
       if (formulario?.urgencia) formularioActualizado.urgencia = formulario.urgencia;
       if (formulario?.fecha_limite_deseada) formularioActualizado.fecha_limite_deseada = formulario.fecha_limite_deseada;
       if (formulario?.presupuesto_aproximado) formularioActualizado.presupuesto_aproximado = formulario.presupuesto_aproximado;
       if (formulario?.divisa_presupuesto) formularioActualizado.divisa_presupuesto = formulario.divisa_presupuesto;
+      if (formulario?.competencia_analisis) formularioActualizado.competencia_analisis = formulario.competencia_analisis;
+      if (formulario?.metricas_exito?.length) formularioActualizado.metricas_exito = formulario.metricas_exito;
       if (formulario?.mantenimiento_requerido !== undefined) formularioActualizado.mantenimiento_requerido = formulario.mantenimiento_requerido;
       if (formulario?.capacitacion_requerida !== undefined) formularioActualizado.capacitacion_requerida = formulario.capacitacion_requerida;
+      if (formulario?.horario_preferido) formularioActualizado.horario_preferido = formulario.horario_preferido;
       if (formulario?.notas_adicionales) formularioActualizado.notas_adicionales = formulario.notas_adicionales;
-
 
       // Enviar respuestas usando el método correcto
       await formulariosCotizacionAPI.addRespuestas(formularioId, respuestas);
@@ -512,6 +522,118 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                       maxLength={300}
                     />
                   </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Público objetivo
+                    </label>
+                    <input
+                      type="text"
+                      value={formulario.publico_objetivo || ''}
+                      onChange={(e) => setFormulario(prev => prev ? {...prev, publico_objetivo: e.target.value} : null)}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Ej: Empresarios, jóvenes, etc."
+                      maxLength={100}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Funcionalidades principales
+                    </label>
+                    <textarea
+                      value={formulario.funcionalidades_principales?.join(', ') || ''}
+                      onChange={(e) => {
+                        const funcionalidades = e.target.value.split(',').map(f => f.trim()).filter(f => f);
+                        setFormulario(prev => prev ? {...prev, funcionalidades_principales: funcionalidades} : null);
+                      }}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Lista las funcionalidades principales separadas por comas"
+                      maxLength={500}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Funcionalidades secundarias
+                    </label>
+                    <textarea
+                      value={formulario.funcionalidades_secundarias?.join(', ') || ''}
+                      onChange={(e) => {
+                        const funcionalidades = e.target.value.split(',').map(f => f.trim()).filter(f => f);
+                        setFormulario(prev => prev ? {...prev, funcionalidades_secundarias: funcionalidades} : null);
+                      }}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Lista las funcionalidades secundarias separadas por comas"
+                      maxLength={500}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Integraciones necesarias
+                    </label>
+                    <textarea
+                      value={formulario.integraciones_necesarias?.join(', ') || ''}
+                      onChange={(e) => {
+                        const integraciones = e.target.value.split(',').map(i => i.trim()).filter(i => i);
+                        setFormulario(prev => prev ? {...prev, integraciones_necesarias: integraciones} : null);
+                      }}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Ej: PayPal, Google Analytics, CRM, etc."
+                      maxLength={500}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Plataforma objetivo
+                    </label>
+                    <select
+                      value={formulario.plataforma_objetivo || 'web'}
+                      onChange={(e) => setFormulario(prev => prev ? {...prev, plataforma_objetivo: e.target.value as any} : null)}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    >
+                      <option value="web">Web</option>
+                      <option value="movil">Móvil</option>
+                      <option value="ambas">Ambas</option>
+                      <option value="desktop">Desktop</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Tecnologías preferidas
+                    </label>
+                    <textarea
+                      value={formulario.tecnologias_preferidas?.join(', ') || ''}
+                      onChange={(e) => {
+                        const tecnologias = e.target.value.split(',').map(t => t.trim()).filter(t => t);
+                        setFormulario(prev => prev ? {...prev, tecnologias_preferidas: tecnologias} : null);
+                      }}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Ej: React, Node.js, Python, etc."
+                      maxLength={500}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-slate-300 mb-2">
+                      Requisitos especiales
+                    </label>
+                    <textarea
+                      value={formulario.requisitos_especiales || ''}
+                      onChange={(e) => setFormulario(prev => prev ? {...prev, requisitos_especiales: e.target.value} : null)}
+                      rows={3}
+                      className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                      placeholder="Requisitos técnicos o funcionales especiales"
+                      maxLength={500}
+                    />
+                  </div>
                 </div>
               </div>
             )}
@@ -593,6 +715,40 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                     )}
                   </div>
                 </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Colores preferidos
+                  </label>
+                  <textarea
+                    value={formulario.colores_preferidos?.join(', ') || ''}
+                    onChange={(e) => {
+                      const colores = e.target.value.split(',').map(c => c.trim()).filter(c => c);
+                      setFormulario(prev => prev ? {...prev, colores_preferidos: colores} : null);
+                    }}
+                    rows={2}
+                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Ej: Azul, Verde, Blanco"
+                    maxLength={200}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Referencias de diseño
+                  </label>
+                  <textarea
+                    value={formulario.referencias_diseno?.join(', ') || ''}
+                    onChange={(e) => {
+                      const referencias = e.target.value.split(',').map(r => r.trim()).filter(r => r);
+                      setFormulario(prev => prev ? {...prev, referencias_diseno: referencias} : null);
+                    }}
+                    rows={3}
+                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="URLs de sitios web que te gusten como referencia"
+                    maxLength={500}
+                  />
+                </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="md:col-span-2">
@@ -635,6 +791,54 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                       <option value="CLP">CLP ($)</option>
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Análisis de competencia
+                  </label>
+                  <textarea
+                    value={formulario.competencia_analisis || ''}
+                    onChange={(e) => setFormulario(prev => prev ? {...prev, competencia_analisis: e.target.value} : null)}
+                    rows={3}
+                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Describe la competencia y cómo te diferenciarías"
+                    maxLength={500}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Métricas de éxito
+                    </label>
+                  <textarea
+                    value={formulario.metricas_exito?.join(', ') || ''}
+                    onChange={(e) => {
+                      const metricas = e.target.value.split(',').map(m => m.trim()).filter(m => m);
+                      setFormulario(prev => prev ? {...prev, metricas_exito: metricas} : null);
+                    }}
+                    rows={3}
+                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    placeholder="Ej: Aumento de ventas, más usuarios, etc."
+                    maxLength={500}
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-slate-300 mb-2">
+                    Horario preferido para contacto
+                  </label>
+                  <select
+                    value={formulario.horario_preferido || ''}
+                    onChange={(e) => setFormulario(prev => prev ? {...prev, horario_preferido: e.target.value} : null)}
+                    className="w-full px-3 py-2 bg-slate-700 border border-slate-600 rounded-lg text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  >
+                    <option value="">Seleccionar...</option>
+                    <option value="mañana">Mañana (9:00 - 12:00)</option>
+                    <option value="tarde">Tarde (12:00 - 17:00)</option>
+                    <option value="noche">Noche (17:00 - 20:00)</option>
+                    <option value="flexible">Horario flexible</option>
+                  </select>
                 </div>
 
                 {/* Campos de requisitos adicionales */}
@@ -743,12 +947,96 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                         <p className="text-slate-100">{formulario.objetivo_principal}</p>
                       </div>
                     )}
+                    {formulario.publico_objetivo && (
+                      <div>
+                        <span className="text-slate-400">Público objetivo:</span>
+                        <p className="text-slate-100">{formulario.publico_objetivo}</p>
+                      </div>
+                    )}
+                    {formulario.funcionalidades_principales?.length && (
+                      <div>
+                        <span className="text-slate-400">Funcionalidades principales:</span>
+                        <p className="text-slate-100">{formulario.funcionalidades_principales.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.funcionalidades_secundarias?.length && (
+                      <div>
+                        <span className="text-slate-400">Funcionalidades secundarias:</span>
+                        <p className="text-slate-100">{formulario.funcionalidades_secundarias.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.integraciones_necesarias?.length && (
+                      <div>
+                        <span className="text-slate-400">Integraciones:</span>
+                        <p className="text-slate-100">{formulario.integraciones_necesarias.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.plataforma_objetivo && (
+                      <div>
+                        <span className="text-slate-400">Plataforma:</span>
+                        <p className="text-slate-100">{formulario.plataforma_objetivo}</p>
+                      </div>
+                    )}
+                    {formulario.tecnologias_preferidas?.length && (
+                      <div>
+                        <span className="text-slate-400">Tecnologías:</span>
+                        <p className="text-slate-100">{formulario.tecnologias_preferidas.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.requisitos_especiales && (
+                      <div>
+                        <span className="text-slate-400">Requisitos especiales:</span>
+                        <p className="text-slate-100">{formulario.requisitos_especiales}</p>
+                      </div>
+                    )}
+                    {formulario.estilo_diseno && (
+                      <div>
+                        <span className="text-slate-400">Estilo de diseño:</span>
+                        <p className="text-slate-100">{formulario.estilo_diseno}</p>
+                      </div>
+                    )}
+                    {formulario.colores_preferidos?.length && (
+                      <div>
+                        <span className="text-slate-400">Colores preferidos:</span>
+                        <p className="text-slate-100">{formulario.colores_preferidos.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.referencias_diseno?.length && (
+                      <div>
+                        <span className="text-slate-400">Referencias:</span>
+                        <p className="text-slate-100">{formulario.referencias_diseno.join(', ')}</p>
+                      </div>
+                    )}
+                    {formulario.urgencia && (
+                      <div>
+                        <span className="text-slate-400">Urgencia:</span>
+                        <p className="text-slate-100">{formulario.urgencia}</p>
+                      </div>
+                    )}
+                    {formulario.fecha_limite_deseada && (
+                      <div>
+                        <span className="text-slate-400">Fecha límite:</span>
+                        <p className="text-slate-100">{formulario.fecha_limite_deseada}</p>
+                      </div>
+                    )}
                     {formulario.presupuesto_aproximado && (
                       <div>
                         <span className="text-slate-400">Presupuesto:</span>
                         <p className="text-slate-100">
                           ${formulario.presupuesto_aproximado.toLocaleString()} {formulario.divisa_presupuesto === 'USD' ? 'USD ($)' : 'CLP ($)'}
                         </p>
+                      </div>
+                    )}
+                    {formulario.competencia_analisis && (
+                      <div>
+                        <span className="text-slate-400">Análisis de competencia:</span>
+                        <p className="text-slate-100">{formulario.competencia_analisis}</p>
+                      </div>
+                    )}
+                    {formulario.metricas_exito?.length && (
+                      <div>
+                        <span className="text-slate-400">Métricas de éxito:</span>
+                        <p className="text-slate-100">{formulario.metricas_exito.join(', ')}</p>
                       </div>
                     )}
                     {formulario.mantenimiento_requerido !== undefined && (
@@ -765,6 +1053,12 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                         <p className="text-slate-100">
                           {formulario.capacitacion_requerida ? 'Sí' : 'No'}
                         </p>
+                      </div>
+                    )}
+                    {formulario.horario_preferido && (
+                      <div>
+                        <span className="text-slate-400">Horario preferido:</span>
+                        <p className="text-slate-100">{formulario.horario_preferido}</p>
                       </div>
                     )}
                     {formulario.notas_adicionales && (
