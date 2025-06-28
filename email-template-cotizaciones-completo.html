@@ -65,7 +65,7 @@
         .field strong {
             color: #495057;
             display: inline-block;
-            width: 140px;
+            width: 180px;
             font-weight: 600;
         }
         .budget {
@@ -103,6 +103,18 @@
         .budget-section {
             background: #fff8e1;
             border-left-color: #ff9800;
+        }
+        .features-section {
+            background: #e8f4fd;
+            border-left-color: #17a2b8;
+        }
+        .design-section {
+            background: #fce4ec;
+            border-left-color: #e91e63;
+        }
+        .business-section {
+            background: #f1f8e9;
+            border-left-color: #8bc34a;
         }
         .footer {
             text-align: center;
@@ -142,6 +154,16 @@
             background: #721c24;
             color: white;
         }
+        .list-item {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            margin: 2px 0;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
@@ -163,6 +185,12 @@
             <div class="field">
                 <strong>Teléfono:</strong> {{phone}}
             </div>
+            <div class="field">
+                <strong>Empresa:</strong> {{company}}
+            </div>
+            <div class="field">
+                <strong>Horario preferido:</strong> {{preferred_schedule}}
+            </div>
         </div>
 
         <!-- Información del Proyecto -->
@@ -175,21 +203,53 @@
                 <strong>Descripción:</strong> {{project_description}}
             </div>
             <div class="field">
-                <strong>Objetivo:</strong> {{project_objective}}
+                <strong>Objetivo principal:</strong> {{project_objective}}
             </div>
             <div class="field">
                 <strong>Público objetivo:</strong> {{target_audience}}
             </div>
         </div>
 
+        <!-- Funcionalidades y Características -->
+        <div class="section features-section">
+            <h3>⚙️ Funcionalidades y Características</h3>
+            <div class="field">
+                <strong>Funcionalidades principales:</strong> 
+                <div>{{main_features}}</div>
+            </div>
+            <div class="field">
+                <strong>Funcionalidades secundarias:</strong> 
+                <div>{{secondary_features}}</div>
+            </div>
+            <div class="field">
+                <strong>Integraciones necesarias:</strong> 
+                <div>{{integrations}}</div>
+            </div>
+            <div class="field">
+                <strong>Tecnologías preferidas:</strong> 
+                <div>{{preferred_technologies}}</div>
+            </div>
+            <div class="field">
+                <strong>Requisitos especiales:</strong> {{special_requirements}}
+            </div>
+        </div>
+
         <!-- Especificaciones Técnicas -->
         <div class="section technical-info">
-            <h3>⚙️ Especificaciones Técnicas</h3>
+            <h3>🔧 Especificaciones Técnicas</h3>
             <div class="field">
-                <strong>Plataforma:</strong> {{platform}}
+                <strong>Plataforma objetivo:</strong> {{platform}}
             </div>
             <div class="field">
                 <strong>Estilo de diseño:</strong> {{design_style}}
+            </div>
+            <div class="field">
+                <strong>Colores preferidos:</strong> 
+                <div>{{preferred_colors}}</div>
+            </div>
+            <div class="field">
+                <strong>Referencias de diseño:</strong> 
+                <div>{{design_references}}</div>
             </div>
             <div class="field">
                 <strong>Urgencia:</strong> 
@@ -200,11 +260,26 @@
             </div>
         </div>
 
+        <!-- Información de Negocio -->
+        <div class="section business-section">
+            <h3>💼 Información de Negocio</h3>
+            <div class="field">
+                <strong>Análisis de competencia:</strong> {{competition_analysis}}
+            </div>
+            <div class="field">
+                <strong>Métricas de éxito:</strong> 
+                <div>{{success_metrics}}</div>
+            </div>
+        </div>
+
         <!-- Presupuesto -->
         <div class="section budget-section">
             <h3>💰 Presupuesto</h3>
             <div class="field">
                 <strong>Presupuesto:</strong> <span class="budget">{{budget}}</span>
+            </div>
+            <div class="field">
+                <strong>Divisa:</strong> {{currency}}
             </div>
         </div>
 
@@ -232,10 +307,12 @@
             <strong>📞 Próximos Pasos Recomendados</strong><br><br>
             <ol style="margin: 0; padding-left: 20px;">
                 <li>Revisa los detalles del proyecto y especificaciones técnicas</li>
+                <li>Analiza las funcionalidades requeridas y tecnologías preferidas</li>
+                <li>Evalúa las integraciones necesarias y requisitos especiales</li>
                 <li>Prepara una cotización detallada basada en el presupuesto indicado</li>
                 <li>Contacta al cliente en <strong>{{from_email}}</strong> o al teléfono <strong>{{phone}}</strong></li>
                 <li>Programa una reunión para discutir los detalles del proyecto</li>
-                <li>Define el cronograma y entregables</li>
+                <li>Define el cronograma, entregables y metodología de trabajo</li>
             </ol>
         </div>
     </div>
