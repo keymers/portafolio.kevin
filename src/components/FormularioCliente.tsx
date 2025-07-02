@@ -239,7 +239,7 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
         persona_contacto: datosCliente.nombre,
         email_contacto: datosCliente.email,
         telefono_contacto: datosCliente.telefono,
-        estado: 'completado' as const,
+        estado: 'pendiente' as const,
         fecha_completado: new Date().toISOString()
       };
 
