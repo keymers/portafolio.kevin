@@ -68,26 +68,26 @@ const FormularioSelector: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-lg border border-gray-600/30 p-0">
       {/* Tabs */}
-      <div className="flex border-b border-gray-700">
+      <div className="flex flex-wrap border-b border-gray-700">
         {TABS.map(tab => (
           <button
             key={tab.id}
             onClick={() => handleTabChange(tab.id)}
-            className={`flex-1 flex items-center justify-center gap-2 py-4 px-2 text-lg font-semibold transition-colors
+            className={`flex-1 min-w-[150px] sm:min-w-0 flex items-center justify-center gap-2 py-3 sm:py-4 px-2 text-base sm:text-lg font-semibold transition-colors
               ${activeTab === tab.id
-                ? 'text-white border-b-2 border-indigo-500 bg-gray-900'
+                ? 'text-white sm:border-b-2 sm:border-indigo-500 bg-gray-900'
                 : 'text-gray-400 hover:text-white bg-transparent'}
             `}
             style={{ outline: 'none' }}
           >
-            <tab.icon className="w-6 h-6" />
+            <tab.icon className="w-5 h-5 sm:w-6 sm:h-6" />
             {tab.label}
           </button>
         ))}
       </div>
 
       {/* Content */}
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {activeTab === 'testimonios' && (
           <AddTestimonialForm />
         )}

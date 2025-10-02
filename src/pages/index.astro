@@ -33,11 +33,11 @@ import FormularioSelector from '../components/FormularioSelector';
     {/* Red neuronal animada eliminada */}
 
     <div
-      class="relative w-full max-w-4xl h-[90vh] flex items-center justify-center"
+      class="relative w-full max-w-4xl min-h-[80vh] sm:h-[90vh] flex items-center justify-center"
     >
       {/* Tarjeta principal con navbar */}
       <div
-        class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-hidden group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card"
+        class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-visible group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card"
       >
         {/* Efecto de escaneo */}
         <div class="absolute inset-0 scan-line"></div>
@@ -46,7 +46,7 @@ import FormularioSelector from '../components/FormularioSelector';
         <Navigation />
 
         {/* Contenido principal */}
-        <div class="flex-1 overflow-y-auto">
+        <div class="flex-1 overflow-y-auto overscroll-contain">
           {/* Sección Home */}
           <section
             id="home"

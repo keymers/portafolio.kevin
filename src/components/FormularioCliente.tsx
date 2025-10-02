@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   DocumentTextIcon,
@@ -301,7 +302,12 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
     return `${baseClass} ${getFieldError(fieldName) ? errorClass : normalClass}`;
   };
 
+  // Asegúrate de que tienes instalado el paquete 'react' y 'react/jsx-runtime' (o 'react@>=17' que ya lo incluye).
+  // Si usas TypeScript, asegúrate de tener '@types/react' instalado.
+  // Si el error persiste, revisa tu configuración de tsconfig.json y asegúrate de que "jsx": "react-jsx" (para React 17+).
+
   if (loading) {
+    // Si usas React 17+, no necesitas importar React explícitamente.
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
         <div className="text-center">
@@ -348,8 +354,8 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
         <div className="mb-8">
           <div className="flex items-center justify-between mb-2">
             {[1, 2, 3, 4].map((step) => (
-              <div key={step} className="flex items-center">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+              <div key={step} className="flex items-center min-w-0">
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs sm:text-sm font-medium ${
                   paso >= step 
                     ? 'bg-indigo-600 text-white' 
                     : 'bg-slate-700 text-slate-400'
@@ -357,7 +363,7 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
                   {paso > step ? <CheckCircleIcon className="w-5 h-5" /> : step}
                 </div>
                 {step < 4 && (
-                  <div className={`w-16 h-1 mx-2 ${
+                  <div className={`h-1 mx-2 flex-1 min-w-[1.5rem] sm:min-w-[4rem] ${
                     paso > step ? 'bg-indigo-600' : 'bg-slate-700'
                   }`} />
                 )}

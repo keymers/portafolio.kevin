@@ -149,7 +149,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {/* Stats */}
         {stats && (
           <div className="flex justify-center mb-12">
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg p-6 flex items-center space-x-8 border border-accent/30">
+            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:space-x-8 border border-accent/30 w-full max-w-2xl">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
                 <div className="text-accent/80">Testimonios</div>
@@ -169,7 +169,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {/* Testimonials Grid */}
         {testimonials.length > 0 ? (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
               {(limit ? testimonials.slice(0, limit) : testimonials).map((testimonial) => (
                 <div
                   key={testimonial.id}
