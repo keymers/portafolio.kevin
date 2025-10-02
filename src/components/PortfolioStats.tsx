@@ -64,20 +64,22 @@ export default function PortfolioStats() {
   }
 
   return (
-    <div className="flex justify-center items-center space-x-8 mt-12">
-      <div className="text-center">
-        <div className="text-3xl font-bold text-blue-400">{projectsCount ?? '-'}</div>
-        <div className="text-sm text-gray-400">Proyectos</div>
-      </div>
-      <div className="w-px h-12 bg-gradient-to-b from-transparent via-purple-400 to-transparent"></div>
-      <div className="text-center">
-        <div className="text-3xl font-bold text-purple-400">{stats?.average ?? '-'}</div>
-        <div className="text-sm text-gray-400">Calificación</div>
-      </div>
-      <div className="w-px h-12 bg-gradient-to-b from-transparent via-pink-400 to-transparent"></div>
-      <div className="text-center">
-        <div className="text-3xl font-bold text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
-        <div className="text-sm text-gray-400">Satisfacción</div>
+    <div className="w-full flex justify-center mt-12 px-4">
+      <div className="bg-secondary/30 backdrop-blur-sm rounded-xl border border-accent/30 px-4 sm:px-6 py-3 w-full max-w-3xl">
+        <div className="flex items-center justify-center gap-6 md:gap-10 flex-nowrap overflow-x-auto">
+          <div className="text-center whitespace-nowrap">
+            <div className="text-2xl md:text-3xl font-bold text-blue-400">{projectsCount ?? '-'}</div>
+            <div className="text-xs md:text-sm text-gray-400">Proyectos</div>
+          </div>
+          <div className="text-center whitespace-nowrap">
+            <div className="text-2xl md:text-3xl font-bold text-purple-400">{stats?.average ?? '-'}</div>
+            <div className="text-xs md:text-sm text-gray-400">Calificación</div>
+          </div>
+          <div className="text-center whitespace-nowrap">
+            <div className="text-2xl md:text-3xl font-bold text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
+            <div className="text-xs md:text-sm text-gray-400">Satisfacción</div>
+          </div>
+        </div>
       </div>
     </div>
   );

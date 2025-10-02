@@ -149,18 +149,20 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {/* Stats */}
         {stats && (
           <div className="flex justify-center mb-12 px-4">
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg p-4 sm:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-6 sm:gap-8 border border-accent/30 w-full max-w-3xl">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
-                <div className="text-accent/80">Testimonios</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-purple-400 drop-shadow-[0_0_8px_rgba(147,51,234,0.7)]">{stats.average}</div>
-                <div className="text-accent/80">Promedio</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">{stats.fiveStarPercentage}%</div>
-                <div className="text-accent/80">5 estrellas</div>
+            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg p-4 sm:p-6 border border-accent/30 w-full max-w-3xl">
+              <div className="w-full flex flex-row flex-nowrap items-center justify-center gap-6 md:gap-10 overflow-x-auto">
+                <div className="text-center whitespace-nowrap">
+                  <div className="text-2xl md:text-3xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
+                  <div className="text-accent/80 text-sm md:text-base">Testimonios</div>
+                </div>
+                <div className="text-center whitespace-nowrap">
+                  <div className="text-2xl md:text-3xl font-bold text-purple-400 drop-shadow-[0_0_8px_rgba(147,51,234,0.7)]">{stats.average}</div>
+                  <div className="text-accent/80 text-sm md:text-base">Promedio</div>
+                </div>
+                <div className="text-center whitespace-nowrap">
+                  <div className="text-2xl md:text-3xl font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">{stats.fiveStarPercentage}%</div>
+                  <div className="text-accent/80 text-sm md:text-base">5 estrellas</div>
+                </div>
               </div>
             </div>
           </div>
