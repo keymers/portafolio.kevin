@@ -149,19 +149,17 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {/* Stats */}
         {stats && (
           <div className="flex justify-center mb-12 px-4">
-            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg px-4 sm:px-6 py-3 border border-accent/30 w-full max-w-3xl">
-              <div className="w-full flex items-center justify-center gap-4 sm:gap-6">
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+            <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg px-3 sm:px-6 py-3 border border-accent/30 w-full max-w-3xl">
+              <div className="w-full flex items-center justify-center divide-x divide-accent/20">
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
                   <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
                   <div className="text-[12px] sm:text-sm text-accent/80">Testimonios</div>
                 </div>
-                <div className="hidden sm:block w-px h-10 bg-accent/30"></div>
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
                   <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400 drop-shadow-[0_0_8px_rgba(147,51,234,0.7)]">{stats.average}</div>
                   <div className="text-[12px] sm:text-sm text-accent/80">Promedio</div>
                 </div>
-                <div className="hidden sm:block w-px h-10 bg-accent/30"></div>
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
                   <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">{stats.fiveStarPercentage}%</div>
                   <div className="text-[12px] sm:text-sm text-accent/80">5 estrellas</div>
                 </div>
