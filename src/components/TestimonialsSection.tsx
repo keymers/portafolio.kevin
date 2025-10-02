@@ -150,18 +150,18 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
         {stats && (
           <div className="flex justify-center mb-12 px-4">
             <div className="bg-secondary/30 backdrop-blur-sm rounded-xl shadow-lg px-3 sm:px-6 py-3 border border-accent/30 w-full max-w-3xl">
-              <div className="w-full flex items-center justify-center divide-x divide-accent/20">
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
-                  <div className="text-[12px] sm:text-sm text-accent/80">Testimonios</div>
+              <div className="w-full flex items-center justify-center divide-x divide-accent/20 max-[453px]:divide-none">
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+                  <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-blue-400 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">{stats.total}</div>
+                  <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-accent/80 leading-tight">Testimonios</div>
                 </div>
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400 drop-shadow-[0_0_8px_rgba(147,51,234,0.7)]">{stats.average}</div>
-                  <div className="text-[12px] sm:text-sm text-accent/80">Promedio</div>
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+                  <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-purple-400 drop-shadow-[0_0_8px_rgba(147,51,234,0.7)]">{stats.average}</div>
+                  <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-accent/80 leading-tight">Promedio</div>
                 </div>
-                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">{stats.fiveStarPercentage}%</div>
-                  <div className="text-[12px] sm:text-sm text-accent/80">5 estrellas</div>
+                <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+                  <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-pink-400 drop-shadow-[0_0_8px_rgba(236,72,153,0.7)]">{stats.fiveStarPercentage}%</div>
+                  <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-accent/80 leading-tight">5 estrellas</div>
                 </div>
               </div>
             </div>

@@ -66,18 +66,18 @@ export default function PortfolioStats() {
   return (
     <div className="w-full flex justify-center mt-12 px-4">
       <div className="bg-secondary/30 backdrop-blur-sm rounded-xl border border-accent/30 px-3 sm:px-6 py-3 w-full max-w-3xl">
-        <div className="w-full flex items-center justify-center divide-x divide-accent/20">
-          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400">{projectsCount ?? '-'}</div>
-            <div className="text-[12px] sm:text-sm text-gray-400">Proyectos</div>
+        <div className="w-full flex items-center justify-center divide-x divide-accent/20 max-[453px]:divide-none">
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+            <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-blue-400">{projectsCount ?? '-'}</div>
+            <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-gray-400 leading-tight">Proyectos</div>
           </div>
-          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400">{stats?.average ?? '-'}</div>
-            <div className="text-[12px] sm:text-sm text-gray-400">Calificación</div>
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+            <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-purple-400">{stats?.average ?? '-'}</div>
+            <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-gray-400 leading-tight">Calificación</div>
           </div>
-          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3">
-            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
-            <div className="text-[12px] sm:text-sm text-gray-400">Satisfacción</div>
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap px-3 max-[453px]:px-2 max-[390px]:px-1">
+            <div className="text-xl sm:text-2xl md:text-3xl max-[453px]:text-lg max-[390px]:text-base max-[375px]:text-sm font-bold tracking-tight text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
+            <div className="text-[12px] sm:text-sm max-[453px]:text-[11px] max-[390px]:text-[10px] max-[375px]:text-[9.5px] text-gray-400 leading-tight">Satisfacción</div>
           </div>
         </div>
       </div>
