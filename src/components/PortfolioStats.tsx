@@ -66,18 +66,20 @@ export default function PortfolioStats() {
   return (
     <div className="w-full flex justify-center mt-12 px-4">
       <div className="bg-secondary/30 backdrop-blur-sm rounded-xl border border-accent/30 px-4 sm:px-6 py-3 w-full max-w-3xl">
-        <div className="flex items-center justify-center gap-6 md:gap-10 flex-nowrap overflow-x-auto">
-          <div className="text-center whitespace-nowrap">
-            <div className="text-2xl md:text-3xl font-bold text-blue-400">{projectsCount ?? '-'}</div>
-            <div className="text-xs md:text-sm text-gray-400">Proyectos</div>
+        <div className="w-full flex items-center justify-center gap-4 sm:gap-6">
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-400">{projectsCount ?? '-'}</div>
+            <div className="text-[12px] sm:text-sm text-gray-400">Proyectos</div>
           </div>
-          <div className="text-center whitespace-nowrap">
-            <div className="text-2xl md:text-3xl font-bold text-purple-400">{stats?.average ?? '-'}</div>
-            <div className="text-xs md:text-sm text-gray-400">Calificación</div>
+          <div className="hidden sm:block w-px h-10 bg-accent/30"></div>
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-purple-400">{stats?.average ?? '-'}</div>
+            <div className="text-[12px] sm:text-sm text-gray-400">Calificación</div>
           </div>
-          <div className="text-center whitespace-nowrap">
-            <div className="text-2xl md:text-3xl font-bold text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
-            <div className="text-xs md:text-sm text-gray-400">Satisfacción</div>
+          <div className="hidden sm:block w-px h-10 bg-accent/30"></div>
+          <div className="flex-1 basis-1/3 min-w-0 text-center whitespace-nowrap">
+            <div className="text-xl sm:text-2xl md:text-3xl font-bold text-pink-400">{stats?.fiveStarPercentage ?? '-'}%</div>
+            <div className="text-[12px] sm:text-sm text-gray-400">Satisfacción</div>
           </div>
         </div>
       </div>
