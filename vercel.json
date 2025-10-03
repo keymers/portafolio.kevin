@@ -14,7 +14,19 @@
       "dest": "/_astro/$1"
     },
     {
-      "src": "/.*",
+      "src": "/proyectos",
+      "dest": "/proyectos/index.html"
+    },
+    {
+      "src": "/sobremi", 
+      "dest": "/sobremi/index.html"
+    },
+    {
+      "src": "/testimonios",
+      "dest": "/testimonios/index.html"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
