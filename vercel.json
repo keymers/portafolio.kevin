@@ -10,7 +10,11 @@
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/_astro/(.*)",
+      "dest": "/_astro/$1"
+    },
+    {
+      "src": "/.*",
       "dest": "/index.html"
     }
   ]
