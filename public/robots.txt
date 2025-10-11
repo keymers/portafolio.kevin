@@ -1,15 +1,6 @@
 User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://pekos.cl/sitemap.xml
-
-# Disallow admin areas (if any)
 Disallow: /admin/
 Disallow: /_astro/
 Disallow: /api/
-
-# Allow all other content
-Allow: /proyectos/
-Allow: /sobremi/
-Allow: /testimonios/
+Allow: /
+Sitemap: https://pekos.cl/sitemap.xml
