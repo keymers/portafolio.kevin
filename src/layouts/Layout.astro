@@ -52,7 +52,6 @@ const { title } = Astro.props;
 						const publicKey = window.VITE_EMAILJS_PUBLIC_KEY;
 						if (publicKey && publicKey !== 'your_public_key' && publicKey !== 'public_key_xxxxxxx') {
 							window.emailjs.init(publicKey);
-							console.log('EmailJS inicializado correctamente');
 						} else {
 							console.warn('EmailJS public key no configurada correctamente');
 						}
