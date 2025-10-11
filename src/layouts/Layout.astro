@@ -19,6 +19,12 @@ const { title } = Astro.props;
 		<meta name="keywords" content="desarrollador, full stack, react, astro, nodejs, portfolio, kevin gonzalez, programador, web developer" />
 		<meta name="author" content="Kevin Joseph González Lister" />
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+		
+		<!-- Performance optimization hints -->
+		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<link 
@@ -35,8 +41,8 @@ const { title } = Astro.props;
 		</noscript>
 		<EnvScript />
 		
-		<!-- EmailJS Script -->
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<!-- EmailJS Script - Deferred for better performance -->
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
 		<script type="text/javascript">
 			(function() {
 				// Inicializar EmailJS con la public key
