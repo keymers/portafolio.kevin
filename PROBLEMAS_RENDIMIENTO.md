@@ -224,7 +224,7 @@ const FormularioCliente = lazy(() => import('./FormularioCliente'));
 ### Antes (Actual):
 - **LCP:** 946ms
 - **Requests a Supabase:** 2-3 requests separados
-- **Tiempo total de requests:** ~920-946ms
+- **Tiempo total de requests:** ~920-946ms 
 
 ### Después (Optimizado):
 - **LCP:** ~300-500ms (reducción del 50-70%)
