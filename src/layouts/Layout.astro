@@ -28,8 +28,14 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://stdnpttjitpyizbkjquc.supabase.co" />
 		<link rel="dns-prefetch" href="https://stdnpttjitpyizbkjquc.supabase.co" />
 		
+		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch para recursos Astro -->
+		<link rel="dns-prefetch" href="/_astro/" />
+		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		
+		<!-- 🚀 OPTIMIZACIÓN: Meta tags para mejor priorización de recursos -->
+		<meta http-equiv="x-dns-prefetch-control" content="on" />
 		<link 
 			rel="preload" 
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
