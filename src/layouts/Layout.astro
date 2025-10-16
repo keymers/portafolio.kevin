@@ -24,6 +24,9 @@ const { title } = Astro.props;
 		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- 🚀 OPTIMIZACIÓN: Preconnect a Supabase para reducir latencia -->
+		<link rel="preconnect" href="https://stdnpttjitpyizbkjquc.supabase.co" />
+		<link rel="dns-prefetch" href="https://stdnpttjitpyizbkjquc.supabase.co" />
 		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>

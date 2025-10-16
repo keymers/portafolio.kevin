@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import {
   ChatBubbleLeftRightIcon,
   CalculatorIcon
 } from '@heroicons/react/24/outline';
-import AddTestimonialForm from './AddTestimonialForm';
-import FormularioCliente from './FormularioCliente';
 import { formulariosCotizacionAPI } from '../services/api-cotizacion';
 import { toast } from 'react-hot-toast';
+
+// 🚀 OPTIMIZACIÓN: Lazy loading de componentes pesados
+const AddTestimonialForm = lazy(() => import('./AddTestimonialForm'));
+const FormularioCliente = lazy(() => import('./FormularioCliente'));
 
 const TABS = [
   {
@@ -89,10 +91,24 @@ const FormularioSelector: React.FC = () => {
       {/* Content */}
       <div className="p-4 sm:p-6">
         {activeTab === 'testimonios' && (
-          <AddTestimonialForm />
+          <Suspense fallback={
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-400 mx-auto mb-4"></div>
+              <p className="text-slate-300">Cargando formulario de testimonios...</p>
+            </div>
+          }>
+            <AddTestimonialForm />
+          </Suspense>
         )}
         {activeTab === 'cotizacion' && formularioId && (
-          <FormularioCliente formularioId={formularioId} />
+          <Suspense fallback={
+            <div className="text-center py-8">
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-400 mx-auto mb-4"></div>
+              <p className="text-slate-300">Cargando formulario de cotización...</p>
+            </div>
+          }>
+            <FormularioCliente formularioId={formularioId} />
+          </Suspense>
         )}
         {activeTab === 'cotizacion' && !formularioId && (
           <div className="text-center py-8">

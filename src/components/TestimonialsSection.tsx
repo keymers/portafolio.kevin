@@ -46,11 +46,8 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
     try {
       setLoading(true)
       
-      const [testimonialsData, statsData] = await Promise.all([
-        TestimonialsService.getTestimonialsWithClient(supabase),
-        TestimonialsService.getTestimonialStatsWithClient(supabase)
-      ])
-      
+      // 🚀 OPTIMIZACIÓN: Un solo request en lugar de dos
+      const { testimonials: testimonialsData, stats: statsData } = await TestimonialsService.getTestimonialsAndStatsWithClient(supabase)
       
       setTestimonials(testimonialsData)
       setStats(statsData)

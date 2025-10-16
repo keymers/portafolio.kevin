@@ -197,4 +197,46 @@ export class TestimonialsService {
       fiveStarPercentage: total > 0 ? Math.round((fiveStar / total) * 100) : 0
     }
   }
+
+  // 🚀 MÉTODO OPTIMIZADO: Obtener testimonios Y estadísticas en 1 solo request
+  static async getTestimonialsAndStatsWithClient(client: any): Promise<{
+    testimonials: Testimonial[]
+    stats: {
+      total: number
+      average: number
+      fiveStar: number
+      fiveStarPercentage: number
+    }
+  }> {
+    const { data, error } = await client
+      .from('testimonials')
+      .select('*')
+      .eq('is_verified', true)  // Solo testimonios verificados
+      .order('created_at', { ascending: false })
+
+    if (error) {
+      console.error('Error fetching testimonials and stats:', error)
+      throw error
+    }
+
+    const testimonials = data || []
+    
+    // Calcular estadísticas desde los mismos datos
+    const ratings = testimonials.map((t: any) => t.rating)
+    const total = ratings.length
+    const average = total > 0 ? ratings.reduce((a: number, b: number) => a + b, 0) / total : 0
+    const fiveStar = ratings.filter((r: number) => r === 5).length
+
+    const stats = {
+      total,
+      average: Math.round(average * 10) / 10,
+      fiveStar,
+      fiveStarPercentage: total > 0 ? Math.round((fiveStar / total) * 100) : 0
+    }
+
+    return {
+      testimonials,
+      stats
+    }
+  }
 } 

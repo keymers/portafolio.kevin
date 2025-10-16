@@ -14,8 +14,8 @@ import FormularioSelector from '../components/FormularioSelector';
 ---
 
 <Layout title="KGL - Portafolio">
-  <!-- Componente de diagnóstico temporal -->
-  <EnvDiagnostic client:load />
+  <!-- Componente de diagnóstico temporal - Solo en desarrollo -->
+  {import.meta.env.DEV && <EnvDiagnostic client:load />}
 
   <main
     class="min-h-screen flex items-center justify-center bg-primary relative overflow-hidden page-transition"
@@ -89,7 +89,7 @@ import FormularioSelector from '../components/FormularioSelector';
           </p>
         </div>
 
-        <TestimonialsSection client:load limit={6} />
+        <TestimonialsSection client:visible limit={6} />
       </div>
     </div>
   </section>
@@ -117,7 +117,7 @@ import FormularioSelector from '../components/FormularioSelector';
           </p>
         </div>
 
-        <FormularioSelector client:load />
+        <FormularioSelector client:visible />
       </div>
     </div>
   </section>
