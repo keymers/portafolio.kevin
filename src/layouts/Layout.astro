@@ -31,6 +31,7 @@ const { title } = Astro.props;
 		<link rel="dns-prefetch" href="/_astro/" />
 		
 		<!-- 🚀 OPTIMIZACIÓN: Preload recursos críticos para carga paralela -->
+		<link rel="preload" href="/_astro/index.5T1_913b.css" as="style" />
 		<link rel="preload" href="/_astro/index.C57de2uZ.css" as="style" />
 		<link rel="preload" href="/_astro/index.BVOCwoKb.js" as="script" /> 
 		
@@ -39,6 +40,7 @@ const { title } = Astro.props;
 			// Preload recursos críticos para carga paralela (usa hashes correctos del build)
 			(function() {
 				const criticalResources = [
+					'/_astro/index.5T1_913b.css',
 					'/_astro/index.C57de2uZ.css',
 					'/_astro/index.BVOCwoKb.js'
 				];
