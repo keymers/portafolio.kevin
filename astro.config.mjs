@@ -8,6 +8,7 @@ export default defineConfig({
   output: 'static',
   site: 'https://pekos.cl',
   integrations: [tailwind(), react()],
+  publicDir: 'public',
   vite: {
     define: {
       'process.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL),
