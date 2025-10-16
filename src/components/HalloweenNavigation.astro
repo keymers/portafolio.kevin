@@ -1,0 +1,334 @@
+---
+// 🎃 Componente de navegación Halloween - Versión siniestra
+---
+
+<!-- Script para Lottie en el navbar -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+
+<nav class="halloween-nav relative grid grid-cols-3 items-center px-4 sm:px-8 py-4 border-b border-halloween-accent/60 bg-halloween-secondary/90 backdrop-blur-sm">
+	{/* 🎃 Logo siniestro con Lottie (izquierda) */}
+	<div class="halloween-logo-container justify-self-start flex items-center gap-2">
+		<span class="halloween-logo-text text-xl sm:text-2xl font-extrabold text-halloween-accent tracking-widest drop-shadow-halloween animate-halloween-glow glitch-text">
+			KGL
+		</span>
+	</div>
+	
+	{/* 🧙‍♀️ Navegación siniestra (centrada) */}
+	<ul class="justify-self-center flex items-center gap-3 md:gap-5 lg:gap-8 text-sm md:text-base lg:text-lg font-medium flex-nowrap overflow-x-auto sm:overflow-visible whitespace-nowrap px-2">
+		<li>
+			<a href="/" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link flex items-center gap-2">
+				<dotlottie-wc 
+					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
+					style="width: 50px; height: 50px" 
+					autoplay 
+					loop
+				></dotlottie-wc>
+				<span>Inicio</span>
+			</a>
+		</li>
+		<li>
+			<a href="/proyectos" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link page-link flex items-center gap-2">
+				<dotlottie-wc 
+					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
+					style="width: 50px; height: 50px" 
+					autoplay 
+					loop
+				></dotlottie-wc>
+				<span>Proyectos</span>
+			</a>
+		</li>
+		<li>
+			<a href="/sobremi" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link flex items-center gap-2">
+				<dotlottie-wc 
+					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
+					style="width: 50px; height: 50px" 
+					autoplay 
+					loop
+				></dotlottie-wc>
+				<span>Sobre mí</span>
+			</a>
+		</li>
+	</ul>
+	
+	{/* 🦇 Espaciador invisible (derecha) */}
+	<div class="justify-self-end opacity-0 select-none flex items-center gap-2">
+		<dotlottie-wc 
+			src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
+			style="width: 40px; height: 40px" 
+			autoplay 
+			loop
+		></dotlottie-wc>
+		<span class="text-xl sm:text-2xl font-extrabold">KGL</span>
+	</div>
+</nav>
+
+<style>
+  /* 🎃 Variables Halloween para el nav */
+  .halloween-nav {
+    --halloween-primary: #1a0d0d;
+    --halloween-secondary: #2d1b1b;
+    --halloween-accent: #ff6b35;
+    --halloween-glow: #ff6b35;
+    --halloween-shadow: #8b0000;
+  }
+  
+  .bg-halloween-secondary {
+    background-color: var(--halloween-secondary);
+  }
+  
+  .text-halloween-accent {
+    color: var(--halloween-accent);
+  }
+  
+  .border-halloween-accent {
+    border-color: var(--halloween-accent);
+  }
+  
+  /* 🎃 Logo Halloween con Lottie */
+  .halloween-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .halloween-logo-text {
+    text-shadow: 
+      0 0 10px var(--halloween-glow),
+      0 0 20px var(--halloween-glow),
+      0 0 30px var(--halloween-glow),
+      0 0 40px var(--halloween-shadow);
+    animation: halloweenLogoGlow 2s ease-in-out infinite alternate;
+  }
+  
+  /* 🎃 Efecto para la animación Lottie del logo */
+  .halloween-logo-container dotlottie-wc {
+    filter: drop-shadow(0 0 5px var(--halloween-glow));
+    transition: all 0.3s ease;
+  }
+  
+  .halloween-logo-container:hover dotlottie-wc {
+    filter: drop-shadow(0 0 10px var(--halloween-glow)) 
+            drop-shadow(0 0 20px var(--halloween-glow));
+    transform: scale(1.1);
+  }
+  
+  @keyframes halloweenLogoGlow {
+    from {
+      text-shadow: 
+        0 0 10px var(--halloween-glow),
+        0 0 20px var(--halloween-glow),
+        0 0 30px var(--halloween-glow),
+        0 0 40px var(--halloween-shadow);
+    }
+    to {
+      text-shadow: 
+        0 0 15px var(--halloween-glow),
+        0 0 25px var(--halloween-glow),
+        0 0 35px var(--halloween-glow),
+        0 0 45px var(--halloween-shadow);
+    }
+  }
+  
+  .drop-shadow-halloween {
+    filter: drop-shadow(0 0 8px var(--halloween-glow)) 
+            drop-shadow(0 0 16px var(--halloween-glow))
+            drop-shadow(0 0 24px var(--halloween-shadow));
+  }
+  
+  .animate-halloween-glow {
+    animation: halloweenGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes halloweenGlow {
+    0%, 100% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  /* 🧙‍♀️ Enlaces Halloween */
+  .halloween-link {
+    position: relative;
+    color: #f5f5dc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(255, 107, 53, 0.3);
+  }
+  
+  .halloween-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--halloween-accent), var(--halloween-glow));
+    transition: width 0.3s ease;
+    box-shadow: 0 0 5px var(--halloween-glow);
+  }
+  
+  .halloween-link:hover::before {
+    width: 100%;
+  }
+  
+  .halloween-link:hover {
+    color: var(--halloween-accent);
+    text-shadow: 
+      0 0 8px var(--halloween-glow),
+      0 0 16px var(--halloween-glow);
+    transform: scale(1.1);
+  }
+  
+  /* 🎃 Efectos para las animaciones Lottie en los enlaces */
+  .halloween-link dotlottie-wc {
+    filter: drop-shadow(0 0 3px var(--halloween-glow));
+    transition: all 0.3s ease;
+  }
+  
+  .halloween-link:hover dotlottie-wc {
+    filter: drop-shadow(0 0 6px var(--halloween-glow)) 
+            drop-shadow(0 0 12px var(--halloween-glow));
+    transform: scale(1.2);
+  }
+  
+  /* 🎃 Efecto de fondo siniestro */
+  .halloween-nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 48%, rgba(255, 107, 53, 0.1) 49%, rgba(255, 107, 53, 0.1) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, rgba(139, 0, 0, 0.1) 49%, rgba(139, 0, 0, 0.1) 51%, transparent 52%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .halloween-nav::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* 🎃 Animación de partículas siniestras */
+  .halloween-nav {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .halloween-nav .halloween-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--halloween-glow);
+    border-radius: 50%;
+    animation: halloweenParticle 4s linear infinite;
+    opacity: 0;
+  }
+  
+  @keyframes halloweenParticle {
+    0% {
+      opacity: 0;
+      transform: translateY(100%) translateX(0);
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100%) translateX(20px);
+    }
+  }
+  
+  /* 🎃 Responsive */
+  @media (max-width: 768px) {
+    .halloween-logo-text {
+      font-size: 1.2rem;
+    }
+    
+    .halloween-logo-container dotlottie-wc {
+      width: 32px !important;
+      height: 32px !important;
+    }
+    
+    .halloween-link {
+      font-size: 0.9rem;
+    }
+    
+    .halloween-link dotlottie-wc {
+      width: 26px !important;
+      height: 26px !important;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .halloween-logo-text {
+      font-size: 1rem;
+    }
+    
+    .halloween-logo-container dotlottie-wc {
+      width: 28px !important;
+      height: 28px !important;
+    }
+    
+    .halloween-link {
+      font-size: 0.8rem;
+    }
+    
+    .halloween-link dotlottie-wc {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+</style>
+
+<script>
+  // 🎃 Script para partículas siniestras en el nav
+  document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.querySelector('.halloween-nav');
+    if (!nav) return;
+    
+    // Crear partículas flotantes
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.className = 'halloween-particle';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDelay = Math.random() * 4 + 's';
+      particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      if (nav) {
+        nav.appendChild(particle);
+      }
+      
+      // Remover la partícula después de la animación
+      setTimeout(() => {
+        if (particle.parentNode) {
+          particle.parentNode.removeChild(particle);
+        }
+      }, 6000);
+    }
+    
+    // Crear partículas periódicamente
+    setInterval(createParticle, 500);
+    
+    // Crear algunas partículas iniciales
+    for (let i = 0; i < 3; i++) {
+      setTimeout(createParticle, i * 200);
+    }
+  });
+</script>

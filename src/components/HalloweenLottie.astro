@@ -1,0 +1,114 @@
+---
+// 🎃 Animación Lottie Halloween
+---
+
+<!-- 🎃 Animación Lottie Halloween en la parte izquierda -->
+<div class="halloween-lottie-container">
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+  <dotlottie-wc 
+    src="https://lottie.host/49bc0c8f-6c88-4e4a-b81f-d48e1d4098dd/tOszIYDBHF.lottie" 
+    style="width: 300px; height: 300px" 
+    autoplay 
+    loop
+  ></dotlottie-wc>
+</div>
+
+<style>
+  .halloween-lottie-container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  .halloween-lottie-container:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+  }
+  
+  /* 🎃 Responsive */
+  @media (max-width: 1200px) {
+    .halloween-lottie-container {
+      left: 2%;
+    }
+    
+    dotlottie-wc {
+      width: 250px !important;
+      height: 250px !important;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .halloween-lottie-container {
+      left: 1%;
+      top: 40%;
+    }
+    
+    dotlottie-wc {
+      width: 200px !important;
+      height: 200px !important;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .halloween-lottie-container {
+      left: 0%;
+      top: 35%;
+    }
+    
+    dotlottie-wc {
+      width: 150px !important;
+      height: 150px !important;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .halloween-lottie-container {
+      display: none; /* Ocultar en tablets y móviles, solo mostrar en desktop */
+    }
+  }
+  
+  /* 🎃 Efecto de brillo sutil */
+  .halloween-lottie-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: lottieGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes lottieGlow {
+    from {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .halloween-lottie-container::before {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .halloween-lottie-container::before {
+      width: 180px;
+      height: 180px;
+    }
+  }
+</style>

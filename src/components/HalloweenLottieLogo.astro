@@ -1,0 +1,85 @@
+---
+// 🎃 Animación Lottie fija arriba del logo.svg
+---
+
+<!-- Script para Lottie -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+
+<!-- 🎃 Animación Lottie fija arriba del logo -->
+<div class="halloween-lottie-logo-container">
+  <dotlottie-wc 
+    src="https://lottie.host/5e11dba8-b8a1-41a0-9a77-1d5174ef32ca/A5fGtYCF0c.lottie" 
+    style="width: 200px; height: 200px" 
+    autoplay 
+    loop
+  ></dotlottie-wc>
+</div>
+
+<style>
+  .halloween-lottie-logo-container {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  /* 🎃 Efecto de brillo para la animación del logo */
+  .halloween-lottie-logo-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: logoLottieGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes logoLottieGlow {
+    from {
+      opacity: 0.2;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+      opacity: 0.4;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+  
+  /* 🎃 Efecto de hover sutil */
+  .halloween-lottie-logo-container:hover {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
+  
+  /* 🎃 Responsive */
+  @media (max-width: 1200px) {
+    .halloween-lottie-logo-container {
+      top: -50px;
+    }
+    
+    dotlottie-wc {
+      width: 170px !important;
+      height: 170px !important;
+    }
+    
+    .halloween-lottie-logo-container::before {
+      width: 190px;
+      height: 190px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .halloween-lottie-logo-container {
+      display: none; /* Ocultar en tablets y móviles, solo mostrar en desktop */
+    }
+  }
+  
+</style>

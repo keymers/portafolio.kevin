@@ -1,0 +1,309 @@
+---
+// 🎃 Decoraciones Halloween - Luna y bruja
+---
+
+<!-- 🎃 Decoraciones Halloween en la parte derecha -->
+<div class="halloween-decorations">
+  <!-- 🌙 Luna -->
+  <div class="halloween-moon">
+    <div class="moon-craters">
+      <div class="crater crater-1"></div>
+      <div class="crater crater-2"></div>
+      <div class="crater crater-3"></div>
+    </div>
+  </div>
+  
+  <!-- 🧙‍♀️ Bruja volando -->
+  <div class="halloween-witch">
+    <div class="witch-body">
+      <div class="witch-hat">🧙‍♀️</div>
+      <div class="witch-broom">
+        <div class="broom-stick">|</div>
+        <div class="broom-straw">🌾</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ⭐ Estrellas -->
+  <div class="halloween-stars">
+    <div class="star star-1">⭐</div>
+    <div class="star star-2">✨</div>
+    <div class="star star-3">⭐</div>
+    <div class="star star-4">✨</div>
+  </div>
+</div>
+
+<style>
+  .halloween-decorations {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  /* 🌙 Luna */
+  .halloween-moon {
+    position: absolute;
+    top: 10%;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #fff, #f0f0f0);
+    border-radius: 50%;
+    box-shadow: 
+      0 0 20px rgba(255, 255, 255, 0.8),
+      0 0 40px rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.2);
+    animation: moonGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes moonGlow {
+    from {
+      box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 40px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(255, 255, 255, 0.2);
+    }
+    to {
+      box-shadow: 
+        0 0 25px rgba(255, 255, 255, 1),
+        0 0 50px rgba(255, 255, 255, 0.6),
+        0 0 75px rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  .moon-craters {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .crater {
+    position: absolute;
+    background: rgba(200, 200, 200, 0.3);
+    border-radius: 50%;
+  }
+  
+  .crater-1 {
+    width: 15px;
+    height: 15px;
+    top: 25%;
+    left: 30%;
+  }
+  
+  .crater-2 {
+    width: 10px;
+    height: 10px;
+    top: 60%;
+    left: 60%;
+  }
+  
+  .crater-3 {
+    width: 8px;
+    height: 8px;
+    top: 40%;
+    left: 70%;
+  }
+  
+  /* 🧙‍♀️ Bruja */
+  .halloween-witch {
+    position: absolute;
+    top: 30%;
+    right: 10px;
+    animation: witchFly 4s ease-in-out infinite;
+  }
+  
+  .witch-body {
+    position: relative;
+    font-size: 2rem;
+  }
+  
+  .witch-hat {
+    animation: witchBounce 2s ease-in-out infinite;
+  }
+  
+  @keyframes witchFly {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-15px) translateX(-5px);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-10px);
+    }
+    75% {
+      transform: translateY(-20px) translateX(-5px);
+    }
+  }
+  
+  @keyframes witchBounce {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(5deg);
+    }
+    75% {
+      transform: rotate(-5deg);
+    }
+  }
+  
+  .witch-broom {
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .broom-stick {
+    font-size: 1.5rem;
+    color: #8B4513;
+    line-height: 1;
+  }
+  
+  .broom-straw {
+    font-size: 0.8rem;
+    animation: broomSweep 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes broomSweep {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+  }
+  
+  /* ⭐ Estrellas */
+  .halloween-stars {
+    position: absolute;
+    inset: 0;
+  }
+  
+  .star {
+    position: absolute;
+    font-size: 0.8rem;
+    animation: starTwinkle 2s ease-in-out infinite;
+  }
+  
+  .star-1 {
+    top: 15%;
+    right: 40px;
+    animation-delay: 0s;
+  }
+  
+  .star-2 {
+    top: 25%;
+    right: 80px;
+    animation-delay: 0.5s;
+  }
+  
+  .star-3 {
+    top: 45%;
+    right: 60px;
+    animation-delay: 1s;
+  }
+  
+  .star-4 {
+    top: 65%;
+    right: 30px;
+    animation-delay: 1.5s;
+  }
+  
+  @keyframes starTwinkle {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  
+  /* 🎃 Responsive */
+  @media (max-width: 1024px) {
+    .halloween-decorations {
+      width: 150px;
+    }
+    
+    .halloween-moon {
+      width: 60px;
+      height: 60px;
+      right: 15px;
+    }
+    
+    .witch-body {
+      font-size: 1.5rem;
+    }
+    
+    .star {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .halloween-decorations {
+      width: 100px;
+    }
+    
+    .halloween-moon {
+      width: 50px;
+      height: 50px;
+      right: 10px;
+    }
+    
+    .witch-body {
+      font-size: 1.2rem;
+    }
+    
+    .star {
+      font-size: 0.6rem;
+    }
+    
+    .broom-stick {
+      font-size: 1.2rem;
+    }
+    
+    .broom-straw {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .halloween-decorations {
+      width: 150px;
+      right: -20px;
+    }
+    
+    .moon {
+      width: 80px;
+      height: 80px;
+      right: 10px;
+    }
+    
+    .witch {
+      width: 60px;
+      height: 60px;
+      right: 15px;
+      top: 85px;
+    }
+    
+    .star {
+      width: 8px;
+      height: 8px;
+    }
+    
+    .star:nth-child(3) { top: 60%; right: 25px; }
+    .star:nth-child(4) { top: 75%; right: 40px; }
+    .star:nth-child(5) { top: 45%; right: 45px; }
+  }
+</style>
