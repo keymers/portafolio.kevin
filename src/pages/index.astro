@@ -126,11 +126,9 @@ import FormularioSelector from '../components/FormularioSelector';
 {/* Efecto Matrix */}
 <MatrixEffect />
 
-<!-- 🚀 OPTIMIZACIÓN: CSS no bloqueante para eliminar render-blocking -->
-<link rel="stylesheet" href="../styles/home.css" media="print" onload="this.media='all'" />
-<noscript>
-  <link rel="stylesheet" href="../styles/home.css" />
-</noscript>
+<style>
+  @import "../styles/home.css";
+</style>
 
 <script src="../scripts/home.js"></script>
  
