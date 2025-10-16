@@ -1,17 +1,39 @@
 ---
-// 🎃 Segunda animación Lottie Halloween
+// 🎃 Segunda animación Lottie Halloween - Lazy loaded
 ---
 
 <!-- 🎃 Segunda animación Lottie Halloween en la parte izquierda -->
-<div class="halloween-lottie2-container">
-  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<div class="halloween-lottie2-container" data-lottie="lazy">
   <dotlottie-wc 
     src="https://lottie.host/1a44a04e-acb7-4a83-8703-aa501a80b87a/r2h7FE6NRM.lottie" 
     style="width: 300px; height: 300px" 
     autoplay 
     loop
+    loading="lazy"
   ></dotlottie-wc>
 </div>
+
+<script>
+  // Lazy load dotlottie-wc para esta animación
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Verificar si el script ya está cargado
+          if (!document.querySelector('script[src*="dotlottie-wc"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+            script.type = 'module';
+            document.head.appendChild(script);
+          }
+          observer.disconnect();
+        }
+      });
+    });
+    const container = document.querySelector('.halloween-lottie2-container');
+    if (container) observer.observe(container);
+  }
+</script>
 
 <style>
   .halloween-lottie2-container {

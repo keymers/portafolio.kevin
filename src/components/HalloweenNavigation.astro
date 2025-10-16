@@ -2,8 +2,25 @@
 // 🎃 Componente de navegación Halloween - Versión siniestra
 ---
 
-<!-- Script para Lottie en el navbar -->
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<!-- Script para Lottie en el navbar - Lazy loaded -->
+<script>
+  // Cargar dotlottie-wc de forma diferida
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const script = document.createElement('script');
+          script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+          script.type = 'module';
+          document.head.appendChild(script);
+          observer.disconnect();
+        }
+      });
+    });
+    const nav = document.querySelector('.halloween-nav');
+    if (nav) observer.observe(nav);
+  }
+</script>
 
 <nav class="halloween-nav relative grid grid-cols-3 items-center px-4 sm:px-8 py-4 border-b border-halloween-accent/60 bg-halloween-secondary/90 backdrop-blur-sm">
 	{/* 🎃 Logo siniestro con Lottie (izquierda) */}

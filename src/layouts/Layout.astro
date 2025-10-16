@@ -30,6 +30,11 @@ const { title } = Astro.props;
 		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch para recursos Astro -->
 		<link rel="dns-prefetch" href="/_astro/" />
 		
+		<!-- 🚀 OPTIMIZACIÓN: Preload scripts de Lottie -->
+		<link rel="preload" href="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" as="script" crossorigin />
+		<link rel="preconnect" href="https://unpkg.com" />
+		<link rel="preconnect" href="https://lottie.host" />
+		
 		<!-- 🚀 OPTIMIZACIÓN: Preload recursos críticos para carga paralela -->
 		<link rel="preload" href="/_astro/index.BvltfHgK.css" as="style" fetchpriority="high" />
 		<link rel="preload" href="/_astro/index.rYc5Oj8D.css" as="style" fetchpriority="high" />
