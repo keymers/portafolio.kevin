@@ -30,7 +30,25 @@ const { title } = Astro.props;
 		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch para recursos Astro -->
 		<link rel="dns-prefetch" href="/_astro/" />
 		
-		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch para recursos Astro (sin preload específico) -->
+		<!-- 🚀 OPTIMIZACIÓN: Script para preload dinámico de recursos críticos -->
+		<script>
+			// Preload recursos críticos para carga paralela (usa hashes correctos del build)
+			(function() {
+				const criticalResources = [
+					'/_astro/index.5T1_913b.css',
+					'/_astro/index.Bi2ftawB.css', 
+					'/_astro/index.astro_astro_type_script_index_0_lang.D8iOqKn7.js'
+				];
+				
+				criticalResources.forEach(url => {
+					const link = document.createElement('link');
+					link.rel = 'preload';
+					link.href = url;
+					link.as = url.includes('.css') ? 'style' : 'script';
+					document.head.appendChild(link);
+				});
+			})();
+		</script>
 		
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
