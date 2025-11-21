@@ -4,36 +4,25 @@
 ---
 
 <!-- 🎄 Animación Lottie Navidad en la parte izquierda -->
-<div class="christmas-lottie-container" data-lottie="lazy">
+<div class="christmas-lottie-container">
   <!-- Placeholder para Lottie de Navidad (ej. árbol de navidad o regalo) -->
   <dotlottie-wc 
     src="https://lottie.host/46fafaa2-ac4e-4256-976f-614be3714700/fBJ5tigYMt.lottie" 
     style="width: 300px; height: 300px" 
     autoplay 
     loop
-    loading="lazy"
+    loading="eager"
   ></dotlottie-wc>
   <!-- Nota: Si no tienes URL, puedes buscar "free christmas lottie json" y usar el JSON o subirlo a lottiefiles -->
 </div>
 
 <script>
-  // Lazy load dotlottie-wc
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!document.querySelector('script[src*="dotlottie-wc"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
-            script.type = 'module';
-            document.head.appendChild(script);
-          }
-          observer.disconnect();
-        }
-      });
-    });
-    const container = document.querySelector('.christmas-lottie-container');
-    if (container) observer.observe(container);
+  // Importación directa del script
+  if (!document.querySelector('script[src*="dotlottie-wc"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+    script.type = 'module';
+    document.head.appendChild(script);
   }
 </script>
 
@@ -90,4 +79,3 @@
     .christmas-lottie-container { display: none; }
   }
 </style>
-

@@ -1,37 +1,25 @@
 ---
-// 🎄 Animación Lottie fija arriba del logo (Navidad) - Lazy loaded
+// 🎄 Animación Lottie fija arriba del logo (Navidad) - Carga inmediata
 // TODO: Reemplaza la URL de src con un Lottie de Navidad válido (ej. gorro de santa)
 ---
 
 <!-- 🎄 Animación Lottie fija arriba del logo -->
-<div class="christmas-lottie-logo-container" data-lottie="lazy">
+<div class="christmas-lottie-logo-container">
   <dotlottie-wc 
     src="https://lottie.host/521c7a41-dd6a-4bce-b665-eb54911f8d44/OLmTf2Prjb.lottie" 
     style="width: 200px; height: 200px" 
     autoplay 
     loop
-    loading="lazy"
   ></dotlottie-wc>
 </div>
 
 <script>
-  // Lazy load dotlottie-wc
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          if (!document.querySelector('script[src*="dotlottie-wc"]')) {
-            const script = document.createElement('script');
-            script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
-            script.type = 'module';
-            document.head.appendChild(script);
-          }
-          observer.disconnect();
-        }
-      });
-    });
-    const container = document.querySelector('.christmas-lottie-logo-container');
-    if (container) observer.observe(container);
+  // Cargar dotlottie-wc inmediatamente para este componente
+  if (!document.querySelector('script[src*="dotlottie-wc"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+    script.type = 'module';
+    document.head.appendChild(script);
   }
 </script>
 
@@ -76,4 +64,3 @@
     .christmas-lottie-logo-container { display: none; }
   }
 </style>
-
