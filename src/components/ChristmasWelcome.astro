@@ -1,0 +1,125 @@
+---
+// 🎄 Componente de bienvenida Navidad
+---
+
+<!-- 🎄 Mensaje de bienvenida Navidad elegante -->
+<div id="christmas-welcome" class="christmas-welcome-banner">
+  <div class="christmas-banner-content">
+    <div class="christmas-text">
+      <span class="christmas-emoji">🎄</span>
+      <span class="christmas-message">Merry Christmas! ¡Feliz Navidad y Próspero Año Nuevo!</span>
+      <span class="christmas-emoji">🎅</span>
+    </div>
+    <button id="close-christmas-welcome" class="christmas-close-btn">×</button>
+  </div>
+</div>
+
+<style>
+  .christmas-welcome-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #d40000, #2f5d62); /* Red to dark green */
+    color: white;
+    z-index: 1000;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    box-shadow: 0 2px 10px rgba(212, 0, 0, 0.3);
+    border-bottom: 2px solid #ffd700; /* Gold border */
+  }
+  
+  .christmas-welcome-banner.show {
+    transform: translateY(0);
+  }
+  
+  .christmas-banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    position: relative;
+  }
+  
+  .christmas-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+  
+  .christmas-emoji {
+    font-size: 1.2rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  
+  .christmas-emoji:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+  
+  .christmas-message {
+    font-size: 0.95rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .christmas-close-btn {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    opacity: 0.8;
+  }
+  
+  .christmas-close-btn:hover {
+    opacity: 1;
+    text-shadow: 0 0 5px #fff;
+  }
+</style>
+
+<script>
+  // Lógica para mostrar/ocultar el banner
+  document.addEventListener('DOMContentLoaded', () => {
+    const banner = document.getElementById('christmas-welcome');
+    const closeBtn = document.getElementById('close-christmas-welcome');
+    
+    // Verificar si ya se mostró el mensaje en esta sesión (igual que en Halloween)
+    const hasSeenWelcome = sessionStorage.getItem('christmas-welcome-seen-v1');
+    
+    if (!hasSeenWelcome) {
+      // Mostrar banner después de un breve retraso
+      setTimeout(() => {
+        banner?.classList.add('show');
+        
+        // Ocultar automáticamente después de 2 segundos de haberse mostrado (total 3s desde inicio)
+        setTimeout(() => {
+          closeBanner();
+        }, 2000);
+      }, 1000);
+    }
+    
+    // Función para cerrar el banner
+    function closeBanner() {
+      banner?.classList.remove('show');
+      sessionStorage.setItem('christmas-welcome-seen-v1', 'true');
+    }
+    
+    // Cerrar banner manualmente
+    closeBtn?.addEventListener('click', closeBanner);
+  });
+</script>
+

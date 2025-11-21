@@ -1,0 +1,93 @@
+---
+// 🎄 Animación Lottie Navidad - Lazy loaded
+// TODO: Reemplaza la URL de src con un Lottie de Navidad válido
+---
+
+<!-- 🎄 Animación Lottie Navidad en la parte izquierda -->
+<div class="christmas-lottie-container" data-lottie="lazy">
+  <!-- Placeholder para Lottie de Navidad (ej. árbol de navidad o regalo) -->
+  <dotlottie-wc 
+    src="https://lottie.host/46fafaa2-ac4e-4256-976f-614be3714700/fBJ5tigYMt.lottie" 
+    style="width: 300px; height: 300px" 
+    autoplay 
+    loop
+    loading="lazy"
+  ></dotlottie-wc>
+  <!-- Nota: Si no tienes URL, puedes buscar "free christmas lottie json" y usar el JSON o subirlo a lottiefiles -->
+</div>
+
+<script>
+  // Lazy load dotlottie-wc
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          if (!document.querySelector('script[src*="dotlottie-wc"]')) {
+            const script = document.createElement('script');
+            script.src = 'https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js';
+            script.type = 'module';
+            document.head.appendChild(script);
+          }
+          observer.disconnect();
+        }
+      });
+    });
+    const container = document.querySelector('.christmas-lottie-container');
+    if (container) observer.observe(container);
+  }
+</script>
+
+<style>
+  .christmas-lottie-container {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  .christmas-lottie-container:hover {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.05);
+  }
+  
+  /* 🎄 Efecto de brillo navideño */
+  .christmas-lottie-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(212, 0, 0, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: christmasLottieGlow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes christmasLottieGlow {
+    from {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+  
+  /* Mismas reglas responsive que Halloween */
+  @media (max-width: 1200px) {
+    .christmas-lottie-container { left: 2%; }
+    dotlottie-wc { width: 250px !important; height: 250px !important; }
+  }
+  
+  @media (max-width: 1024px) {
+    .christmas-lottie-container { display: none; }
+  }
+</style>
+

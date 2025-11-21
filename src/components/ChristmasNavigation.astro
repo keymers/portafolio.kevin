@@ -1,0 +1,75 @@
+---
+// Componente de navegación Navideña
+---
+
+<nav class="relative flex items-center justify-center px-4 sm:px-8 py-4 border-b border-christmas-gold/40 bg-christmas-green/80 backdrop-blur-sm christmas-nav">
+	{/* Logo (izquierda) - Usamos absolute para que el ul quede perfectamente centrado */}
+	<div class="absolute left-4 sm:left-8 flex items-center gap-2 christmas-logo-container">
+		<span class="text-xl sm:text-2xl font-extrabold text-christmas-red tracking-widest drop-shadow-christmas animate-christmas-glow christmas-logo-text">KGL</span>
+	</div>
+
+	{/* Navegación (centrada) */}
+	<ul class="flex items-center gap-3 md:gap-5 lg:gap-8 text-sm md:text-base lg:text-lg font-medium flex-nowrap overflow-x-auto sm:overflow-visible whitespace-nowrap px-2">
+		<li><a href="/" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link">Inicio</a></li>
+		<li><a href="/proyectos" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link page-link">Proyectos</a></li>
+		<li><a href="/sobremi" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link">Sobre mí</a></li>
+	</ul>
+</nav>
+
+<style>
+  /* 🎄 Variables Navidad para el nav */
+  .christmas-nav {
+    --christmas-red: #d40000;
+    --christmas-green: #2f5d62; /* Darker, elegant green */
+    --christmas-gold: #ffd700;
+    --christmas-white: #ffffff;
+    --christmas-glow: #d40000;
+    --christmas-shadow: #0f3d3e;
+    background-color: rgba(47, 93, 98, 0.85); /* Green tint */
+    border-bottom-color: var(--christmas-gold);
+  }
+
+  .text-christmas-red {
+    color: var(--christmas-red);
+  }
+  
+  .text-christmas-gold {
+    color: var(--christmas-gold);
+  }
+
+  /* 🎄 Logo Navidad */
+  .christmas-logo-text {
+    text-shadow: 
+      0 0 5px var(--christmas-white),
+      0 0 10px var(--christmas-red),
+      0 0 20px var(--christmas-red);
+    animation: christmasLogoGlow 3s ease-in-out infinite alternate;
+    color: #fff; /* White text with red glow looks better */
+  }
+
+  @keyframes christmasLogoGlow {
+    from {
+      text-shadow: 
+        0 0 5px var(--christmas-white),
+        0 0 10px var(--christmas-red),
+        0 0 15px var(--christmas-red);
+    }
+    to {
+      text-shadow: 
+        0 0 10px var(--christmas-white),
+        0 0 20px var(--christmas-red),
+        0 0 30px var(--christmas-red);
+    }
+  }
+
+  .drop-shadow-christmas {
+    filter: drop-shadow(0 0 5px var(--christmas-gold));
+  }
+  
+  .christmas-link {
+    position: relative;
+  }
+  
+  /* Snow effect on hover for links could be cool, but keeping it simple for now */
+</style>
+

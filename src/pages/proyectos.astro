@@ -3,10 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import escuelapgiImage from '../assets/escuelapgi.webp';
 import portfolioImage from '../assets/portfolio.webp';
+import ChristmasNavigation from "../components/ChristmasNavigation.astro";
+import ChristmasDecorations from "../components/ChristmasDecorations.astro";
+import ChristmasLights from "../components/ChristmasLights.astro";
 ---
 
 <Layout title="KGL - Proyectos">
 	<main class="min-h-screen flex items-center justify-center bg-primary relative overflow-hidden page-transition">
+        {/* 🎄 Decoraciones Navidad - Nieve */}
+        <ChristmasDecorations />
+
 		{/* Efecto de partículas de fondo */}
 		<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-primary/80 to-primary/60"></div>
 		<div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div>
@@ -17,21 +23,24 @@ import portfolioImage from '../assets/portfolio.webp';
 		{/* Red neuronal animada eliminada */}
 
 		<div class="relative w-full max-w-4xl h-[90vh] flex items-center justify-center">
+            {/* 🎄 Luces de Navidad colgando de la tarjeta */}
+            <ChristmasLights />
+
 			{/* Tarjeta principal con navbar */}
 			<div class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-hidden group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card">
 				{/* Efecto de escaneo */}
 				<div class="absolute inset-0 scan-line"></div>
 				
 				{/* Navbar centrado */}
-				<nav class="relative flex items-center justify-center px-8 py-4 border-b border-accent/40 bg-secondary/80 backdrop-blur-sm">
-					{/* Logo a la izquierda, enlaces centrados */}
+				<!-- <nav class="relative flex items-center justify-center px-8 py-4 border-b border-accent/40 bg-secondary/80 backdrop-blur-sm">
 					<span class="absolute left-8 text-2xl font-extrabold text-accent tracking-widest drop-shadow-neon animate-pulse glitch-text" style="position: absolute; left: 2rem;">KGL</span>
 					<ul class="flex gap-8 text-lg font-medium">
 						<li><a href="/" class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link">Home</a></li>
 						<li><a href="/proyectos" class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link page-link">Proyectos</a></li>
 						<li><a href="/sobremi" class="hover:text-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-neon cyberpunk-link">Sobre mí</a></li>
 					</ul>
-				</nav>
+				</nav> -->
+                <ChristmasNavigation />
 
 				{/* Contenido de proyectos */}
 				<div class="flex-1 overflow-y-auto p-8">
@@ -131,6 +140,8 @@ import portfolioImage from '../assets/portfolio.webp';
 </Layout>
 
 <style>
+  /* 🎄 Importar estilos navideños */
+  @import "../styles/christmas.css";
 
 	@keyframes glitch {
 		0% { background-position: 0% 0%; }

@@ -1,0 +1,108 @@
+/* Estilos para el modo navideño */
+
+/* 🎄 Colores Globales de Navidad */
+:root {
+    --christmas-red: #d40000;
+    --christmas-green: #2f5d62; /* Verde oscuro y elegante */
+    --christmas-gold: #ffd700;
+    --christmas-white: #ffffff;
+    --christmas-dark: #0f3d3e;
+}
+
+/* Cursor personalizado: Árbol de Navidad Blanco con borde negro para alto contraste */
+html, body, a, button {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 13h4l-3 7h14l-3-7h4L12 2z"/><path d="M12 20v2"/></svg>') 12 2, auto !important;
+}
+
+a:hover, button:hover {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ffd700" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L4 13h4l-3 7h14l-3-7h4L12 2z"/><path d="M12 20v2"/></svg>') 12 2, pointer !important;
+}
+
+/* Fondo principal navideño */
+.bg-primary {
+    background-color: var(--christmas-dark) !important;
+    background-image: radial-gradient(circle at 50% 50%, #1a4a4d 0%, #0f3d3e 100%) !important;
+}
+
+/* Tarjeta principal con efecto escarcha */
+.bg-secondary\/80 {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(12px) !important;
+    border-color: var(--christmas-gold) !important;
+    box-shadow: 
+        0 0 20px rgba(212, 0, 0, 0.2),
+        0 0 40px rgba(47, 93, 98, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Bordes y acentos */
+.border-accent {
+    border-color: var(--christmas-gold) !important;
+}
+
+.text-accent {
+    color: var(--christmas-gold) !important;
+}
+
+/* Sombras y brillos */
+.neon-glow {
+    box-shadow: 0 0 20px rgba(212, 0, 0, 0.4), 0 0 40px rgba(255, 215, 0, 0.2) !important;
+}
+
+.hover\:shadow-\[0_0_30px_rgba\(225\,29\,116\,0\.5\)\]:hover {
+    box-shadow: 0 0 30px rgba(212, 0, 0, 0.6) !important;
+}
+
+/* Efectos de Glitch y Texto */
+.glitch-text {
+    text-shadow: 0.05em 0 0 var(--christmas-red), -0.05em -0.025em 0 var(--christmas-green) !important;
+    animation: none !important; /* Desactivar glitch agresivo */
+}
+
+.glitch-bg {
+    opacity: 0.1 !important;
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(212, 0, 0, 0.05) 10px,
+        rgba(212, 0, 0, 0.05) 20px
+    ) !important;
+}
+
+/* Enlaces Cyberpunk adaptados a Navidad */
+.cyberpunk-link::after {
+    background: linear-gradient(90deg, var(--christmas-red), var(--christmas-gold)) !important;
+}
+
+/* Scrollbar Navideño */
+html::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: linear-gradient(120deg, var(--christmas-red) 30%, var(--christmas-gold) 70%) !important;
+    box-shadow: 0 0 8px var(--christmas-red), 0 0 16px var(--christmas-gold) !important;
+    border: 2px solid var(--christmas-dark) !important;
+}
+
+html::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(120deg, var(--christmas-gold) 30%, var(--christmas-red) 70%) !important;
+    box-shadow: 0 0 16px var(--christmas-red), 0 0 32px var(--christmas-gold), 0 0 24px #fff !important;
+}
+
+html, body {
+    scrollbar-color: var(--christmas-red) var(--christmas-dark) !important;
+}
+
+/* Ajustes específicos para componentes */
+.scan-line {
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(255, 215, 0, 0.05) 50%, /* Gold scanline muy sutil */
+        transparent 100%
+    ) !important;
+    opacity: 0.3 !important;
+}
+
+/* Clases utilitarias para Navidad */
+.christmas-text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
