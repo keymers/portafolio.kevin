@@ -8,38 +8,61 @@
       }
     }
   ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com https://lottie.host https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; connect-src 'self' https://*.supabase.co https://api.emailjs.com https://*.vercel-analytics.com; frame-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
   "routes": [
     {
       "src": "/robots.txt",
-      "dest": "/robots.txt",
-      "headers": {
-        "content-type": "text/plain"
-      }
+      "dest": "/robots.txt"
     },
     {
       "src": "/sitemap.xml",
-      "dest": "/sitemap.xml",
-      "headers": {
-        "content-type": "application/xml"
-      }
-    },
-    {
-      "src": "/_astro/(.*)",
-      "dest": "/_astro/$1",
-      "headers": {
-        "cache-control": "public, max-age=31536000, immutable"
-      }
-    },
-    {
-      "src": "/(.*\\.(js|css|jpg|png|svg|ico|webp))",
-      "dest": "/$1"
+      "dest": "/sitemap.xml"
     },
     {
       "src": "/proyectos",
       "dest": "/proyectos/index.html"
     },
     {
-      "src": "/sobremi", 
+      "src": "/sobremi",
       "dest": "/sobremi/index.html"
     },
     {
@@ -48,7 +71,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html" 
+      "dest": "/index.html"
     }
   ]
 }

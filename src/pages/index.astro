@@ -39,7 +39,9 @@ import FormularioSelector from "../components/FormularioSelector";
       class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-primary/80 to-primary/60"
     >
     </div>
-    <!-- <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div> -->
+    {
+      /* <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div> */
+    }
 
     {/* Efecto de glitch en el fondo */}
     <div class="absolute inset-0 glitch-bg"></div>
@@ -50,7 +52,7 @@ import FormularioSelector from "../components/FormularioSelector";
       class="relative w-full max-w-4xl min-h-[80vh] sm:h-[90vh] flex items-center justify-center"
     >
       {/* 🎄 Luces de Navidad colgando de la tarjeta */}
-      <ChristmasLights />
+      {/* <ChristmasLights /> */}
 
       {/* Tarjeta principal con navbar */}
       <div
@@ -60,29 +62,29 @@ import FormularioSelector from "../components/FormularioSelector";
         <div class="absolute inset-0 scan-line"></div>
 
         {/* Navbar */}
-        <!-- <Navigation /> -->
+        <Navigation />
 
         {/* Navbar Halloween */}
-        <!-- <HalloweenNavigation /> -->
+        {/* <HalloweenNavigation /> */}
 
         {/* Navbar Navidad */}
-        <ChristmasNavigation />
+        {/* <ChristmasNavigation /> */}
 
         {/* Contenido principal */}
         <div class="flex-1 overflow-y-auto overscroll-contain">
-              {/* Sección Home */}
-              <section
-                id="home"
-                class="h-full flex flex-col items-center justify-start relative pt-8 md:pt-0 md:justify-center"
-              >
-                {/* 🎃 Animación Lottie arriba del logo */}
-                <!-- <HalloweenLottieLogo /> -->
+          {/* Sección Home */}
+          <section
+            id="home"
+            class="h-full flex flex-col items-center justify-start relative pt-8 md:pt-0 md:justify-center"
+          >
+            {/* 🎃 Animación Lottie arriba del logo */}
+            <!-- <HalloweenLottieLogo /> -->
 
-                {/* 🎄 Animación Lottie Navidad arriba del logo */}
-                <ChristmasLottieLogo />
-                
-                {/* Logo central */}
-                <CentralLogo />
+            {/* 🎄 Animación Lottie Navidad arriba del logo */}
+            {/* <ChristmasLottieLogo /> */}
+
+            {/* Logo central */}
+            <CentralLogo />
 
             {/* Tarjetas móviles */}
             <MobileCards />
@@ -150,15 +152,15 @@ import FormularioSelector from "../components/FormularioSelector";
       </div>
     </div>
   </section>
-    </Layout>
+</Layout>
 
-    {/* Footer */}
-    <Footer />
+{/* Footer */}
+<Footer />
 
-    {/* Botón de WhatsApp */}
-    <WhatsAppButton />
+{/* Botón de WhatsApp */}
+<WhatsAppButton />
 
-    {/* 🎃 Mensaje de bienvenida Halloween */}
+{/* 🎃 Mensaje de bienvenida Halloween */}
 <!-- <HalloweenWelcome /> -->
 
 {/* 🎃 Decoraciones Halloween - Luna y bruja */}
@@ -171,13 +173,13 @@ import FormularioSelector from "../components/FormularioSelector";
 <!-- <HalloweenLottie2 /> -->
 
 {/* 🎄 Mensaje de bienvenida Navidad */}
-<ChristmasWelcome />
+{/* <ChristmasWelcome /> */}
 
 {/* 🎄 Decoraciones Navidad - Nieve */}
-<ChristmasDecorations />
+{/* <ChristmasDecorations /> */}
 
 {/* 🎄 Animación Lottie Navidad */}
-<ChristmasLottie />
+{/* <ChristmasLottie /> */}
 
 {/* Efecto Matrix */}
 <MatrixEffect />
@@ -185,7 +187,7 @@ import FormularioSelector from "../components/FormularioSelector";
 <style>
   @import "../styles/home.css";
   /* 🎄 Importar estilos navideños */
-  @import "../styles/christmas.css";
+  /* @import "../styles/christmas.css"; */
 </style>
 
 <script src="../scripts/home.js" defer></script>
