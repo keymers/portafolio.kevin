@@ -48,30 +48,19 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/robots.txt",
-      "dest": "/robots.txt"
+      "source": "/proyectos",
+      "destination": "/proyectos/index.html"
     },
     {
-      "src": "/sitemap.xml",
-      "dest": "/sitemap.xml"
+      "source": "/sobremi",
+      "destination": "/sobremi/index.html"
     },
     {
-      "src": "/proyectos",
-      "dest": "/proyectos/index.html"
-    },
-    {
-      "src": "/sobremi",
-      "dest": "/sobremi/index.html"
-    },
-    {
-      "src": "/testimonios",
-      "dest": "/testimonios/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/testimonios",
+      "destination": "/testimonios/index.html"
     }
-  ]
+  ],
+  "cleanUrls": true
 }
