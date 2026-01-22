@@ -630,4 +630,17 @@ import portfolioImage from "../assets/portfolio.webp";
   section {
     scroll-margin-top: 80px;
   }
+
+  /* ===== RESPONSIVE MOBILE ===== */
+  @media (max-width: 768px) {
+    /* Ocultar scroll indicator en mobile para evitar solapamiento con stats */
+    .scroll-indicator {
+      display: none;
+    }
+
+    /* Añadir más espacio inferior al hero content */
+    .hero-content {
+      padding-bottom: 2rem;
+    }
+  }
 </style>

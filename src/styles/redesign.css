@@ -817,13 +817,14 @@
   }
 
   .process-timeline::before {
-    left: 40px;
+    display: none;
+    /* Ocultar línea en mobile ya que los items están centrados */
   }
 
   .process-item,
   .process-item:nth-child(even) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .process-number {
