@@ -1,0 +1,1271 @@
+---
+import Layout from "../layouts/Layout.astro";
+import NavModern from "../components/NavModern.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
+import { Image } from "astro:assets";
+import escuelapgiImage from "../assets/escuelapgi.webp";
+---
+
+<Layout title="Colegio Digital | Páginas Web Gratis para Colegios - Peko's">
+    <NavModern />
+
+    <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+    <section class="program-hero">
+        <div class="hero-background"></div>
+        <div class="hero-grid"></div>
+
+        <div class="program-hero-content">
+            <div class="program-badge">
+                <span class="badge-icon">🏫</span>
+                Programa de Impacto Social
+            </div>
+
+            <h1 class="program-title">
+                Tu colegio merece una
+                <span class="highlight">web profesional</span>
+            </h1>
+
+            <p class="program-subtitle">
+                Creamos páginas web <strong>100% gratis</strong> para colegios pequeños
+                y rurales que no pueden costear una. Solo pagas el dominio (~$10.000
+                CLP/año).
+            </p>
+
+            <div class="program-cta-group">
+                <a href="#postular" class="btn-primary">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                    </svg>
+                    Postular Ahora
+                </a>
+                <a href="#como-funciona" class="btn-secondary">
+                    Conocer más
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Stats del programa -->
+            <div class="program-stats">
+                <div class="program-stat">
+                    <span class="stat-number">$0</span>
+                    <span class="stat-label">Costo de desarrollo</span>
+                </div>
+                <div class="program-stat">
+                    <span class="stat-number">~$10k</span>
+                    <span class="stat-label">Dominio anual (CLP)</span>
+                </div>
+                <div class="program-stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Profesional</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       ¿POR QUÉ GRATIS?
+       ======================================== -->
+    <section class="why-free-section" id="como-funciona">
+        <div class="section-header">
+            <span class="section-badge">¿Por qué gratis?</span>
+            <h2 class="section-title">Creemos en la educación digital</h2>
+            <p class="section-subtitle">
+                Muchos colegios pequeños y rurales no tienen presencia digital
+                porque no pueden costear una página web. Queremos cambiar eso.
+            </p>
+        </div>
+
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="reason-icon">❤️</div>
+                <h3>Impacto Social</h3>
+                <p>
+                    Creemos que todos los colegios merecen tener presencia
+                    digital, sin importar su tamaño o presupuesto.
+                </p>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-icon">🤝</div>
+                <h3>Relación a Largo Plazo</h3>
+                <p>
+                    Cuando tu colegio crezca y necesite más funcionalidades, ya
+                    nos conocerás y confiarás en nuestro trabajo.
+                </p>
+            </div>
+
+            <div class="reason-card">
+                <div class="reason-icon">📣</div>
+                <h3>Tu Recomendación</h3>
+                <p>
+                    Solo pedimos que si te gusta nuestro trabajo, nos
+                    recomiendes a otros colegios o instituciones que puedan
+                    necesitarnos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       ¿QUÉ INCLUYE?
+       ======================================== -->
+    <section class="includes-section">
+        <div class="section-header">
+            <span class="section-badge">Incluido</span>
+            <h2 class="section-title">¿Qué incluye tu página web gratis?</h2>
+            <p class="section-subtitle">
+                Todo lo que tu colegio necesita para tener presencia digital
+                profesional
+            </p>
+        </div>
+
+        <div class="includes-grid">
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Página de Inicio</h4>
+                <p>
+                    Presentación profesional del colegio con su misión y visión
+                </p>
+            </div>
+
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Galería de Fotos</h4>
+                <p>
+                    Muestra las instalaciones, actividades y eventos del colegio
+                </p>
+            </div>
+
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Información de Contacto</h4>
+                <p>Ubicación, teléfono, email y horarios de atención</p>
+            </div>
+
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Diseño Responsive</h4>
+                <p>Se ve perfecto en celulares, tablets y computadores</p>
+            </div>
+
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Dominio Propio</h4>
+                <p>Tu colegio con su propia dirección web (.cl o .com)</p>
+            </div>
+
+            <div class="include-item">
+                <div class="include-icon">
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    >
+                        <path
+                            d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <h4>Carga Rápida</h4>
+                <p>Optimizada para cargar rápido incluso con internet lento</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       EJEMPLO
+       ======================================== -->
+    <section class="example-section">
+        <div class="section-header">
+            <span class="section-badge">Ejemplo</span>
+            <h2 class="section-title">Mira lo que podemos lograr</h2>
+            <p class="section-subtitle">
+                Este es un ejemplo de un proyecto escolar que desarrollamos
+            </p>
+        </div>
+
+        <div class="example-card">
+            <div class="example-image-wrapper">
+                <Image
+                    src={escuelapgiImage}
+                    alt="Escuela PGI - Ejemplo de proyecto"
+                    class="example-image"
+                />
+            </div>
+            <div class="example-content">
+                <h3>Plataforma Escolar Integral</h3>
+                <p>
+                    Sistema web completo para gestión y difusión de información
+                    escolar. Este es un ejemplo de un proyecto más avanzado,
+                    pero demuestra la calidad y profesionalismo que aplicamos en
+                    todos nuestros trabajos.
+                </p>
+                <div class="example-features">
+                    <span class="example-feature">✓ Diseño moderno</span>
+                    <span class="example-feature">✓ Fácil navegación</span>
+                    <span class="example-feature">✓ 100% responsive</span>
+                </div>
+                <a
+                    href="https://escuelapgi.cl/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="example-link"
+                >
+                    Visitar sitio →
+                </a>
+            </div>
+        </div>
+
+        <p class="example-note">
+            <strong>Nota:</strong> El programa gratuito incluye una landing page informativa.
+            Funcionalidades adicionales como panel administrativo tienen costo adicional.
+        </p>
+    </section>
+
+    <!-- ========================================
+       REQUISITOS
+       ======================================== -->
+    <section class="requirements-section">
+        <div class="section-header">
+            <span class="section-badge">Requisitos</span>
+            <h2 class="section-title">¿Quiénes pueden postular?</h2>
+        </div>
+
+        <div class="requirements-card">
+            <div class="requirement-item">
+                <div class="requirement-icon check">✓</div>
+                <div class="requirement-text">
+                    <h4>Colegios pequeños o rurales</h4>
+                    <p>
+                        Establecimientos que genuinamente no pueden costear una
+                        página web profesional
+                    </p>
+                </div>
+            </div>
+
+            <div class="requirement-item">
+                <div class="requirement-icon check">✓</div>
+                <div class="requirement-text">
+                    <h4>Sin página web actual</h4>
+                    <p>
+                        O con una página muy desactualizada que necesita
+                        renovación completa
+                    </p>
+                </div>
+            </div>
+
+            <div class="requirement-item">
+                <div class="requirement-icon check">✓</div>
+                <div class="requirement-text">
+                    <h4>Disposición a colaborar</h4>
+                    <p>
+                        Proporcionar textos, fotos y la información necesaria
+                        para crear la página
+                    </p>
+                </div>
+            </div>
+
+            <div class="requirement-item">
+                <div class="requirement-icon coin">💰</div>
+                <div class="requirement-text">
+                    <h4>Pagar solo el dominio</h4>
+                    <p>
+                        Aproximadamente $10.000 CLP anuales por el dominio .cl
+                        de tu colegio
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       PROCESO / PASOS
+       ======================================== -->
+    <section class="steps-section">
+        <div class="section-header">
+            <span class="section-badge">Proceso</span>
+            <h2 class="section-title">¿Cómo funciona?</h2>
+            <p class="section-subtitle">
+                Solo 4 pasos simples para tener tu página web
+            </p>
+        </div>
+
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h4>Postula</h4>
+                <p>Llena el formulario con los datos de tu colegio</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h4>Conversamos</h4>
+                <p>Te contactamos para conocer las necesidades del colegio</p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h4>Desarrollamos</h4>
+                <p>
+                    Creamos tu página web con la información que nos entregues
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h4>¡Online!</h4>
+                <p>Publicamos tu página y te enseñamos cómo usarla</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+       FORMULARIO DE POSTULACIÓN
+       ======================================== -->
+    <section class="application-section" id="postular">
+        <div class="section-header">
+            <span class="section-badge">Postular</span>
+            <h2 class="section-title">¡Postula tu colegio!</h2>
+            <p class="section-subtitle">
+                Cuéntanos sobre tu establecimiento y nos pondremos en contacto
+                contigo
+            </p>
+        </div>
+
+        <div class="application-card">
+            <form class="application-form" id="applicationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="school-name">Nombre del Colegio *</label>
+                        <input
+                            type="text"
+                            id="school-name"
+                            name="schoolName"
+                            required
+                            placeholder="Ej: Escuela Rural Los Álamos"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="school-location">Comuna / Ciudad *</label>
+                        <input
+                            type="text"
+                            id="school-location"
+                            name="location"
+                            required
+                            placeholder="Ej: Paillaco, Los Ríos"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-name">Nombre de Contacto *</label>
+                        <input
+                            type="text"
+                            id="contact-name"
+                            name="contactName"
+                            required
+                            placeholder="Tu nombre completo"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-role">Cargo *</label>
+                        <input
+                            type="text"
+                            id="contact-role"
+                            name="role"
+                            required
+                            placeholder="Ej: Director/a, UTP, Sostenedor"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="contact-email">Email *</label>
+                        <input
+                            type="email"
+                            id="contact-email"
+                            name="email"
+                            required
+                            placeholder="correo@ejemplo.cl"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Teléfono / WhatsApp *</label>
+                        <input
+                            type="tel"
+                            id="contact-phone"
+                            name="phone"
+                            required
+                            placeholder="+56 9 1234 5678"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="school-description"
+                        >Cuéntanos sobre tu colegio</label
+                    >
+                    <textarea
+                        id="school-description"
+                        name="description"
+                        rows="4"
+                        placeholder="¿Cuántos estudiantes tienen? ¿Qué niveles imparten? ¿Por qué necesitan una página web?"
+                    ></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="terms" required />
+                        <span
+                            >Confirmo que nuestro colegio no cuenta con
+                            presupuesto para costear una página web profesional</span
+                        >
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary submit-btn">
+                    <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <path
+                            d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                    Enviar Postulación
+                </button>
+            </form>
+        </div>»
+    </section>
+
+    <!-- ========================================
+       CTA ALTERNATIVO
+       ======================================== -->
+    <section class="alt-cta-section">
+        <div class="alt-cta-card">
+            <h3>¿Prefieres conversar primero?</h3>
+            <p>
+                Si tienes dudas sobre el programa, escríbenos directamente por
+                WhatsApp
+            </p>
+            <a
+                href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20el%20programa%20Colegio%20Digital%20para%20mi%20establecimiento"
+                target="_blank"
+                class="whatsapp-cta"
+            >
+                <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                >
+                    <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
+                    ></path>
+                </svg>
+                Escribir por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <Footer />
+    <WhatsAppFloat />
+</Layout>
+
+<style>
+    @import "../styles/redesign.css";
+
+    /* ========================================
+     PROGRAM HERO
+     ======================================== */
+    .program-hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: 6rem 2rem 4rem;
+        overflow: hidden;
+    }
+
+    .program-hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+    .program-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 50px;
+        color: #10b981;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+    }
+
+    .badge-icon {
+        font-size: 1.25rem;
+    }
+
+    .program-title {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+    }
+
+    .program-title .highlight {
+        background: linear-gradient(135deg, #10b981, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .program-subtitle {
+        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        color: var(--text-secondary);
+        line-height: 1.7;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+    }
+
+    .program-cta-group {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    .program-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .program-stat {
+        text-align: center;
+    }
+
+    .program-stat .stat-number {
+        display: block;
+        font-size: 2rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #10b981, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .program-stat .stat-label {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+    }
+
+    /* ========================================
+     WHY FREE SECTION
+     ======================================== */
+    .why-free-section {
+        padding: 6rem 2rem;
+        background: rgba(15, 23, 42, 0.5);
+    }
+
+    .reasons-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .reason-card {
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(16, 185, 129, 0.15);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .reason-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(16, 185, 129, 0.3);
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.1);
+    }
+
+    .reason-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .reason-card h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+    }
+
+    .reason-card p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
+
+    /* ========================================
+     INCLUDES SECTION
+     ======================================== */
+    .includes-section {
+        padding: 6rem 2rem;
+    }
+
+    .includes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .include-item {
+        background: rgba(30, 41, 59, 0.3);
+        border: 1px solid rgba(139, 92, 246, 0.1);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .include-item:hover {
+        border-color: rgba(139, 92, 246, 0.3);
+        background: rgba(30, 41, 59, 0.5);
+    }
+
+    .include-icon {
+        width: 48px;
+        height: 48px;
+        background: rgba(139, 92, 246, 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .include-icon svg {
+        width: 24px;
+        height: 24px;
+        stroke: var(--accent-purple);
+    }
+
+    .include-item h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .include-item p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* ========================================
+     EXAMPLE SECTION
+     ======================================== */
+    .example-section {
+        padding: 6rem 2rem;
+        background: rgba(15, 23, 42, 0.5);
+    }
+
+    .example-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--secondary);
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+    }
+
+    .example-image-wrapper {
+        overflow: hidden;
+    }
+
+    .example-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 300px;
+    }
+
+    .example-content {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .example-content h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+
+    .example-content p {
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+    }
+
+    .example-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .example-feature {
+        padding: 0.5rem 1rem;
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+        font-size: 0.875rem;
+        font-weight: 500;
+        border-radius: 50px;
+    }
+
+    .example-link {
+        color: var(--accent-purple);
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .example-link:hover {
+        color: var(--accent-pink);
+    }
+
+    .example-note {
+        max-width: 600px;
+        margin: 2rem auto 0;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        padding: 1rem;
+        background: rgba(251, 191, 36, 0.1);
+        border: 1px solid rgba(251, 191, 36, 0.2);
+        border-radius: 12px;
+    }
+
+    /* ========================================
+     REQUIREMENTS SECTION
+     ======================================== */
+    .requirements-section {
+        padding: 6rem 2rem;
+    }
+
+    .requirements-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        border-radius: 24px;
+        padding: 2rem;
+    }
+
+    .requirement-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    }
+
+    .requirement-item:last-child {
+        border-bottom: none;
+    }
+
+    .requirement-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+    }
+
+    .requirement-icon.check {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+    }
+
+    .requirement-icon.coin {
+        background: rgba(251, 191, 36, 0.1);
+    }
+
+    .requirement-text h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.25rem;
+    }
+
+    .requirement-text p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* ========================================
+     STEPS SECTION
+     ======================================== */
+    .steps-section {
+        padding: 6rem 2rem;
+        background: rgba(15, 23, 42, 0.5);
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .step-card {
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #10b981, #3b82f6);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: white;
+        margin: 0 auto 1rem;
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    .step-card h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .step-card p {
+        font-size: 0.875rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+    }
+
+    /* ========================================
+     APPLICATION FORM SECTION
+     ======================================== */
+    .application-section {
+        padding: 6rem 2rem;
+    }
+
+    .application-card {
+        max-width: 700px;
+        margin: 0 auto;
+        background: rgba(30, 41, 59, 0.5);
+        border: 1px solid rgba(139, 92, 246, 0.15);
+        border-radius: 24px;
+        padding: 2.5rem;
+    }
+
+    .application-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.875rem 1rem;
+        background: rgba(15, 23, 42, 0.5);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 12px;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: var(--text-muted);
+    }
+
+    .checkbox-label {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        line-height: 1.5;
+    }
+
+    .checkbox-label input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-top: 2px;
+        accent-color: var(--accent-purple);
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1.25rem;
+        font-size: 1.1rem;
+    }
+
+    /* ========================================
+     ALT CTA SECTION
+     ======================================== */
+    .alt-cta-section {
+        padding: 4rem 2rem 6rem;
+    }
+
+    .alt-cta-card {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2.5rem;
+        background: rgba(30, 41, 59, 0.3);
+        border: 1px solid rgba(139, 92, 246, 0.1);
+        border-radius: 24px;
+    }
+
+    .alt-cta-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.75rem;
+    }
+
+    .alt-cta-card p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+    }
+
+    .whatsapp-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2rem;
+        background: #25d366;
+        color: white;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .whatsapp-cta:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    /* ========================================
+     RESPONSIVE
+     ======================================== */
+    @media (max-width: 768px) {
+        .program-hero {
+            padding: 5rem 1.5rem 3rem;
+        }
+
+        .program-stats {
+            gap: 2rem;
+        }
+
+        .example-card {
+            grid-template-columns: 1fr;
+        }
+
+        .example-image {
+            min-height: 200px;
+        }
+
+        .steps-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+        .application-card {
+            padding: 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .steps-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+
+<script>
+    // Form submission handler with EmailJS
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById(
+            "applicationForm",
+        ) as HTMLFormElement | null;
+        const submitBtn = form?.querySelector(
+            ".submit-btn",
+        ) as HTMLButtonElement | null;
+        const originalBtnText = submitBtn?.innerHTML;
+
+        form?.addEventListener("submit", async (e: Event) => {
+            e.preventDefault();
+
+            // Disable button and show loading
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `
+                    <svg class="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle>
+                        <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"></path>
+                    </svg>
+                    Enviando...
+                `;
+            }
+
+            try {
+                if (!form) throw new Error("Formulario no encontrado");
+                const formData = new FormData(form);
+
+                // Get form values
+                const schoolName = (formData.get("schoolName") as string) || "";
+                const location = (formData.get("location") as string) || "";
+                const contactName =
+                    (formData.get("contactName") as string) || "";
+                const role = (formData.get("role") as string) || "";
+                const email = (formData.get("email") as string) || "";
+                const phone = (formData.get("phone") as string) || "";
+                const description =
+                    (formData.get("description") as string) ||
+                    "Sin descripción adicional";
+
+                // Check if EmailJS is available
+                if (typeof window !== "undefined" && (window as any).emailjs) {
+                    const emailjs = (window as any).emailjs;
+                    const serviceId = (window as any).VITE_EMAILJS_SERVICE_ID;
+                    const templateId = (window as any)
+                        .VITE_EMAILJS_TEMPLATE_ID_COTIZACIONES; // Usar template de cotizaciones
+                    const publicKey = (window as any).VITE_EMAILJS_PUBLIC_KEY;
+
+                    if (!serviceId || !templateId || !publicKey) {
+                        throw new Error(
+                            "EmailJS no está configurado correctamente",
+                        );
+                    }
+
+                    // Map school application data to the existing template fields
+                    const templateParams = {
+                        // Recipient
+                        to_email: "kevin.gonzalez04@outlook.com",
+
+                        // Contact info
+                        from_name: contactName,
+                        from_email: email,
+                        phone: phone,
+                        company: schoolName, // Usar campo company para el nombre del colegio
+                        preferred_schedule: "Programa Colegio Digital", // Identificador
+
+                        // Project info (adapted for school)
+                        project_name: `🏫 POSTULACIÓN: ${schoolName}`,
+                        project_description: `
+📍 Ubicación: ${location}
+👤 Contacto: ${contactName}
+📋 Cargo: ${role}
+📧 Email: ${email}
+📱 Teléfono: ${phone}
+
+📝 Descripción del colegio:
+${description}
+                        `.trim(),
+                        project_objective:
+                            "Página web gratuita - Programa Colegio Digital",
+                        target_audience: "Comunidad educativa",
+
+                        // Additional fields
+                        special_requirements:
+                            "Postulación al programa de páginas gratis para colegios",
+                        platform: "Landing page informativa",
+                        design_style: "Profesional y educativo",
+                        urgency: "Normal",
+                        deadline: "A coordinar",
+                        budget: "GRATIS (Programa Colegio Digital)",
+                        currency: "CLP",
+                        additional_notes: `Postulación desde formulario Colegio Digital - ${new Date().toLocaleDateString("es-CL")}`,
+                    };
+
+                    await emailjs.send(serviceId, templateId, templateParams);
+
+                    // Success
+                    alert(
+                        "¡Postulación enviada exitosamente! Nos pondremos en contacto contigo pronto.",
+                    );
+                    form.reset();
+                } else {
+                    throw new Error("EmailJS no está disponible");
+                }
+            } catch (error) {
+                console.error("Error al enviar postulación:", error);
+                alert(
+                    "Hubo un error al enviar tu postulación. Por favor intenta nuevamente o contáctanos por WhatsApp.",
+                );
+            } finally {
+                // Restore button
+                if (submitBtn && originalBtnText) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            }
+        });
+    });
+</script>
