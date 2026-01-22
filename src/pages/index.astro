@@ -1,193 +1,633 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Navigation from "../components/Navigation.astro";
-import HalloweenNavigation from "../components/HalloweenNavigation.astro";
-import CentralLogo from "../components/CentralLogo.astro";
-import MobileCards from "../components/MobileCards.astro";
-import HalloweenWelcome from "../components/HalloweenWelcome.astro";
-import HalloweenDecorations from "../components/HalloweenDecorations.astro";
-import HalloweenLottie from "../components/HalloweenLottie.astro";
-import HalloweenLottie2 from "../components/HalloweenLottie2.astro";
-import HalloweenLottieLogo from "../components/HalloweenLottieLogo.astro";
-import ChristmasNavigation from "../components/ChristmasNavigation.astro";
-import ChristmasWelcome from "../components/ChristmasWelcome.astro";
-import ChristmasDecorations from "../components/ChristmasDecorations.astro";
-import ChristmasLottie from "../components/ChristmasLottie.astro";
-import ChristmasLottieLogo from "../components/ChristmasLottieLogo.astro";
-import ChristmasLights from "../components/ChristmasLights.astro";
-import DesktopCards from "../components/DesktopCards.astro";
+import NavModern from "../components/NavModern.astro";
 import Footer from "../components/Footer.astro";
-import WhatsAppButton from "../components/WhatsAppButton.astro";
-import MatrixEffect from "../components/MatrixEffect.astro";
+import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import TestimonialsSection from "../components/TestimonialsSection";
-import EnvDiagnostic from "../components/EnvDiagnostic";
 import FormularioSelector from "../components/FormularioSelector";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Image } from "astro:assets";
+import escuelapgiImage from "../assets/escuelapgi.webp";
+import portfolioImage from "../assets/portfolio.webp";
 ---
 
-<Layout title="KGL - Portafolio">
-  <!-- Componente de diagnóstico temporal - Solo en desarrollo -->
-  {import.meta.env.DEV && <EnvDiagnostic client:load />}
+<Layout title="Peko's | Desarrollo Web Profesional - Sitios que Convierten">
+  <!-- Nueva Navegación -->
+  <NavModern />
 
-  <main
-    class="min-h-screen flex items-center justify-center bg-primary relative overflow-hidden page-transition"
-  >
-    {/* Efecto de partículas de fondo */}
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-primary/80 to-primary/60"
-    >
-    </div>
-    {
-      /* <div class="absolute inset-0 bg-[url('/grid.svg')] opacity-20"></div> */
-    }
+  <!-- ========================================
+       HERO SECTION
+       ======================================== -->
+  <section class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-grid"></div>
 
-    {/* Efecto de glitch en el fondo */}
-    <div class="absolute inset-0 glitch-bg"></div>
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponible para nuevos proyectos
+      </div>
 
-    {/* Red neuronal animada eliminada */}
+      <!-- Título Principal -->
+      <h1 class="hero-title">
+        Desarrollo sitios web que <span class="highlight"
+          >impulsan tu negocio</span
+        >
+      </h1>
 
-    <div
-      class="relative w-full max-w-4xl min-h-[80vh] sm:h-[90vh] flex items-center justify-center"
-    >
-      {/* 🎄 Luces de Navidad colgando de la tarjeta */}
-      {/* <ChristmasLights /> */}
+      <!-- Subtítulo -->
+      <p class="hero-subtitle">
+        Creamos experiencias digitales que convierten visitantes en clientes.
+        Diseño profesional, código limpio y resultados medibles para hacer
+        crecer tu empresa.
+      </p>
 
-      {/* Tarjeta principal con navbar */}
-      <div
-        class="relative w-full h-full bg-secondary/80 backdrop-blur-sm rounded-3xl border-4 border-accent neon-glow shadow-2xl flex flex-col overflow-visible group hover:shadow-[0_0_30px_rgba(225,29,116,0.5)] transition-all duration-500 cyberpunk-card"
-      >
-        {/* Efecto de escaneo */}
-        <div class="absolute inset-0 scan-line"></div>
-
-        {/* Navbar */}
-        <Navigation />
-
-        {/* Navbar Halloween */}
-        {/* <HalloweenNavigation /> */}
-
-        {/* Navbar Navidad */}
-        {/* <ChristmasNavigation /> */}
-
-        {/* Contenido principal */}
-        <div class="flex-1 overflow-y-auto overscroll-contain">
-          {/* Sección Home */}
-          <section
-            id="home"
-            class="h-full flex flex-col items-center justify-start relative pt-8 md:pt-0 md:justify-center"
+      <!-- CTAs -->
+      <div class="hero-cta-group">
+        <a
+          href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web"
+          target="_blank"
+          class="btn-primary"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
+            ></path>
+          </svg>
+          Cotizar Gratis
+        </a>
+        <a href="#portafolio" class="btn-secondary">
+          Ver Proyectos
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
           >
-            {/* 🎃 Animación Lottie arriba del logo */}
-            <!-- <HalloweenLottieLogo /> -->
+            <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+          </svg>
+        </a>
+      </div>
 
-            {/* 🎄 Animación Lottie Navidad arriba del logo */}
-            {/* <ChristmasLottieLogo /> */}
-
-            {/* Logo central */}
-            <CentralLogo />
-
-            {/* Tarjetas móviles */}
-            <MobileCards />
-
-            {/* Tarjetas de escritorio */}
-            <DesktopCards />
-          </section>
+      <!-- Stats -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">2+</span>
+          <span class="stat-label">Proyectos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Satisfacción</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1+</span>
+          <span class="stat-label">Años Exp.</span>
         </div>
       </div>
     </div>
-  </main>
 
-  {/* Sección de Testimonios fuera del bloque principal */}
-  <section
-    class="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white relative overflow-hidden"
-  >
-    {/* Efecto de fondo */}
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600/10 via-purple-600/10 to-blue-600/10"
-    >
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SERVICIOS SECTION
+       ======================================== -->
+  <section id="servicios" class="services-section">
+    <div class="section-header">
+      <span class="section-badge">Servicios</span>
+      <h2 class="section-title">Soluciones digitales a tu medida</h2>
+      <p class="section-subtitle">
+        Desde landing pages hasta sistemas complejos, desarrollo lo que tu
+        negocio necesita
+      </p>
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+    <div class="services-grid">
+      <!-- Servicio 1: Landing Pages -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
           >
-            Lo que dicen mis clientes
-          </h2>
-          <p class="text-lg text-gray-300">
-            Descubre las experiencias de quienes han confiado en mi trabajo
-          </p>
+            <path
+              d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
         </div>
+        <h3 class="service-title">Landing Pages</h3>
+        <p class="service-description">
+          Páginas de aterrizaje optimizadas para convertir visitantes en
+          clientes. Diseño enfocado en resultados.
+        </p>
+        <ul class="service-features">
+          <li>Diseño responsive</li>
+          <li>Optimizado para SEO</li>
+          <li>Carga ultra rápida</li>
+          <li>Integración de formularios</li>
+        </ul>
+      </div>
 
-        <TestimonialsSection client:visible limit={6} />
+      <!-- Servicio 2: Sitios Web -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="service-title">Sitios Web Corporativos</h3>
+        <p class="service-description">
+          Presencia digital profesional que transmite confianza y potencia la
+          imagen de tu marca.
+        </p>
+        <ul class="service-features">
+          <li>Múltiples páginas</li>
+          <li>Blog integrado</li>
+          <li>Panel de administración</li>
+          <li>Analíticas incluidas</li>
+        </ul>
+      </div>
+
+      <!-- Servicio 3: E-commerce -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="service-title">Tiendas Online</h3>
+        <p class="service-description">
+          Plataformas de e-commerce completas con carrito de compras, pagos en
+          línea y gestión de inventario.
+        </p>
+        <ul class="service-features">
+          <li>Catálogo de productos</li>
+          <li>Pasarela de pagos</li>
+          <li>Gestión de pedidos</li>
+          <li>Reportes de ventas</li>
+        </ul>
+      </div>
+
+      <!-- Servicio 4: Aplicaciones Web -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="service-title">Aplicaciones Web</h3>
+        <p class="service-description">
+          Sistemas a medida que automatizan y optimizan los procesos de tu
+          negocio.
+        </p>
+        <ul class="service-features">
+          <li>Desarrollo a medida</li>
+          <li>Bases de datos</li>
+          <li>APIs e integraciones</li>
+          <li>Soporte continuo</li>
+        </ul>
+      </div>
+
+      <!-- Servicio 5: Mantenimiento -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="service-title">Mantenimiento Web</h3>
+        <p class="service-description">
+          Mantén tu sitio actualizado, seguro y funcionando al 100%. Planes
+          mensuales accesibles.
+        </p>
+        <ul class="service-features">
+          <li>Actualizaciones</li>
+          <li>Copias de seguridad</li>
+          <li>Monitoreo 24/7</li>
+          <li>Soporte prioritario</li>
+        </ul>
+      </div>
+
+      <!-- Servicio 6: Consultoría -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+          >
+            <path
+              d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </div>
+        <h3 class="service-title">Consultoría Digital</h3>
+        <p class="service-description">
+          Asesoría estratégica para llevar tu presencia digital al siguiente
+          nivel.
+        </p>
+        <ul class="service-features">
+          <li>Auditoría web</li>
+          <li>Estrategia digital</li>
+          <li>Optimización UX/UI</li>
+          <li>Plan de crecimiento</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  {/* Sección para agregar testimonios */}
-  <section
-    class="py-16 bg-gradient-to-r from-gray-900 to-gray-800 text-white relative overflow-hidden"
-  >
-    {/* Efecto de fondo */}
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600/10 via-purple-600/10 to-blue-600/10"
-    >
+  <!-- ========================================
+       PORTAFOLIO SECTION
+       ======================================== -->
+  <section id="portafolio" class="portfolio-section">
+    <div class="section-header">
+      <span class="section-badge">Portafolio</span>
+      <h2 class="section-title">Proyectos que hablan por sí mismos</h2>
+      <p class="section-subtitle">
+        Cada proyecto es una historia de éxito. Conoce algunos de mis trabajos
+        más destacados.
+      </p>
     </div>
 
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            class="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+    <div class="portfolio-grid">
+      <!-- Proyecto 1: Plataforma Escolar Integral -->
+      <div class="portfolio-card">
+        <div class="portfolio-image-wrapper">
+          <Image
+            src={escuelapgiImage}
+            alt="Plataforma Escolar Integral"
+            class="portfolio-image"
+          />
+        </div>
+        <div class="portfolio-content">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">React</span>
+            <span class="portfolio-tag">Node.js</span>
+            <span class="portfolio-tag">PostgreSQL</span>
+          </div>
+          <h3 class="portfolio-title">Plataforma Escolar Integral</h3>
+          <p class="portfolio-description">
+            Sistema web completo para gestión y difusión de información escolar.
+            Incluye autenticación robusta, procesamiento de imágenes y
+            animaciones modernas.
+          </p>
+          <a
+            href="https://escuelapgi.cl/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="portfolio-link"
           >
-            ¿Trabajamos juntos?
-          </h2>
-          <p class="text-lg text-gray-300">
-            Comparte tu experiencia y ayuda a otros a conocerme mejor
+            Visitar Sitio →
+          </a>
+        </div>
+      </div>
+
+      <!-- Proyecto 2: Portafolio Personal -->
+      <div class="portfolio-card">
+        <div class="portfolio-image-wrapper">
+          <Image
+            src={portfolioImage}
+            alt="Portafolio Personal"
+            class="portfolio-image"
+          />
+        </div>
+        <div class="portfolio-content">
+          <div class="portfolio-tags">
+            <span class="portfolio-tag">Astro</span>
+            <span class="portfolio-tag">Tailwind</span>
+            <span class="portfolio-tag">TypeScript</span>
+          </div>
+          <h3 class="portfolio-title">Portafolio Personal</h3>
+          <p class="portfolio-description">
+            Sitio web personal con diseño moderno, animaciones fluidas, efectos
+            visuales y una experiencia de usuario inmersiva.
+          </p>
+          <a
+            href="https://github.com/keymers/portafolio.kevin.git"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="portfolio-link"
+          >
+            Ver Código →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-cta">
+      <a href="/proyectos" class="btn-secondary">
+        Ver todos los proyectos
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PROCESO SECTION
+       ======================================== -->
+  <section id="proceso" class="process-section">
+    <div class="section-header">
+      <span class="section-badge">Proceso</span>
+      <h2 class="section-title">¿Cómo trabajo?</h2>
+      <p class="section-subtitle">
+        Un proceso claro y transparente para que siempre sepas en qué etapa está
+        tu proyecto.
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-item">
+        <div class="process-number">1</div>
+        <div class="process-content">
+          <h3 class="process-title">Conversación Inicial</h3>
+          <p class="process-description">
+            Nos reunimos (virtual o presencial) para entender tu negocio, tus
+            objetivos y qué necesitas. Esta consulta es <strong
+              >completamente gratis</strong
+            > y sin compromiso.
           </p>
         </div>
+      </div>
 
-        <FormularioSelector client:visible />
+      <div class="process-item">
+        <div class="process-number">2</div>
+        <div class="process-content">
+          <h3 class="process-title">Propuesta y Presupuesto</h3>
+          <p class="process-description">
+            Te envío una propuesta detallada con el alcance del proyecto,
+            tiempos de entrega y presupuesto transparente. Sin sorpresas ni
+            costos ocultos.
+          </p>
+        </div>
+      </div>
+
+      <div class="process-item">
+        <div class="process-number">3</div>
+        <div class="process-content">
+          <h3 class="process-title">Diseño y Desarrollo</h3>
+          <p class="process-description">
+            Comienzo a trabajar en tu proyecto con actualizaciones constantes.
+            Podrás ver el progreso en tiempo real y dar feedback en cada etapa.
+          </p>
+        </div>
+      </div>
+
+      <div class="process-item">
+        <div class="process-number">4</div>
+        <div class="process-content">
+          <h3 class="process-title">Lanzamiento y Soporte</h3>
+          <p class="process-description">
+            Publicamos tu proyecto y te capacito para que puedas manejarlo.
+            Además, incluyo
+            <strong>30 días de soporte gratuito</strong> post-lanzamiento.
+          </p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ========================================
+       TESTIMONIOS SECTION
+       ======================================== -->
+  <section class="testimonials-section">
+    <div class="section-header">
+      <span class="section-badge">Testimonios</span>
+      <h2 class="section-title">Lo que dicen mis clientes</h2>
+      <p class="section-subtitle">
+        La satisfacción de mis clientes es mi mejor carta de presentación
+      </p>
+    </div>
+
+    <div class="testimonials-container">
+      <TestimonialsSection client:visible limit={6} />
+    </div>
+  </section>
+
+  <!-- ========================================
+       CTA FINAL SECTION
+       ======================================== -->
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2 class="cta-title">¿Listo para impulsar tu negocio?</h2>
+      <p class="cta-description">
+        Conversemos sobre tu proyecto. La primera consulta es gratis y sin
+        compromiso.
+      </p>
+      <div class="cta-buttons">
+        <a
+          href="https://wa.me/+56973650208?text=Hola!%20Me%20gustaría%20agendar%20una%20reunión%20para%20hablar%20de%20mi%20proyecto"
+          target="_blank"
+          class="btn-primary"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"
+            ></path>
+          </svg>
+          Agendar Reunión Gratis
+        </a>
+        <a href="mailto:kevin.gonzalez04@outlook.com" class="btn-secondary">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+          Enviar Email
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FORMULARIO DE COTIZACIÓN
+       ======================================== -->
+  <section class="form-section">
+    <div class="section-header">
+      <span class="section-badge">Contacto</span>
+      <h2 class="section-title">¿Trabajamos juntos?</h2>
+      <p class="section-subtitle">
+        Cuéntame sobre tu proyecto o deja tu testimonio si ya hemos trabajado
+      </p>
+    </div>
+
+    <div class="form-container">
+      <FormularioSelector client:visible />
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- WhatsApp Button -->
+  <WhatsAppFloat />
 </Layout>
 
-{/* Footer */}
-<Footer />
-
-{/* Botón de WhatsApp */}
-<WhatsAppButton />
-
-{/* 🎃 Mensaje de bienvenida Halloween */}
-<!-- <HalloweenWelcome /> -->
-
-{/* 🎃 Decoraciones Halloween - Luna y bruja */}
-<!-- <HalloweenDecorations /> -->
-
-{/* 🎃 Animación Lottie Halloween */}
-<!-- <HalloweenLottie /> -->
-
-{/* 🎃 Segunda animación Lottie Halloween */}
-<!-- <HalloweenLottie2 /> -->
-
-{/* 🎄 Mensaje de bienvenida Navidad */}
-{/* <ChristmasWelcome /> */}
-
-{/* 🎄 Decoraciones Navidad - Nieve */}
-{/* <ChristmasDecorations /> */}
-
-{/* 🎄 Animación Lottie Navidad */}
-{/* <ChristmasLottie /> */}
-
-{/* Efecto Matrix */}
-<MatrixEffect />
-
 <style>
-  @import "../styles/home.css";
-  /* 🎄 Importar estilos navideños */
-  /* @import "../styles/christmas.css"; */
-</style>
+  @import "../styles/redesign.css";
 
-<script src="../scripts/home.js" defer></script>
+  /* Additional page-specific styles */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+  }
+
+  .scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+  }
+
+  .scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--accent-purple);
+    border-radius: 2px;
+    animation: scrollWheel 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollWheel {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 0.3;
+    }
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .portfolio-image-wrapper {
+    overflow: hidden;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .portfolio-placeholder {
+    width: 100%;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    transition: transform 0.4s ease;
+  }
+
+  .portfolio-card:hover .portfolio-placeholder {
+    transform: scale(1.05);
+  }
+
+  .portfolio-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .form-section {
+    padding: 6rem 2rem;
+  }
+
+  .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Section spacing adjustments */
+  section {
+    scroll-margin-top: 80px;
+  }
+</style>

@@ -1,0 +1,259 @@
+---
+// Navegación moderna y profesional
+---
+
+<nav class="nav-modern" id="main-nav">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="/" class="nav-logo">PEKO'S</a>
+
+        <!-- Links de navegación -->
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-link">Servicios</a></li>
+            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
+            <li><a href="#proceso" class="nav-link">Proceso</a></li>
+            <li><a href="/sobremi" class="nav-link">Sobre mí</a></li>
+        </ul>
+
+        <!-- CTA -->
+        <a
+            href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto"
+            target="_blank"
+            class="nav-cta"
+        >
+            💬 Cotizar
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile-menu" id="mobile-menu">
+        <ul class="nav-mobile-links">
+            <li><a href="/" class="nav-mobile-link">Inicio</a></li>
+            <li><a href="#servicios" class="nav-mobile-link">Servicios</a></li>
+            <li>
+                <a href="#portafolio" class="nav-mobile-link">Portafolio</a>
+            </li>
+            <li><a href="#proceso" class="nav-mobile-link">Proceso</a></li>
+            <li><a href="/sobremi" class="nav-mobile-link">Sobre mí</a></li>
+            <li>
+                <a
+                    href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto"
+                    target="_blank"
+                    class="nav-mobile-cta"
+                >
+                    💬 Cotizar Ahora
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<style>
+    .nav-modern {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 1rem 2rem;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .nav-modern.scrolled {
+        padding: 0.75rem 2rem;
+        background: rgba(15, 23, 42, 0.95);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-decoration: none;
+        letter-spacing: 2px;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: #f1f5f9;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .nav-cta {
+        padding: 0.625rem 1.5rem;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    }
+
+    .nav-mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-mobile-toggle span {
+        width: 25px;
+        height: 2px;
+        background: #f1f5f9;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .nav-mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        padding: 1rem;
+    }
+
+    .nav-mobile-menu.active {
+        display: block;
+    }
+
+    .nav-mobile-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-mobile-link {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-mobile-link:hover {
+        background: rgba(139, 92, 246, 0.1);
+        color: #f1f5f9;
+    }
+
+    .nav-mobile-cta {
+        display: block;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .nav-cta {
+            display: none;
+        }
+
+        .nav-mobile-toggle {
+            display: flex;
+        }
+    }
+</style>
+
+<script>
+    // Scroll effect
+    const nav = document.getElementById("main-nav");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            nav?.classList.add("scrolled");
+        } else {
+            nav?.classList.remove("scrolled");
+        }
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById("mobile-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    toggle?.addEventListener("click", () => {
+        menu?.classList.toggle("active");
+    });
+
+    // Close menu on link click
+    document.querySelectorAll(".nav-mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu?.classList.remove("active");
+        });
+    });
+</script>
