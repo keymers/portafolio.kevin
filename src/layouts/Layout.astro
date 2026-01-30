@@ -5,9 +5,19 @@ import Analytics from "@vercel/analytics/astro";
 
 interface Props {
 	title: string;
+	description?: string;
+	image?: string;
+	canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const { 
+	title, 
+	description = "Desarrollo web profesional y soluciones informáticas. Creamos landing pages, sitios web corporativos y tiendas online que impulsan tu negocio.",
+	image = "/og-image.jpg",
+	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+} = Astro.props;
+
+const siteName = "Peko's Desarrollo Web";
 ---
 
 <!doctype html>
@@ -15,26 +25,77 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<meta
-			name="description"
-			content="Portfolio personal de Kevin González - Desarrollador Full Stack especializado en React, Astro, Node.js y tecnologías modernas. Proyectos web, aplicaciones y soluciones digitales innovadoras."
-		/>
+		<meta name="google-site-verification" content="RR1ju296aWWgFLL6L_b1mp9ZBEDRWufxvm4qsrNf2LI" />
+		
+		<!-- SEO Primario -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
 		<meta
 			name="keywords"
-			content="desarrollador, full stack, react, astro, nodejs, portfolio, kevin gonzalez, programador, web developer"
+			content="hacer mi pagina web, soluciones informaticas, desarrollo web chile, diseño web profesional, crear sitio web, landing page para mi negocio, programador web, servicios informaticos"
 		/>
 		<meta name="author" content="Kevin Joseph González Lister" />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:site_name" content={siteName} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
+
+		<!-- JSON-LD Datos Estructurados -->
+		<script type="application/ld+json" is:inline set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "Peko's Desarrollo Web",
+			"image": "https://pekos.cl/og-image.jpg",
+			"@id": "https://pekos.cl",
+			"url": "https://pekos.cl",
+			"telephone": "+56973650208",
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "CL"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": -39.8172, // Ejemplo, ajustar si es necesario
+				"longitude": -73.2332
+			},
+			"openingHoursSpecification": {
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": [
+					"Monday",
+					"Tuesday",
+					"Wednesday",
+					"Thursday",
+					"Friday"
+				],
+				"opens": "09:00",
+				"closes": "18:00"
+			},
+			"sameAs": [
+				"https://wa.me/56973650208"
+			]
+		})}>
+		</script>
 
 		<!-- Performance optimization hints -->
 		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch a Supabase para carga diferida -->
-		<link
-			rel="dns-prefetch"
-			href="https://stdnpttjitpyizbkjquc.supabase.co"
-		/>
+		<link rel="dns-prefetch" href="https://stdnpttjitpyizbkjquc.supabase.co" />
 
 		<!-- 🚀 OPTIMIZACIÓN: DNS prefetch para recursos Astro -->
 		<link rel="dns-prefetch" href="/_astro/" />
@@ -50,7 +111,6 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://lottie.host" />
 
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 
 		<!-- 🚀 OPTIMIZACIÓN: Meta tags para mejor priorización de recursos -->
 		<meta http-equiv="x-dns-prefetch-control" content="on" />
@@ -68,33 +128,20 @@ const { title } = Astro.props;
 		</noscript>
 		<EnvScript />
 
-		<!-- EmailJS Script - Deferred for better performance -->
+		<!-- EmailJS Script -->
 		<script type="text/javascript" src="/email.min.js" defer></script>
 		<script type="text/javascript">
-			// Esperar a que EmailJS se cargue antes de inicializarlo
 			document.addEventListener("DOMContentLoaded", function () {
-				// Verificar si EmailJS está disponible
 				const checkEmailJS = () => {
 					if (typeof window !== "undefined" && window.emailjs) {
 						const publicKey = window.VITE_EMAILJS_PUBLIC_KEY;
-						if (
-							publicKey &&
-							publicKey !== "your_public_key" &&
-							publicKey !== "public_key_xxxxxxx"
-						) {
+						if (publicKey && publicKey !== "your_public_key" && publicKey !== "public_key_xxxxxxx") {
 							window.emailjs.init(publicKey);
-						} else {
-							console.warn(
-								"EmailJS public key no configurada correctamente",
-							);
 						}
 					} else {
-						// Reintentar después de un breve delay si EmailJS aún no está cargado
 						setTimeout(checkEmailJS, 100);
 					}
 				};
-
-				// Iniciar la verificación
 				checkEmailJS();
 			});
 		</script>
