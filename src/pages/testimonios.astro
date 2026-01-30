@@ -3,11 +3,34 @@ import Layout from "../layouts/Layout.astro";
 import TestimonialsSection from "../components/TestimonialsSection";
 import FormularioSelector from "../components/FormularioSelector";
 import PortfolioStats from "../components/PortfolioStats";
+const faqData = [
+  {
+    question: "¿Cómo se verifican los testimonios?",
+    answer:
+      "Todos los testimonios son revisados manualmente antes de ser publicados para asegurar su autenticidad y calidad.",
+  },
+  {
+    question: "¿Puedo editar mi testimonio?",
+    answer:
+      "Una vez enviado, el testimonio pasa por un proceso de revisión. Si necesitas hacer cambios, puedes contactarme directamente.",
+  },
+  {
+    question: "¿Qué información se muestra?",
+    answer:
+      "Solo se muestra tu nombre, empresa (si la proporcionas), cargo, calificación y comentario. Tu información personal está protegida.",
+  },
+  {
+    question: "¿Cuánto tiempo tarda?",
+    answer:
+      "Los testimonios son revisados dentro de las 24-48 horas posteriores al envío.",
+  },
+];
 ---
 
 <Layout
   title="Testimonios de Clientes | Opiniones sobre Peko's"
-  description="Lo que nuestros clientes dicen sobre nosotros. Experiencias reales de éxito con nuestras soluciones de desarrollo web y consultoría informática."
+  description="Lo que nuestros clientes dicen sobre nosotros. Experiencias reales de éxito con nuestras soluciones de desarrollo web y consultoría informática. ¡Mira nuestras reseñas baratas y de calidad!"
+  faqData={faqData}
 >
   <main class="min-h-screen bg-primary relative">
     <!-- Fondo futurístico -->
@@ -340,4 +363,3 @@ import PortfolioStats from "../components/PortfolioStats";
     height: auto !important;
   }
 </style>
-

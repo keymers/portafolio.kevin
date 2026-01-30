@@ -8,13 +8,15 @@ interface Props {
 	description?: string;
 	image?: string;
 	canonicalURL?: string;
+	faqData?: Array<{ question: string; answer: string }>;
 }
 
 const { 
 	title, 
-	description = "Desarrollo web profesional y soluciones informáticas. Creamos landing pages, sitios web corporativos y tiendas online que impulsan tu negocio.",
+	description = "Desarrollo web profesional y soluciones informáticas. Creamos landing pages económicas, sitios web modernos y tiendas online baratas para impulsar tu negocio. ¡Cotiza tu página web gratis!",
 	image = "/og-image.jpg",
-	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString()
+	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
+	faqData = null
 } = Astro.props;
 
 const siteName = "Peko's Desarrollo Web";
@@ -64,13 +66,14 @@ const siteName = "Peko's Desarrollo Web";
 			"@id": "https://pekos.cl",
 			"url": "https://pekos.cl",
 			"telephone": "+56973650208",
+			"priceRange": "$",
 			"address": {
 				"@type": "PostalAddress",
 				"addressCountry": "CL"
 			},
 			"geo": {
 				"@type": "GeoCoordinates",
-				"latitude": -39.8172, // Ejemplo, ajustar si es necesario
+				"latitude": -39.8172,
 				"longitude": -73.2332
 			},
 			"openingHoursSpecification": {
@@ -83,13 +86,29 @@ const siteName = "Peko's Desarrollo Web";
 					"Friday"
 				],
 				"opens": "09:00",
-				"closes": "18:00"
+				"closes": "20:00"
 			},
 			"sameAs": [
 				"https://wa.me/56973650208"
 			]
 		})}>
 		</script>
+
+		{faqData && (
+			<script type="application/ld+json" is:inline set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": faqData.map(item => ({
+					"@type": "Question",
+					"name": item.question,
+					"acceptedAnswer": {
+						"@type": "Answer",
+						"text": item.answer
+					}
+				}))
+			})}>
+			</script>
+		)}
 
 		<!-- Performance optimization hints -->
 		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />

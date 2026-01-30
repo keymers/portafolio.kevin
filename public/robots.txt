@@ -1,6 +1,5 @@
 User-agent: *
 Disallow: /admin/
-Disallow: /_astro/
 Disallow: /api/
 Allow: /
 Sitemap: https://pekos.cl/sitemap.xml
