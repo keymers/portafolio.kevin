@@ -11,16 +11,16 @@ interface Props {
   scale?: number;
 }
 
-const ScrollReveal: React.FC<Props> = ({ 
-  children, 
-  delay = 0, 
-  direction = 'up', 
+const ScrollReveal: React.FC<Props> = ({
+  children,
+  delay = 0,
+  direction = 'up',
   className = '',
   duration = 0.6,
-  distance = 50,
+  distance = 40,
   scale = 1
 }) => {
-  const directions = {
+  const directions: Record<string, object> = {
     up: { y: distance },
     down: { y: -distance },
     left: { x: distance },
@@ -31,22 +31,22 @@ const ScrollReveal: React.FC<Props> = ({
   return (
     <motion.div
       className={className}
-      initial={{ 
-        opacity: 0, 
-        scale: scale === 1 ? 1 : scale,
-        ...directions[direction] 
+      initial={{
+        opacity: 0,
+        scale: scale !== 1 ? scale : 1,
+        ...directions[direction],
       }}
-      whileInView={{ 
-        opacity: 1, 
+      whileInView={{
+        opacity: 1,
         scale: 1,
-        x: 0, 
-        y: 0 
+        x: 0,
+        y: 0,
       }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ 
-        duration: duration, 
-        delay: delay,
-        ease: [0.25, 0.1, 0.25, 1]
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration,
+        delay,
+        ease: [0.25, 0.1, 0.25, 1],
       }}
     >
       {children}
@@ -55,3 +55,4 @@ const ScrollReveal: React.FC<Props> = ({
 };
 
 export default ScrollReveal;
+

@@ -96,19 +96,19 @@ import portfolioImage from "../assets/portfolio.webp";
         <div class="hero-stats">
           <div class="stat-item">
             <span class="stat-number"
-              ><Counter client:visible value={2} suffix="+" /></span
+              ><Counter client:load value={3} suffix="+" /></span
             >
             <span class="stat-label">Proyectos</span>
           </div>
           <div class="stat-item">
             <span class="stat-number"
-              ><Counter client:visible value={100} suffix="%" /></span
+              ><Counter client:load value={100} suffix="%" /></span
             >
             <span class="stat-label">Satisfacción</span>
           </div>
           <div class="stat-item">
             <span class="stat-number"
-              ><Counter client:visible value={1} suffix="+" /></span
+              ><Counter client:load value={2} suffix="+" /></span
             >
             <span class="stat-label">Años Exp.</span>
           </div>
@@ -140,8 +140,8 @@ import portfolioImage from "../assets/portfolio.webp";
 
     <div class="services-grid">
       <!-- Servicio 1: Landing Pages -->
-      <ScrollReveal client:visible delay={0.1}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.1}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -172,8 +172,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 2: Sitios Web -->
-      <ScrollReveal client:visible delay={0.2}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.2}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -202,8 +202,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 3: E-commerce -->
-      <ScrollReveal client:visible delay={0.3}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.3}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -232,8 +232,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 4: Aplicaciones Web -->
-      <ScrollReveal client:visible delay={0.1}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.1}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -262,8 +262,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 5: Mantenimiento -->
-      <ScrollReveal client:visible delay={0.2}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.2}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -292,8 +292,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 6: SEO y Posicionamiento -->
-      <ScrollReveal client:visible delay={0.3}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.3}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -322,8 +322,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Servicio 7: Rediseño y Mejora -->
-      <ScrollReveal client:visible delay={0.4}>
-        <TiltCard client:visible className="service-card">
+      <ScrollReveal client:load delay={0.4}>
+        <TiltCard client:load className="service-card">
           <div class="service-icon">
             <svg
               viewBox="0 0 24 24"
@@ -368,8 +368,8 @@ import portfolioImage from "../assets/portfolio.webp";
 
     <div class="portfolio-grid">
       <!-- Proyecto 1: Plataforma Escolar Integral -->
-      <ScrollReveal client:visible delay={0.1}>
-        <TiltCard client:visible className="portfolio-card">
+      <ScrollReveal client:load delay={0.1}>
+        <TiltCard client:load className="portfolio-card">
           <div class="portfolio-image-wrapper">
             <Image
               src={escuelapgiImage}
@@ -402,8 +402,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Proyecto 2: Garage Online -->
-      <ScrollReveal client:visible delay={0.2}>
-        <TiltCard client:visible className="portfolio-card">
+      <ScrollReveal client:load delay={0.2}>
+        <TiltCard client:load className="portfolio-card">
           <div class="portfolio-image-wrapper">
             <img
               src="/garageonline.webp"
@@ -435,8 +435,8 @@ import portfolioImage from "../assets/portfolio.webp";
       </ScrollReveal>
 
       <!-- Proyecto 3: Portafolio Personal -->
-      <ScrollReveal client:visible delay={0.3}>
-        <TiltCard client:visible className="portfolio-card">
+      <ScrollReveal client:load delay={0.3}>
+        <TiltCard client:load className="portfolio-card">
           <div class="portfolio-image-wrapper">
             <Image
               src={portfolioImage}
@@ -499,7 +499,7 @@ import portfolioImage from "../assets/portfolio.webp";
     </div>
 
     <div class="process-timeline">
-      <ScrollReveal client:visible delay={0.1}>
+      <ScrollReveal client:load delay={0.1}>
         <div class="process-item">
           <div class="process-number">1</div>
           <div class="process-content">
@@ -514,7 +514,7 @@ import portfolioImage from "../assets/portfolio.webp";
         </div>
       </ScrollReveal>
 
-      <ScrollReveal client:visible delay={0.2}>
+      <ScrollReveal client:load delay={0.2}>
         <div class="process-item">
           <div class="process-number">2</div>
           <div class="process-content">
@@ -528,7 +528,7 @@ import portfolioImage from "../assets/portfolio.webp";
         </div>
       </ScrollReveal>
 
-      <ScrollReveal client:visible delay={0.3}>
+      <ScrollReveal client:load delay={0.3}>
         <div class="process-item">
           <div class="process-number">3</div>
           <div class="process-content">
@@ -542,7 +542,7 @@ import portfolioImage from "../assets/portfolio.webp";
         </div>
       </ScrollReveal>
 
-      <ScrollReveal client:visible delay={0.4}>
+      <ScrollReveal client:load delay={0.4}>
         <div class="process-item">
           <div class="process-number">4</div>
           <div class="process-content">
@@ -571,7 +571,7 @@ import portfolioImage from "../assets/portfolio.webp";
     </div>
 
     <div class="testimonials-container">
-      <TestimonialsSection client:visible limit={6} />
+      <TestimonialsSection client:load limit={6} />
     </div>
   </section>
 
@@ -579,7 +579,7 @@ import portfolioImage from "../assets/portfolio.webp";
        PROGRAMA COLEGIO DIGITAL
        ======================================== -->
   <section class="school-program-section">
-    <ScrollReveal client:visible direction="none" scale={0.95} duration={0.8}>
+    <ScrollReveal client:load direction="none" scale={0.95} duration={0.8}>
       <div class="school-program-card">
         <div class="school-program-content">
           <span class="school-program-badge">🏫 Programa Social</span>
@@ -619,7 +619,7 @@ import portfolioImage from "../assets/portfolio.webp";
        CTA FINAL SECTION
        ======================================== -->
   <section class="cta-section">
-    <ScrollReveal client:visible direction="up" distance={30}>
+    <ScrollReveal client:load direction="up" distance={30}>
       <div class="cta-card">
         <h2 class="cta-title">¿Listo para impulsar tu negocio?</h2>
         <p class="cta-description">
@@ -674,7 +674,7 @@ import portfolioImage from "../assets/portfolio.webp";
     </div>
 
     <div class="form-container">
-      <FormularioSelector client:visible />
+      <FormularioSelector client:load />
     </div>
   </section>
 

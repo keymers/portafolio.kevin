@@ -27,6 +27,16 @@ const TiltCard: React.FC<Props> = ({ children, className = '' }) => {
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
 
+  // Extraídos aquí para no violar las Reglas de Hooks (no llamar hooks dentro de JSX)
+  const spotlightBg = useTransform(
+    [mouseX, mouseY],
+    ([cx, cy]: number[]) => `radial-gradient(600px circle at ${cx}px ${cy}px, rgba(139, 92, 246, 0.1), transparent 80%)`
+  );
+  const glowBg = useTransform(
+    [mouseX, mouseY],
+    ([cx, cy]: number[]) => `radial-gradient(400px circle at ${cx}px ${cy}px, rgba(236, 72, 153, 0.2), transparent 80%)`
+  );
+
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const width = rect.width;
@@ -69,22 +79,14 @@ const TiltCard: React.FC<Props> = ({ children, className = '' }) => {
       {/* Spotlight Effect */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: useTransform(
-            [mouseX, mouseY],
-            ([cx, cy]) => `radial-gradient(600px circle at ${cx}px ${cy}px, rgba(139, 92, 246, 0.1), transparent 80%)`
-          ),
-        }}
+        style={{ background: spotlightBg }}
       />
       
       {/* Glow Border */}
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
-          background: useTransform(
-            [mouseX, mouseY],
-            ([cx, cy]) => `radial-gradient(400px circle at ${cx}px ${cy}px, rgba(236, 72, 153, 0.2), transparent 80%)`
-          ),
+          background: glowBg,
           maskImage: 'linear-gradient(white, white), linear-gradient(white, white)',
           maskComposite: 'exclude',
           WebkitMaskComposite: 'xor',
@@ -113,3 +115,4 @@ const TiltCard: React.FC<Props> = ({ children, className = '' }) => {
 };
 
 export default TiltCard;
+
