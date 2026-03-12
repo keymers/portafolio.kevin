@@ -124,24 +124,24 @@ function getTerminalElements() {
 
 const projectsList = [
 	{
+		name: 'Plataforma Escolar Integral',
+		tech: 'React, Node.js, PostgreSQL',
+		desc: 'Sistema web completo para gestión y difusión de información escolar con arquitectura cliente-servidor.'
+	},
+	{
+		name: 'Garage Online',
+		tech: 'Next.js, Node.js',
+		desc: 'Modernización completa de e-commerce de repuestos y accesorios para motos, optimizando rendimiento y UX.'
+	},
+	{
 		name: 'Portfolio KGL',
 		tech: 'Astro, React, TailwindCSS',
 		desc: 'Mi portafolio personal con efectos cyberpunk, terminal interactiva y animaciones.'
 	},
 	{
-		name: 'API de Tareas',
-		tech: 'Node.js, Express, MongoDB, C#',
-		desc: 'API RESTful para gestión de tareas, con autenticación y panel de administración.'
-	},
-	{
 		name: 'E-commerce Moderno',
-		tech: 'React, C#, .NET, PostgreSQL',
+		tech: 'React, .NET, PostgreSQL',
 		desc: 'Tienda online con pasarela de pagos, panel de usuario y dashboard de ventas.'
-	},
-	{
-		name: 'App de Notas',
-		tech: 'Vue, Firebase',
-		desc: 'Aplicación web para tomar notas rápidas, sincronización en tiempo real y modo oscuro.'
 	}
 ];
 
@@ -207,7 +207,7 @@ Otros: .NET, TypeScript
 	},
 	contact: () => `
 Contacto:
-Email: kevin.gonzalez04@outlook.com
+Email: kevin.gonzalez@pekos.cl
 LinkedIn: linkedin.com/in/kevingonzalezlister
 GitHub: github.com/https://github.com/keymers
 	`,

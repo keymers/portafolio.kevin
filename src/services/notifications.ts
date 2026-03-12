@@ -94,7 +94,7 @@ export class NotificationService {
         
         // Variables que coinciden con la plantilla completa de EmailJS
         const templateParams = {
-          to_email: 'kevin.gonzalez04@outlook.com',
+          to_email: 'kevin.gonzalez@pekos.cl',
           to_name: 'Kevin',
           from_name: cleanEmailJSVariable(formulario.persona_contacto || 'Cliente'),
           from_email: cleanEmailJSVariable(formulario.email_contacto || 'No especificado'),
@@ -169,7 +169,7 @@ export class NotificationService {
         }
         
         const templateParams = {
-          to_email: cleanEmailJSVariable(adminEmail || 'kevin.gonzalez04@outlook.com'),
+          to_email: cleanEmailJSVariable(adminEmail || 'kevin.gonzalez@pekos.cl'),
           to_name: 'Kevin',
           from_name: cleanEmailJSVariable(testimonial.name),
           testimonial_name: cleanEmailJSVariable(testimonial.name),
@@ -194,7 +194,7 @@ export class NotificationService {
         
         // Fallback: mostrar datos en consola con información detallada
         const emailData = {
-          to_email: adminEmail || 'kevin.gonzalez04@outlook.com',
+          to_email: adminEmail || 'kevin.gonzalez@pekos.cl',
           subject: '🎉 Nuevo testimonio recibido - Tu Portfolio',
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f8f9fa;">

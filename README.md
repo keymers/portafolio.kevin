@@ -178,7 +178,7 @@ Si encuentras bugs o tienes ideas para mejorar:
 
 ## 📞 Contacto
 
-- 📧 Email: [kevin.gonzalez04@outlook.com](mailto:kevin.gonzalez04@outlook.com)
+- 📧 Email: [kevin.gonzalez@pekos.cl](mailto:kevin.gonzalez@pekos.cl)
 - 💼 LinkedIn: [kevingonzalezlister](https://linkedin.com/in/kevingonzalezlister)  
 - 🐙 GitHub: [keymers](https://github.com/keymers)
 - 🌐 Portfolio: [portafolio-kevin-wheat.vercel.app](https://portafolio-kevin-wheat.vercel.app)

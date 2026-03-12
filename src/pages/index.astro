@@ -5,6 +5,9 @@ import Footer from "../components/Footer.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import TestimonialsSection from "../components/TestimonialsSection";
 import FormularioSelector from "../components/FormularioSelector";
+import ScrollReveal from "../components/ScrollReveal";
+import Counter from "../components/Counter";
+import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
 import portfolioImage from "../assets/portfolio.webp";
@@ -41,62 +44,76 @@ import portfolioImage from "../assets/portfolio.webp";
       </a>
 
       <!-- Título Principal -->
-      <h1 class="hero-title">
-        Desarrollo Web y <span class="highlight">Soluciones Informáticas</span> de
-        Alto Impacto
-      </h1>
+      <ScrollReveal client:load direction="down" duration={0.8}>
+        <h1 class="hero-title">
+          Desarrollo Web y <span class="highlight">Soluciones Informáticas</span
+          > de Alto Impacto
+        </h1>
+      </ScrollReveal>
 
       <!-- Subtítulo -->
-      <p class="hero-subtitle">
-        Creamos experiencias digitales que convierten visitantes en clientes.
-        Diseño profesional, código limpio y resultados medibles para hacer
-        crecer tu empresa.
-      </p>
+      <ScrollReveal client:load delay={0.2} duration={0.8}>
+        <p class="hero-subtitle">
+          Creamos experiencias digitales que convierten visitantes en clientes.
+          Diseño profesional, código limpio y resultados medibles para hacer
+          crecer tu empresa.
+        </p>
+      </ScrollReveal>
 
       <!-- CTAs -->
-      <div class="hero-cta-group">
-        <a
-          href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web"
-          target="_blank"
-          class="btn-primary"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
-            ></path>
-          </svg>
-          Cotizar Gratis
-        </a>
-        <a href="#portafolio" class="btn-secondary">
-          Ver Proyectos
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+      <ScrollReveal client:load delay={0.4} duration={0.8}>
+        <div class="hero-cta-group">
+          <a
+            href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web"
+            target="_blank"
+            class="btn-primary"
           >
-            <path d="M7 17L17 7M17 7H7M17 7V17"></path>
-          </svg>
-        </a>
-      </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
+              ></path>
+            </svg>
+            Cotizar Gratis
+          </a>
+          <a href="#portafolio" class="btn-secondary">
+            Ver Proyectos
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7V17"></path>
+            </svg>
+          </a>
+        </div>
+      </ScrollReveal>
 
       <!-- Stats -->
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">2+</span>
-          <span class="stat-label">Proyectos</span>
+      <ScrollReveal client:load delay={0.6} direction="up">
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number"
+              ><Counter client:visible value={2} suffix="+" /></span
+            >
+            <span class="stat-label">Proyectos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"
+              ><Counter client:visible value={100} suffix="%" /></span
+            >
+            <span class="stat-label">Satisfacción</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"
+              ><Counter client:visible value={1} suffix="+" /></span
+            >
+            <span class="stat-label">Años Exp.</span>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Satisfacción</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">1+</span>
-          <span class="stat-label">Años Exp.</span>
-        </div>
-      </div>
+      </ScrollReveal>
     </div>
 
     <!-- Scroll indicator -->
@@ -123,202 +140,216 @@ import portfolioImage from "../assets/portfolio.webp";
 
     <div class="services-grid">
       <!-- Servicio 1: Landing Pages -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Landing Pages</h3>
-        <p class="service-description">
-          Páginas de aterrizaje optimizadas para convertir visitantes en
-          clientes. Diseño enfocado en resultados con <strong
-            >planes a tu medida</strong
-          >.
-        </p>
-        <ul class="service-features">
-          <li>Diseño responsive</li>
-          <li>Optimizado para SEO</li>
-          <li>Carga ultra rápida</li>
-          <li>Integración de formularios</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.1}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Landing Pages</h3>
+          <p class="service-description">
+            Páginas de aterrizaje optimizadas para convertir visitantes en
+            clientes. Diseño enfocado en resultados con <strong
+              >planes a tu medida</strong
+            >.
+          </p>
+          <ul class="service-features">
+            <li>Diseño responsive</li>
+            <li>Optimizado para SEO</li>
+            <li>Carga ultra rápida</li>
+            <li>Integración de formularios</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 2: Sitios Web -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Sitios Web Corporativos</h3>
-        <p class="service-description">
-          Presencia digital profesional que transmite confianza y potencia la
-          imagen de tu marca.
-        </p>
-        <ul class="service-features">
-          <li>Múltiples páginas</li>
-          <li>Blog integrado</li>
-          <li>Panel de administración</li>
-          <li>Analíticas incluidas</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.2}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Sitios Web Corporativos</h3>
+          <p class="service-description">
+            Presencia digital profesional que transmite confianza y potencia la
+            imagen de tu marca.
+          </p>
+          <ul class="service-features">
+            <li>Múltiples páginas</li>
+            <li>Blog integrado</li>
+            <li>Panel de administración</li>
+            <li>Analíticas incluidas</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 3: E-commerce -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Tiendas Online</h3>
-        <p class="service-description">
-          Plataformas de e-commerce completas con carrito de compras, pagos en
-          línea y gestión de inventario.
-        </p>
-        <ul class="service-features">
-          <li>Catálogo de productos</li>
-          <li>Pasarela de pagos</li>
-          <li>Gestión de pedidos</li>
-          <li>Reportes de ventas</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.3}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Tiendas Online</h3>
+          <p class="service-description">
+            Plataformas de e-commerce completas con carrito de compras, pagos en
+            línea y gestión de inventario.
+          </p>
+          <ul class="service-features">
+            <li>Catálogo de productos</li>
+            <li>Pasarela de pagos</li>
+            <li>Gestión de pedidos</li>
+            <li>Reportes de ventas</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 4: Aplicaciones Web -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Aplicaciones Web</h3>
-        <p class="service-description">
-          Sistemas a medida que automatizan y optimizan los procesos de tu
-          negocio.
-        </p>
-        <ul class="service-features">
-          <li>Desarrollo a medida</li>
-          <li>Bases de datos</li>
-          <li>APIs e integraciones</li>
-          <li>Soporte continuo</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.1}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Aplicaciones Web</h3>
+          <p class="service-description">
+            Sistemas a medida que automatizan y optimizan los procesos de tu
+            negocio.
+          </p>
+          <ul class="service-features">
+            <li>Desarrollo a medida</li>
+            <li>Bases de datos</li>
+            <li>APIs e integraciones</li>
+            <li>Soporte continuo</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 5: Mantenimiento -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Mantenimiento Web</h3>
-        <p class="service-description">
-          Mantén tu sitio actualizado, seguro y funcionando al 100%. Planes
-          mensuales accesibles.
-        </p>
-        <ul class="service-features">
-          <li>Actualizaciones</li>
-          <li>Copias de seguridad</li>
-          <li>Monitoreo 24/7</li>
-          <li>Soporte prioritario</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.2}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Mantenimiento Web</h3>
+          <p class="service-description">
+            Mantén tu sitio actualizado, seguro y funcionando al 100%. Planes
+            mensuales accesibles.
+          </p>
+          <ul class="service-features">
+            <li>Actualizaciones</li>
+            <li>Copias de seguridad</li>
+            <li>Monitoreo 24/7</li>
+            <li>Soporte prioritario</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 6: SEO y Posicionamiento -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">SEO y Visibilidad</h3>
-        <p class="service-description">
-          Optimizamos tu sitio para que aparezca en los primeros lugares de
-          Google y atraiga más clientes.
-        </p>
-        <ul class="service-features">
-          <li>Auditoría técnica SEO</li>
-          <li>Optimización de velocidad</li>
-          <li>Estrategia de palabras clave</li>
-          <li>Indexación garantizada</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.3}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">SEO y Visibilidad</h3>
+          <p class="service-description">
+            Optimizamos tu sitio para que aparezca en los primeros lugares de
+            Google y atraiga más clientes.
+          </p>
+          <ul class="service-features">
+            <li>Auditoría técnica SEO</li>
+            <li>Optimización de velocidad</li>
+            <li>Estrategia de palabras clave</li>
+            <li>Indexación garantizada</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
 
       <!-- Servicio 7: Rediseño y Mejora -->
-      <div class="service-card">
-        <div class="service-icon">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-          >
-            <path
-              d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-        </div>
-        <h3 class="service-title">Rediseño y Evolución</h3>
-        <p class="service-description">
-          ¿Tu página actual no convence? La transformamos en una herramienta
-          moderna, rápida y que realmente venda.
-        </p>
-        <ul class="service-features">
-          <li>Modernización de diseño</li>
-          <li>Mejora de experiencia (UX)</li>
-          <li>Optimización móvil</li>
-          <li>Migración de tecnologías</li>
-        </ul>
-      </div>
+      <ScrollReveal client:visible delay={0.4}>
+        <TiltCard client:visible className="service-card">
+          <div class="service-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path
+                d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+          <h3 class="service-title">Rediseño y Evolución</h3>
+          <p class="service-description">
+            ¿Tu página actual no convence? La transformamos en una herramienta
+            moderna, rápida y que realmente venda.
+          </p>
+          <ul class="service-features">
+            <li>Modernización de diseño</li>
+            <li>Mejora de experiencia (UX)</li>
+            <li>Optimización móvil</li>
+            <li>Migración de tecnologías</li>
+          </ul>
+        </TiltCard>
+      </ScrollReveal>
     </div>
   </section>
 
@@ -337,67 +368,104 @@ import portfolioImage from "../assets/portfolio.webp";
 
     <div class="portfolio-grid">
       <!-- Proyecto 1: Plataforma Escolar Integral -->
-      <div class="portfolio-card">
-        <div class="portfolio-image-wrapper">
-          <Image
-            src={escuelapgiImage}
-            alt="Plataforma Escolar Integral"
-            class="portfolio-image"
-          />
-        </div>
-        <div class="portfolio-content">
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">React</span>
-            <span class="portfolio-tag">Node.js</span>
-            <span class="portfolio-tag">PostgreSQL</span>
+      <ScrollReveal client:visible delay={0.1}>
+        <TiltCard client:visible className="portfolio-card">
+          <div class="portfolio-image-wrapper">
+            <Image
+              src={escuelapgiImage}
+              alt="Plataforma Escolar Integral"
+              class="portfolio-image"
+            />
           </div>
-          <h3 class="portfolio-title">Plataforma Escolar Integral</h3>
-          <p class="portfolio-description">
-            Sistema web completo para gestión y difusión de información escolar.
-            Incluye autenticación robusta, procesamiento de imágenes y
-            animaciones modernas.
-          </p>
-          <a
-            href="https://escuelapgi.cl/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="portfolio-link"
-          >
-            Visitar Sitio →
-          </a>
-        </div>
-      </div>
+          <div class="portfolio-content">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">React</span>
+              <span class="portfolio-tag">Node.js</span>
+              <span class="portfolio-tag">PostgreSQL</span>
+            </div>
+            <h3 class="portfolio-title">Plataforma Escolar Integral</h3>
+            <p class="portfolio-description">
+              Sistema web completo para gestión y difusión de información
+              escolar. Incluye autenticación robusta, procesamiento de imágenes
+              y animaciones modernas.
+            </p>
+            <a
+              href="https://escuelapgi.cl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-link"
+            >
+              Visitar Sitio →
+            </a>
+          </div>
+        </TiltCard>
+      </ScrollReveal>
 
-      <!-- Proyecto 2: Portafolio Personal -->
-      <div class="portfolio-card">
-        <div class="portfolio-image-wrapper">
-          <Image
-            src={portfolioImage}
-            alt="Portafolio Personal"
-            class="portfolio-image"
-          />
-        </div>
-        <div class="portfolio-content">
-          <div class="portfolio-tags">
-            <span class="portfolio-tag">Astro</span>
-            <span class="portfolio-tag">Tailwind</span>
-            <span class="portfolio-tag">TypeScript</span>
+      <!-- Proyecto 2: Garage Online -->
+      <ScrollReveal client:visible delay={0.2}>
+        <TiltCard client:visible className="portfolio-card">
+          <div class="portfolio-image-wrapper">
+            <img
+              src="/garageonline.webp"
+              alt="Garage Online"
+              class="portfolio-image"
+              style="width: 100%; height: 220px; object-fit: cover;"
+            />
           </div>
-          <h3 class="portfolio-title">Portafolio Personal</h3>
-          <p class="portfolio-description">
-            Sitio web personal con diseño moderno, animaciones fluidas, efectos
-            visuales y una experiencia de usuario inmersiva.
-          </p>
-          <a
-            href="https://github.com/keymers/portafolio.kevin.git"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="portfolio-link"
-          >
-            Ver Código →
-          </a>
-        </div>
-      </div>
+          <div class="portfolio-content">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Next.js</span>
+              <span class="portfolio-tag">Node.js</span>
+            </div>
+            <h3 class="portfolio-title">Garage Online</h3>
+            <p class="portfolio-description">
+              Modernización completa del sitio web, mejorando el rendimiento,
+              la velocidad y la experiencia de usuario para este e-commerce de repuestos y accesorios de motos.
+            </p>
+            <a
+              href="https://www.garageonline.cl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-link"
+            >
+              Ir a la Página →
+            </a>
+          </div>
+        </TiltCard>
+      </ScrollReveal>
+
+      <!-- Proyecto 3: Portafolio Personal -->
+      <ScrollReveal client:visible delay={0.3}>
+        <TiltCard client:visible className="portfolio-card">
+          <div class="portfolio-image-wrapper">
+            <Image
+              src={portfolioImage}
+              alt="Portafolio Personal"
+              class="portfolio-image"
+            />
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-tags">
+              <span class="portfolio-tag">Astro</span>
+              <span class="portfolio-tag">Tailwind</span>
+              <span class="portfolio-tag">TypeScript</span>
+            </div>
+            <h3 class="portfolio-title">Portafolio Personal</h3>
+            <p class="portfolio-description">
+              Sitio web personal con diseño moderno, animaciones fluidas,
+              efectos visuales y una experiencia de usuario inmersiva.
+            </p>
+            <a
+              href="https://github.com/keymers/portafolio.kevin.git"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="portfolio-link"
+            >
+              Ver Código →
+            </a>
+          </div>
+        </TiltCard>
+      </ScrollReveal>
     </div>
 
     <div class="portfolio-cta">
@@ -431,53 +499,62 @@ import portfolioImage from "../assets/portfolio.webp";
     </div>
 
     <div class="process-timeline">
-      <div class="process-item">
-        <div class="process-number">1</div>
-        <div class="process-content">
-          <h3 class="process-title">Conversación Inicial</h3>
-          <p class="process-description">
-            Nos reunimos (virtual o presencial) para entender tu negocio, tus
-            objetivos y qué necesitas. Esta consulta es <strong
-              >completamente gratis</strong
-            > y sin compromiso.
-          </p>
+      <ScrollReveal client:visible delay={0.1}>
+        <div class="process-item">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3 class="process-title">Conversación Inicial</h3>
+            <p class="process-description">
+              Nos reunimos (virtual o presencial) para entender tu negocio, tus
+              objetivos y qué necesitas. Esta consulta es <strong
+                >completamente gratis</strong
+              > y sin compromiso.
+            </p>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
-      <div class="process-item">
-        <div class="process-number">2</div>
-        <div class="process-content">
-          <h3 class="process-title">Propuesta y Presupuesto</h3>
-          <p class="process-description">
-            Te envío una propuesta detallada con el alcance del proyecto,
-            tiempos de entrega y presupuesto transparente. Sin sorpresas ni
-            costos ocultos.
-          </p>
+      <ScrollReveal client:visible delay={0.2}>
+        <div class="process-item">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3 class="process-title">Propuesta y Presupuesto</h3>
+            <p class="process-description">
+              Te envío una propuesta detallada con el alcance del proyecto,
+              tiempos de entrega y presupuesto transparente. Sin sorpresas ni
+              costos ocultos.
+            </p>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
-      <div class="process-item">
-        <div class="process-number">3</div>
-        <div class="process-content">
-          <h3 class="process-title">Diseño y Desarrollo</h3>
-          <p class="process-description">
-            Comienzo a trabajar en tu proyecto con actualizaciones constantes.
-            Podrás ver el progreso en tiempo real y dar feedback en cada etapa.
-          </p>
+      <ScrollReveal client:visible delay={0.3}>
+        <div class="process-item">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3 class="process-title">Diseño y Desarrollo</h3>
+            <p class="process-description">
+              Comienzo a trabajar en tu proyecto con actualizaciones constantes.
+              Podrás ver el progreso en tiempo real y dar feedback en cada
+              etapa.
+            </p>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
-      <div class="process-item">
-        <div class="process-number">4</div>
-        <div class="process-content">
-          <h3 class="process-title">Lanzamiento y Soporte</h3>
-          <p class="process-description">
-            Publicamos tu proyecto y te capacito para que puedas manejarlo.
-            Además, incluyo
-            <strong>30 días de soporte gratuito</strong> post-lanzamiento.
-          </p>
+      <ScrollReveal client:visible delay={0.4}>
+        <div class="process-item">
+          <div class="process-number">4</div>
+          <div class="process-content">
+            <h3 class="process-title">Lanzamiento y Soporte</h3>
+            <p class="process-description">
+              Publicamos tu proyecto y te capacito para que puedas manejarlo.
+              Además, incluyo
+              <strong>30 días de soporte gratuito</strong> post-lanzamiento.
+            </p>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </div>
   </section>
 
@@ -502,82 +579,86 @@ import portfolioImage from "../assets/portfolio.webp";
        PROGRAMA COLEGIO DIGITAL
        ======================================== -->
   <section class="school-program-section">
-    <div class="school-program-card">
-      <div class="school-program-content">
-        <span class="school-program-badge">🏫 Programa Social</span>
-        <h2 class="school-program-title">¿Eres un colegio sin página web?</h2>
-        <p class="school-program-description">
-          Creamos páginas web <strong>100% gratis</strong> para colegios pequeños
-          y rurales que no pueden costear una. Solo pagas el dominio (~$10.000 CLP/año).
-        </p>
-        <div class="school-program-features">
-          <span class="school-feature">✓ Diseño profesional</span>
-          <span class="school-feature">✓ 100% responsive</span>
-          <span class="school-feature">✓ Sin costo de desarrollo</span>
+    <ScrollReveal client:visible direction="none" scale={0.95} duration={0.8}>
+      <div class="school-program-card">
+        <div class="school-program-content">
+          <span class="school-program-badge">🏫 Programa Social</span>
+          <h2 class="school-program-title">¿Eres un colegio sin página web?</h2>
+          <p class="school-program-description">
+            Creamos páginas web <strong>100% gratis</strong> para colegios pequeños
+            y rurales que no pueden costear una. Solo pagas el dominio (~$10.000 CLP/año).
+          </p>
+          <div class="school-program-features">
+            <span class="school-feature">✓ Diseño profesional</span>
+            <span class="school-feature">✓ 100% responsive</span>
+            <span class="school-feature">✓ Sin costo de desarrollo</span>
+          </div>
+          <a href="/colegio-digital" class="school-program-cta">
+            Conocer el programa
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </a>
         </div>
-        <a href="/colegio-digital" class="school-program-cta">
-          Conocer el programa
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
+        <div class="school-program-visual">
+          <div class="school-visual-icon">🎓</div>
+          <div class="school-visual-text">Educación Digital para Todos</div>
+        </div>
       </div>
-      <div class="school-program-visual">
-        <div class="school-visual-icon">🎓</div>
-        <div class="school-visual-text">Educación Digital para Todos</div>
-      </div>
-    </div>
+    </ScrollReveal>
   </section>
 
   <!-- ========================================
        CTA FINAL SECTION
        ======================================== -->
   <section class="cta-section">
-    <div class="cta-card">
-      <h2 class="cta-title">¿Listo para impulsar tu negocio?</h2>
-      <p class="cta-description">
-        Conversemos sobre tu proyecto. Tenemos opciones para todo tipo de
-        empresas, con <strong>planes escalables</strong> y soluciones adaptadas a
-        cada necesidad.
-      </p>
-      <div class="cta-buttons">
-        <a
-          href="https://wa.me/+56973650208?text=Hola!%20Me%20gustaría%20agendar%20una%20reunión%20para%20hablar%20de%20mi%20proyecto"
-          target="_blank"
-          class="btn-primary"
-        >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"
-            ></path>
-          </svg>
-          Agendar Reunión Gratis
-        </a>
-        <a href="mailto:kevin.gonzalez04@outlook.com" class="btn-secondary">
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
+    <ScrollReveal client:visible direction="up" distance={30}>
+      <div class="cta-card">
+        <h2 class="cta-title">¿Listo para impulsar tu negocio?</h2>
+        <p class="cta-description">
+          Conversemos sobre tu proyecto. Tenemos opciones para todo tipo de
+          empresas, con <strong>planes escalables</strong> y soluciones adaptadas
+          a cada necesidad.
+        </p>
+        <div class="cta-buttons">
+          <a
+            href="https://wa.me/+56973650208?text=Hola!%20Me%20gustaría%20agendar%20una%20reunión%20para%20hablar%20de%20mi%20proyecto"
+            target="_blank"
+            class="btn-primary"
           >
-            <path
-              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              stroke-linecap="round"
-              stroke-linejoin="round"></path>
-          </svg>
-          Enviar Email
-        </a>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"
+              ></path>
+            </svg>
+            Agendar Reunión Gratis
+          </a>
+          <a href="mailto:kevin.gonzalez@pekos.cl" class="btn-secondary">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+            Enviar Email
+          </a>
+        </div>
       </div>
-    </div>
+    </ScrollReveal>
   </section>
 
   <!-- ========================================
