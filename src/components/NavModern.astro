@@ -1,5 +1,6 @@
 ---
 // Navegación moderna y profesional
+const isHome = Astro.url.pathname === "/";
 ---
 
 <nav class="nav-modern" id="main-nav">
@@ -10,9 +11,15 @@
         <!-- Links de navegación -->
         <ul class="nav-links">
             <li><a href="/" class="nav-link">Inicio</a></li>
-            <li><a href="#servicios" class="nav-link">Servicios</a></li>
-            <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-            <li><a href="#proceso" class="nav-link">Proceso</a></li>
+            {isHome ? (
+                <>
+                    <li><a href="/#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="/#portafolio" class="nav-link">Portafolio</a></li>
+                    <li><a href="/#proceso" class="nav-link">Proceso</a></li>
+                </>
+            ) : (
+                <li><a href="/proyectos" class="nav-link">Proyectos</a></li>
+            )}
             <li><a href="/sobremi" class="nav-link">Sobre mí</a></li>
         </ul>
 
@@ -37,11 +44,15 @@
     <div class="nav-mobile-menu" id="mobile-menu">
         <ul class="nav-mobile-links">
             <li><a href="/" class="nav-mobile-link">Inicio</a></li>
-            <li><a href="#servicios" class="nav-mobile-link">Servicios</a></li>
-            <li>
-                <a href="#portafolio" class="nav-mobile-link">Portafolio</a>
-            </li>
-            <li><a href="#proceso" class="nav-mobile-link">Proceso</a></li>
+            {isHome ? (
+                <>
+                    <li><a href="/#servicios" class="nav-mobile-link">Servicios</a></li>
+                    <li><a href="/#portafolio" class="nav-mobile-link">Portafolio</a></li>
+                    <li><a href="/#proceso" class="nav-mobile-link">Proceso</a></li>
+                </>
+            ) : (
+                <li><a href="/proyectos" class="nav-mobile-link">Proyectos</a></li>
+            )}
             <li><a href="/sobremi" class="nav-mobile-link">Sobre mí</a></li>
             <li>
                 <a
