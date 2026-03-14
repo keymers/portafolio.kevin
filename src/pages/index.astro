@@ -10,7 +10,6 @@ import Counter from "../components/Counter";
 import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
-import portfolioImage from "../assets/portfolio.webp";
 ---
 
 <Layout
@@ -438,10 +437,11 @@ import portfolioImage from "../assets/portfolio.webp";
       <ScrollReveal client:load delay={0.3}>
         <TiltCard client:load className="portfolio-card">
           <div class="portfolio-image-wrapper">
-            <Image
-              src={portfolioImage}
+            <img
+              src="/pekos-home.webp"
               alt="Portafolio Personal"
               class="portfolio-image"
+              loading="lazy"
             />
           </div>
           <div class="portfolio-content">
