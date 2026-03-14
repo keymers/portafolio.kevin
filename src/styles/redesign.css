@@ -33,6 +33,31 @@
   overflow: hidden;
 }
 
+/* Pantallas bajas (ej. 14" ~768px): evitar que badges queden cortados */
+@media (max-height: 900px) {
+  .hero-section {
+    align-items: flex-start;
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    margin-top: 0;
+  }
+
+  .hero-badge {
+    margin-bottom: 1rem;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-cta-group {
+    margin-bottom: 2rem;
+  }
+}
+
 .hero-background {
   position: absolute;
   inset: 0;
