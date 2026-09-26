@@ -1,19 +1,21 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavModern from "../components/NavModern.astro";
+import HalloweenNavigation from "../components/HalloweenNavigation.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import ScrollReveal from "../components/ScrollReveal";
 import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
+import { isHalloween } from "../config/theme";
 ---
 
 <Layout
   title="Proyectos de Desarrollo Web | Portafolio de Peko's"
   description="Explora nuestros proyectos de desarrollo web, desde landing pages hasta plataformas escolares integrales. Soluciones digitales de alta calidad."
 >
-  <NavModern />
+  {isHalloween ? <HalloweenNavigation /> : <NavModern />}
 
   <!-- Hero Section -->
   <section class="page-hero">

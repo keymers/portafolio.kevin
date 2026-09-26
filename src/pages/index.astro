@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavModern from "../components/NavModern.astro";
+import HalloweenNavigation from "../components/HalloweenNavigation.astro";
+import HalloweenWelcome from "../components/HalloweenWelcome.astro";
+import HalloweenDecorations from "../components/HalloweenDecorations.astro";
+import HalloweenLottie from "../components/HalloweenLottie.astro";
+import HalloweenLottie2 from "../components/HalloweenLottie2.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -10,14 +15,27 @@ import Counter from "../components/Counter";
 import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
+import { isHalloween } from "../config/theme";
 ---
 
 <Layout
   title="Peko's | Desarrollo, Rediseño y SEO: Potencia tu Presencia Digital"
   description="Expertos en creación y rediseño de sitios web profesionales en Chile. Mejoramos tu página actual, optimizamos tu SEO para Google y creamos soluciones informáticas con planes flexibles para todos."
 >
-  <!-- Nueva Navegación -->
-  <NavModern />
+  <!-- 🎃 Banner de bienvenida de Halloween (arriba del nav) -->
+  {isHalloween && <HalloweenWelcome />}
+
+  <!-- Navegación -->
+  {isHalloween ? <HalloweenNavigation /> : <NavModern />}
+
+  <!-- Decoraciones y animaciones de Halloween -->
+  {isHalloween && (
+    <>
+      <HalloweenDecorations />
+      <HalloweenLottie />
+      <HalloweenLottie2 />
+    </>
+  )}
 
   <!-- ========================================
        HERO SECTION

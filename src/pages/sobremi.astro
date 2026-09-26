@@ -1,16 +1,18 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import NavModern from "../components/NavModern.astro";
+import HalloweenNavigation from "../components/HalloweenNavigation.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import ScrollReveal from "../components/ScrollReveal";
+import { isHalloween } from "../config/theme";
 ---
 
 <Layout
   title="Sobre Peko's | Expertos en Soluciones Informáticas"
   description="Conoce más sobre Kevin González y Peko's. Pasión por la tecnología y compromiso con la creación de soluciones informáticas innovadoras."
 >
-  <NavModern />
+  {isHalloween ? <HalloweenNavigation /> : <NavModern />}
 
   <!-- Hero Section -->
   <section class="page-hero">
