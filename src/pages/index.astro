@@ -16,11 +16,35 @@ import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
 import { isHalloween } from "../config/theme";
+// 📌 Preguntas Frecuentes Reales para SEO On-Page y Datos Estructurados Schema.org
+const faqs = [
+  {
+    question: "¿Cuánto cuesta crear una página web o tienda online en Chile?",
+    answer: "El valor depende del alcance y requerimientos de tu negocio. Desarrollamos desde landing pages comerciales de alta conversión hasta sitios web corporativos y tiendas online con Webpay. Todas las cotizaciones son transparentes, detalladas y sin costos ocultos."
+  },
+  {
+    question: "¿Cuánto tiempo demora el desarrollo de un sitio web?",
+    answer: "Una landing page estratégica suele estar lista en 5 a 7 días hábiles. Sitios web corporativos y tiendas online con catálogo y pasarelas de pago toman habitualmente entre 2 y 3 semanas, con entregas progresivas y feedback continuo."
+  },
+  {
+    question: "¿La web incluye integración con Webpay y medios de pago chilenos?",
+    answer: "Sí, integramos pasarelas de pago oficiales para Chile como Webpay Plus (Transbank), Mercado Pago y Flow, permitiendo pagos con tarjetas de débito, crédito y transferencias bancarias automatizadas."
+  },
+  {
+    question: "¿Mi página web aparecerá en los primeros resultados de Google (SEO)?",
+    answer: "Todos nuestros sitios se construyen desde la base con SEO técnico on-page: arquitectura semántica limpia, velocidad de carga ultra rápida (98+ en Google Lighthouse), metadatos OpenGraph y datos estructurados Schema.org para facilitar la indexación en Google."
+  },
+  {
+    question: "¿Incluyen soporte técnico y capacitación tras la entrega?",
+    answer: "Sí, todos los proyectos incluyen 30 días de soporte técnico y garantía gratuita post-lanzamiento, además de capacitación guiada para que puedas gestionar y actualizar tus contenidos con total autonomía."
+  }
+];
 ---
 
 <Layout
-  title="Peko's | Desarrollo, Rediseño y SEO: Potencia tu Presencia Digital"
-  description="Expertos en creación y rediseño de sitios web profesionales en Chile. Mejoramos tu página actual, optimizamos tu SEO para Google y creamos soluciones informáticas con planes flexibles para todos."
+  title="Peko's | Diseño y Desarrollo de Páginas Web en Chile"
+  description="Diseño y desarrollo de páginas web profesionales, tiendas online y landing pages de alta conversión en Chile. Optimizado para Google SEO, móviles y resultados reales."
+  faqData={faqs}
 >
   <!-- 🎃 Banner de bienvenida de Halloween (arriba del nav) -->
   {isHalloween && <HalloweenWelcome />}
@@ -48,7 +72,7 @@ import { isHalloween } from "../config/theme";
       <!-- Badge -->
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Disponible para nuevos proyectos
+        Disponible para proyectos en Chile
       </div>
 
       <!-- Banner Colegio Digital -->
@@ -63,17 +87,15 @@ import { isHalloween } from "../config/theme";
       <!-- Título Principal -->
       <ScrollReveal client:load direction="down" duration={0.8}>
         <h1 class="hero-title">
-          Desarrollo Web y <span class="highlight">Soluciones Informáticas</span
-          > de Alto Impacto
+          Diseño y Desarrollo de <span class="highlight">Páginas Web Profesionales</span> en Chile
         </h1>
       </ScrollReveal>
 
       <!-- Subtítulo -->
       <ScrollReveal client:load delay={0.2} duration={0.8}>
         <p class="hero-subtitle">
-          Creamos experiencias digitales que convierten visitantes en clientes.
-          Diseño profesional, código limpio y resultados medibles para hacer
-          crecer tu empresa.
+          Creamos sitios web modernos, rápidos y optimizados para Google que
+          convierten visitantes en clientes y hacen crecer tu empresa o negocio.
         </p>
       </ScrollReveal>
 
@@ -150,8 +172,7 @@ import { isHalloween } from "../config/theme";
       <span class="section-badge">Servicios</span>
       <h2 class="section-title">Soluciones digitales a tu medida</h2>
       <p class="section-subtitle">
-        Desde landing pages hasta sistemas complejos, desarrollo lo que tu
-        negocio necesita
+        Desde landing pages de alta conversión hasta tiendas online y sistemas web a medida, desarrollamos la solución que tu empresa necesita
       </p>
     </div>
 
@@ -172,12 +193,9 @@ import { isHalloween } from "../config/theme";
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="service-title">Landing Pages</h3>
+          <h3 class="service-title">Landing Pages de Alta Conversión</h3>
           <p class="service-description">
-            Páginas de aterrizaje optimizadas para convertir visitantes en
-            clientes. Diseño enfocado en resultados con <strong
-              >planes a tu medida</strong
-            >.
+            Páginas de aterrizaje diseñadas estratégicamente para captar clientes potenciales y maximizar ventas en campañas de Google Ads o redes sociales.
           </p>
           <ul class="service-features">
             <li>Diseño responsive</li>
@@ -206,8 +224,7 @@ import { isHalloween } from "../config/theme";
           </div>
           <h3 class="service-title">Sitios Web Corporativos</h3>
           <p class="service-description">
-            Presencia digital profesional que transmite confianza y potencia la
-            imagen de tu marca.
+            Presencia digital sólida para empresas y profesionales. Transmite confianza, destaca tus servicios y posiciona tu marca en Google.
           </p>
           <ul class="service-features">
             <li>Múltiples páginas</li>
@@ -234,10 +251,9 @@ import { isHalloween } from "../config/theme";
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="service-title">Tiendas Online</h3>
+          <h3 class="service-title">Tiendas Online (E-commerce)</h3>
           <p class="service-description">
-            Plataformas de e-commerce completas con carrito de compras, pagos en
-            línea y gestión de inventario.
+            Plataformas de venta online completas con catálogo interactivo, gestión de pedidos e integración oficial con Webpay Plus y Mercado Pago.
           </p>
           <ul class="service-features">
             <li>Catálogo de productos</li>
@@ -264,10 +280,9 @@ import { isHalloween } from "../config/theme";
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="service-title">Aplicaciones Web</h3>
+          <h3 class="service-title">Sistemas y Aplicaciones Web</h3>
           <p class="service-description">
-            Sistemas a medida que automatizan y optimizan los procesos de tu
-            negocio.
+            Soluciones a medida para automatizar procesos, gestión de reservas, bases de datos y paneles de administración seguros.
           </p>
           <ul class="service-features">
             <li>Desarrollo a medida</li>
@@ -324,16 +339,15 @@ import { isHalloween } from "../config/theme";
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="service-title">SEO y Visibilidad</h3>
+          <h3 class="service-title">SEO y Posicionamiento en Google</h3>
           <p class="service-description">
-            Optimizamos tu sitio para que aparezca en los primeros lugares de
-            Google y atraiga más clientes.
+            Estructura técnica, velocidad extrema y optimización semántica para que los clientes que buscan tus servicios en Chile te encuentren primero.
           </p>
           <ul class="service-features">
             <li>Auditoría técnica SEO</li>
             <li>Optimización de velocidad</li>
             <li>Estrategia de palabras clave</li>
-            <li>Indexación garantizada</li>
+            <li>Estructura técnica para indexación</li>
           </ul>
         </TiltCard>
       </ScrollReveal>
@@ -354,10 +368,9 @@ import { isHalloween } from "../config/theme";
                 stroke-linejoin="round"></path>
             </svg>
           </div>
-          <h3 class="service-title">Rediseño y Evolución</h3>
+          <h3 class="service-title">Rediseño y Modernización Web</h3>
           <p class="service-description">
-            ¿Tu página actual no convence? La transformamos en una herramienta
-            moderna, rápida y que realmente venda.
+            ¿Tu sitio actual se ve antiguo, carga lento o no genera contactos? Lo transformamos en una plataforma moderna, rápida y que realmente venda.
           </p>
           <ul class="service-features">
             <li>Modernización de diseño</li>
@@ -468,18 +481,15 @@ import { isHalloween } from "../config/theme";
               <span class="portfolio-tag">Tailwind</span>
               <span class="portfolio-tag">TypeScript</span>
             </div>
-            <h3 class="portfolio-title">Portafolio Personal</h3>
+            <h3 class="portfolio-title">Plataforma Web Peko's</h3>
             <p class="portfolio-description">
-              Sitio web personal con diseño moderno, animaciones fluidas,
-              efectos visuales y una experiencia de usuario inmersiva.
+              Arquitectura web de alto rendimiento (98+ en Google Lighthouse) con diseño responsivo, animaciones fluidas y optimización técnica para posicionamiento en Google.
             </p>
             <a
-              href="https://github.com/keymers/portafolio.kevin.git"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/"
               class="portfolio-link"
             >
-              Ver Código →
+              Ver Plataforma en Vivo →
             </a>
           </div>
         </TiltCard>
@@ -633,6 +643,34 @@ import { isHalloween } from "../config/theme";
     </ScrollReveal>
   </section>
 
+  
+  <!-- ========================================
+       PREGUNTAS FRECUENTES (FAQ) SECTION
+       ======================================== -->
+  <section id="faq" class="faq-section">
+    <div class="section-header">
+      <span class="section-badge">Preguntas Frecuentes</span>
+      <h2 class="section-title">Resolvemos tus dudas antes de empezar</h2>
+      <p class="section-subtitle">
+        Respuestas claras y directas sobre el proceso de creación, tiempos de entrega, pagos y posicionamiento en Google.
+      </p>
+    </div>
+
+    <div class="faq-grid">
+      {faqs.map((faq, index) => (
+        <ScrollReveal client:load delay={0.1 * (index + 1)}>
+          <div class="faq-card">
+            <h3 class="faq-question">
+              <span class="faq-icon">?</span>
+              {faq.question}
+            </h3>
+            <p class="faq-answer">{faq.answer}</p>
+          </div>
+        </ScrollReveal>
+      ))}
+    </div>
+  </section>
+
   <!-- ========================================
        CTA FINAL SECTION
        ======================================== -->
@@ -707,6 +745,82 @@ import { isHalloween } from "../config/theme";
   @import "../styles/redesign.css";
 
   /* Additional page-specific styles */
+
+  /* ===== FAQ SECTION STYLES ===== */
+  .faq-section {
+    padding: 6rem 2rem;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .faq-card {
+    background: rgba(30, 41, 59, 0.4);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-card:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
+    background: rgba(30, 41, 59, 0.6);
+  }
+
+  .faq-question {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .faq-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .faq-answer {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 768px) {
+    .faq-section {
+      padding: 4rem 1rem;
+    }
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   .scroll-indicator {
     position: absolute;
     bottom: 2rem;

@@ -55,6 +55,15 @@ const validateNumber = (value: string): boolean => {
 };
 
 const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) => {
+  // Medir inicio de cotización en GA4
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'quote_form_start', {
+        event_category: 'form',
+        event_label: 'formulario_cotizacion'
+      });
+    }
+  }, []);
   const [formulario, setFormulario] = useState<FormularioRequisitos | null>(null);
   const [loading, setLoading] = useState(true);
   const [paso, setPaso] = useState(1);
@@ -281,6 +290,14 @@ const FormularioCliente: React.FC<FormularioClienteProps> = ({ formularioId }) =
       }
 
       toast.success('¡Formulario enviado correctamente! Te contactaremos pronto.');
+      // 🚀 Medir evento de conversión de LEAD en GA4
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          event_category: 'conversion',
+          event_label: 'cotizacion_exitosa',
+          value: 1
+        });
+      }
       setPaso(5); // Paso de confirmación
     } catch (error) {
       console.error('Error al enviar formulario:', error);

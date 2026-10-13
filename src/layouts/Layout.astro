@@ -13,7 +13,7 @@ interface Props {
 
 const { 
 	title, 
-	description = "Desarrollo web profesional y soluciones informáticas. Creamos landing pages económicas, sitios web modernos y tiendas online baratas para impulsar tu negocio. ¡Cotiza tu página web gratis!",
+	description = "Diseño y desarrollo de páginas web profesionales en Chile. Sitios web corporativos, tiendas online con Webpay y landing pages de alta conversión optimizadas para Google SEO y móviles.",
 	image = "/og-image.jpg",
 	canonicalURL = new URL(Astro.url.pathname, Astro.site).toString(),
 	faqData = null
@@ -52,75 +52,69 @@ const siteName = "Peko's Desarrollo Web";
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalURL} />
-		<meta
-			name="keywords"
-			content="desarrollo web la cisterna, soluciones informaticas la cisterna, paginas web la cisterna, crear sitio web la cisterna, diseño web profesional, programador web chile, servicios informaticos"
-		/>
 		<meta name="author" content="Kevin Joseph González Lister" />
+		<meta name="robots" content="index, follow" />
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
+		<meta property="og:image" content={new URL(image, Astro.url).toString()} />
 		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="es_CL" />
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:url" content={canonicalURL} />
 		<meta property="twitter:title" content={title} />
 		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+		<meta property="twitter:image" content={new URL(image, Astro.url).toString()} />
 
 		<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
 		<!-- JSON-LD Datos Estructurados Profesionales -->
 		<script type="application/ld+json" is:inline set:html={JSON.stringify({
 			"@context": "https://schema.org",
-			"@type": "WebDesignService",
-			"name": "Peko's - Desarrollo Web y Soluciones Informáticas",
+			"@type": "ProfessionalService",
+			"name": "Peko's - Diseño y Desarrollo Web en Chile",
 			"alternateName": "Peko's Desarrollo Web",
 			"image": "https://pekos.cl/og-image.jpg",
-			"@id": "https://pekos.cl",
+			"@id": "https://pekos.cl/#service",
 			"url": "https://pekos.cl",
 			"telephone": "+56973650208",
 			"priceRange": "$$",
+			"currenciesAccepted": "CLP",
+			"paymentAccepted": "Transferencia bancaria, Webpay, Tarjetas de crédito",
 			"address": {
 				"@type": "PostalAddress",
-				"streetAddress": "La Cisterna, Región Metropolitana",
-				"addressLocality": "La Cisterna",
+				"addressLocality": "Santiago",
 				"addressRegion": "Región Metropolitana",
 				"addressCountry": "CL"
 			},
 			"areaServed": [
-				{ "@type": "City", "name": "Las Condes" },
-				{ "@type": "City", "name": "Vitacura" },
-				{ "@type": "City", "name": "Lo Barnechea" },
-				{ "@type": "City", "name": "La Reina" },
-				{ "@type": "City", "name": "Providencia" },
-				{ "@type": "City", "name": "La Cisterna" },
-				{ "@type": "City", "name": "San Miguel" },
-				{ "@type": "City", "name": "Santiago Centro" },
-				{ "@type": "City", "name": "Ñuñoa" },
-				{ "@type": "City", "name": "Chicureo" },
-				{ "@type": "City", "name": "Colina" },
-				{ "@type": "City", "name": "Huechuraba" },
-				{ "@type": "City", "name": "Chamiseros" },
-				{ "@type": "City", "name": "Piedra Roja" }
+				{ "@type": "Country", "name": "Chile" },
+				{ "@type": "City", "name": "Santiago" }
 			],
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": -33.5256,
-				"longitude": -70.6628
-			},
+			"knowsAbout": [
+				"Diseño Web Profesional",
+				"Desarrollo Web en Chile",
+				"Tiendas Online y E-commerce",
+				"Posicionamiento SEO en Google",
+				"Landing Pages de Alta Conversión",
+				"Astro",
+				"React",
+				"Next.js"
+			],
 			"openingHoursSpecification": {
 				"@type": "OpeningHoursSpecification",
 				"dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
 				"opens": "09:00",
 				"closes": "20:00"
 			},
+			"hasMap": "https://share.google/twBjymqRZGhPNMLoK",
 			"sameAs": [
+				"https://share.google/twBjymqRZGhPNMLoK",
 				"https://wa.me/56973650208",
 				"https://www.linkedin.com/in/kevingonzalezlister/",
 				"https://github.com/keymers"
@@ -128,38 +122,22 @@ const siteName = "Peko's Desarrollo Web";
 		})}>
 		</script>
 
-		<!-- SEO Local por Comunas (Invisible para el usuario, visible para Google) -->
-		<script type="application/ld+json" is:inline set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "FAQPage",
-			"mainEntity": [
-				{
+		<!-- JSON-LD FAQ Schema (Sincronizado con preguntas visibles en la página) -->
+		{faqData && faqData.length > 0 && (
+			<script type="application/ld+json" is:inline set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": faqData.map(item => ({
 					"@type": "Question",
-					"name": "¿Buscas desarrollo web en Las Condes, Vitacura o Lo Barnechea?",
+					"name": item.question,
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Peko's ofrece soluciones de diseño web premium y desarrollo de software a medida para empresas en Las Condes, Vitacura y Lo Barnechea. Especialistas en sitios web corporativos de alto impacto."
+						"text": item.answer
 					}
-				},
-				{
-					"@type": "Question",
-					"name": "¿Desarrollan páginas web en La Cisterna, San Miguel y Santiago Centro?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Sí, somos expertos locales en La Cisterna, San Miguel y Santiago. Creamos landing pages y tiendas online optimizadas para convertir y posicionar tu negocio en Google."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "¿Cuentan con servicios de hosting y mantenimiento web en Chicureo y Colina?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Ofrecemos servicios completos de mantenimiento, seguridad y hosting para clientes en Chicureo, Colina y Chamiseros, garantizando sitios rápidos y seguros para el sector oriente de Santiago."
-					}
-				}
-			]
-		})}>
-		</script>
+				}))
+			})}>
+			</script>
+		)}
 
 		<!-- Performance optimization hints -->
 		<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
@@ -226,6 +204,36 @@ const siteName = "Peko's Desarrollo Web";
 		<div class="fixed inset-0 -z-10 fondo-chipset"></div>
 
 		<slot />
+		<!-- Script de Medición de Conversiones (GA4) -->
+		<script is:inline>
+			document.addEventListener('click', function(e) {
+				const target = e.target.closest('a');
+				if (!target || !target.href) return;
+
+				// 1. Medir clics en WhatsApp
+				if (target.href.includes('wa.me')) {
+					if (typeof gtag === 'function') {
+						gtag('event', 'whatsapp_click', {
+							event_category: 'contact',
+							event_label: target.innerText.trim() || 'WhatsApp Float',
+							transport_type: 'beacon'
+						});
+					}
+				}
+
+				// 2. Medir clics en Email
+				if (target.href.startsWith('mailto:')) {
+					if (typeof gtag === 'function') {
+						gtag('event', 'email_click', {
+							event_category: 'contact',
+							event_label: target.href.replace('mailto:', ''),
+							transport_type: 'beacon'
+						});
+					}
+				}
+			});
+		</script>
+
 		<!-- <Analytics /> -->
 	</body>
 </html>
