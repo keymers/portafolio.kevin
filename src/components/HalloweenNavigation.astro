@@ -22,7 +22,7 @@
   }
 </script>
 
-<nav class="halloween-nav relative grid grid-cols-3 items-center px-4 sm:px-8 py-4 border-b border-halloween-accent/60 bg-halloween-secondary/90 backdrop-blur-sm">
+<nav class="halloween-nav relative w-full flex justify-between sm:grid sm:grid-cols-3 items-center px-3 sm:px-8 py-3 sm:py-4 overflow-hidden border-b border-halloween-accent/60 bg-halloween-secondary/90 backdrop-blur-sm">
 	{/* 🎃 Logo siniestro con Lottie (izquierda) */}
 	<div class="halloween-logo-container justify-self-start flex items-center gap-2">
 		<span class="halloween-logo-text text-xl sm:text-2xl font-extrabold text-halloween-accent tracking-widest drop-shadow-halloween animate-halloween-glow glitch-text">
@@ -31,12 +31,12 @@
 	</div>
 	
 	{/* 🧙‍♀️ Navegación siniestra (centrada) */}
-	<ul class="justify-self-center flex items-center gap-3 md:gap-5 lg:gap-8 text-sm md:text-base lg:text-lg font-medium flex-nowrap overflow-x-auto sm:overflow-visible whitespace-nowrap px-2">
+	<ul class="justify-self-center flex items-center gap-3 md:gap-5 lg:gap-8 text-sm md:text-base lg:text-lg font-medium flex-nowrap overflow-hidden whitespace-nowrap px-2">
 		<li>
 			<a href="/" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link flex items-center gap-2">
 				<dotlottie-wc 
 					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
-					style="width: 50px; height: 50px" 
+					class="halloween-lottie-icon" 
 					autoplay 
 					loop
 				></dotlottie-wc>
@@ -47,7 +47,7 @@
 			<a href="/proyectos" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link page-link flex items-center gap-2">
 				<dotlottie-wc 
 					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
-					style="width: 50px; height: 50px" 
+					class="halloween-lottie-icon" 
 					autoplay 
 					loop
 				></dotlottie-wc>
@@ -58,7 +58,7 @@
 			<a href="/sobremi" class="halloween-link hover:text-halloween-accent transition-all duration-300 hover:scale-110 hover:drop-shadow-halloween cyberpunk-link flex items-center gap-2">
 				<dotlottie-wc 
 					src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
-					style="width: 50px; height: 50px" 
+					class="halloween-lottie-icon" 
 					autoplay 
 					loop
 				></dotlottie-wc>
@@ -68,7 +68,7 @@
 	</ul>
 	
 	{/* 🦇 Espaciador invisible (derecha) */}
-	<div class="justify-self-end opacity-0 select-none flex items-center gap-2">
+	<div class="justify-self-end opacity-0 select-none hidden sm:flex items-center gap-2">
 		<dotlottie-wc 
 			src="https://lottie.host/a337a799-ceb9-4d17-a33c-35895e106da5/EwTXEZFVKh.lottie" 
 			style="width: 40px; height: 40px" 
