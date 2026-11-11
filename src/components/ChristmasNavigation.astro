@@ -1,75 +1,297 @@
 ---
-// Componente de navegación Navideña
+// 🎄 Navegación Navideña Moderna - Peko's
+const isHome = Astro.url.pathname === "/";
 ---
 
-<nav class="relative flex items-center justify-center px-4 sm:px-8 py-4 border-b border-christmas-gold/40 bg-christmas-green/80 backdrop-blur-sm christmas-nav">
-	{/* Logo (izquierda) - Usamos absolute para que el ul quede perfectamente centrado */}
-	<div class="absolute left-4 sm:left-8 flex items-center gap-2 christmas-logo-container">
-		<span class="text-xl sm:text-2xl font-extrabold text-christmas-red tracking-widest drop-shadow-christmas animate-christmas-glow christmas-logo-text">KGL</span>
-	</div>
+<nav class="nav-modern christmas-nav" id="main-nav">
+    <div class="nav-container">
+        <!-- Logo Navideño -->
+        <a href="/" class="nav-logo christmas-logo">
+            <span class="logo-hat">🎅</span>
+            <span class="logo-text">PEKO'S</span>
+        </a>
 
-	{/* Navegación (centrada) */}
-	<ul class="flex items-center gap-3 md:gap-5 lg:gap-8 text-sm md:text-base lg:text-lg font-medium flex-nowrap overflow-x-auto sm:overflow-visible whitespace-nowrap px-2">
-		<li><a href="/" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link">Inicio</a></li>
-		<li><a href="/proyectos" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link page-link">Proyectos</a></li>
-		<li><a href="/sobremi" class="text-white hover:text-christmas-gold transition-all duration-300 hover:scale-110 hover:drop-shadow-christmas christmas-link">Sobre mí</a></li>
-	</ul>
+        <!-- Links de navegación -->
+        <ul class="nav-links">
+            <li><a href="/" class="nav-link">Inicio</a></li>
+            {isHome ? (
+                <>
+                    <li><a href="/#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="/#portafolio" class="nav-link">Portafolio</a></li>
+                    <li><a href="/#proceso" class="nav-link">Proceso</a></li>
+                    <li><a href="/#faq" class="nav-link">FAQ</a></li>
+                </>
+            ) : (
+                <li><a href="/proyectos" class="nav-link">Proyectos</a></li>
+            )}
+            <li><a href="/sobremi" class="nav-link">Sobre mí</a></li>
+        </ul>
+
+        <!-- CTA Navideño -->
+        <a
+            href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web%20en%20modo%20navideño"
+            target="_blank"
+            class="nav-cta christmas-cta"
+        >
+            🎁 Cotizar Promo
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="nav-mobile-menu" id="mobile-menu">
+        <ul class="nav-mobile-links">
+            <li><a href="/" class="nav-mobile-link">Inicio</a></li>
+            {isHome ? (
+                <>
+                    <li><a href="/#servicios" class="nav-mobile-link">Servicios</a></li>
+                    <li><a href="/#portafolio" class="nav-mobile-link">Portafolio</a></li>
+                    <li><a href="/#proceso" class="nav-mobile-link">Proceso</a></li>
+                    <li><a href="/#faq" class="nav-mobile-link">FAQ</a></li>
+                </>
+            ) : (
+                <li><a href="/proyectos" class="nav-mobile-link">Proyectos</a></li>
+            )}
+            <li><a href="/sobremi" class="nav-mobile-link">Sobre mí</a></li>
+            <li>
+                <a
+                    href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web%20en%20modo%20navideño"
+                    target="_blank"
+                    class="nav-mobile-cta christmas-mobile-cta"
+                >
+                    🎁 Cotizar Promo Navideña
+                </a>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <style>
-  /* 🎄 Variables Navidad para el nav */
-  .christmas-nav {
-    --christmas-red: #d40000;
-    --christmas-green: #2f5d62; /* Darker, elegant green */
-    --christmas-gold: #ffd700;
-    --christmas-white: #ffffff;
-    --christmas-glow: #d40000;
-    --christmas-shadow: #0f3d3e;
-    background-color: rgba(47, 93, 98, 0.85); /* Green tint */
-    border-bottom-color: var(--christmas-gold);
-  }
-
-  .text-christmas-red {
-    color: var(--christmas-red);
-  }
-  
-  .text-christmas-gold {
-    color: var(--christmas-gold);
-  }
-
-  /* 🎄 Logo Navidad */
-  .christmas-logo-text {
-    text-shadow: 
-      0 0 5px var(--christmas-white),
-      0 0 10px var(--christmas-red),
-      0 0 20px var(--christmas-red);
-    animation: christmasLogoGlow 3s ease-in-out infinite alternate;
-    color: #fff; /* White text with red glow looks better */
-  }
-
-  @keyframes christmasLogoGlow {
-    from {
-      text-shadow: 
-        0 0 5px var(--christmas-white),
-        0 0 10px var(--christmas-red),
-        0 0 15px var(--christmas-red);
+    .christmas-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 0.85rem 2rem;
+        background: rgba(15, 23, 42, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(239, 68, 68, 0.25);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     }
-    to {
-      text-shadow: 
-        0 0 10px var(--christmas-white),
-        0 0 20px var(--christmas-red),
-        0 0 30px var(--christmas-red);
-    }
-  }
 
-  .drop-shadow-christmas {
-    filter: drop-shadow(0 0 5px var(--christmas-gold));
-  }
-  
-  .christmas-link {
-    position: relative;
-  }
-  
-  /* Snow effect on hover for links could be cool, but keeping it simple for now */
+    .christmas-nav.scrolled {
+        padding: 0.65rem 2rem;
+        background: rgba(15, 23, 42, 0.96);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(239, 68, 68, 0.15);
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .christmas-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        text-decoration: none;
+        letter-spacing: 2px;
+        position: relative;
+    }
+
+    .logo-hat {
+        font-size: 1.25rem;
+        animation: hatWiggle 3s ease-in-out infinite;
+    }
+
+    @keyframes hatWiggle {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-8deg); }
+        75% { transform: rotate(8deg); }
+    }
+
+    .logo-text {
+        background: linear-gradient(135deg, #ef4444 0%, #fde047 50%, #34d399 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-link {
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-link:hover {
+        color: #f1f5f9;
+    }
+
+    .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, #ef4444, #fde047, #10b981);
+        transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    .christmas-cta {
+        padding: 0.625rem 1.4rem;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        font-weight: 600;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.35);
+    }
+
+    .christmas-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.6);
+        background: linear-gradient(135deg, #f87171, #ef4444);
+    }
+
+    .nav-mobile-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .nav-mobile-toggle span {
+        width: 25px;
+        height: 2px;
+        background: #f1f5f9;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+
+    .nav-mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.98);
+        border-bottom: 1px solid rgba(239, 68, 68, 0.3);
+        padding: 1rem;
+    }
+
+    .nav-mobile-menu.active {
+        display: block;
+    }
+
+    .nav-mobile-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-mobile-link {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: #94a3b8;
+        text-decoration: none;
+        font-weight: 500;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-mobile-link:hover {
+        background: rgba(239, 68, 68, 0.15);
+        color: #f1f5f9;
+    }
+
+    .christmas-mobile-cta {
+        display: block;
+        padding: 0.75rem 1rem;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 0.5rem;
+        box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+
+        .christmas-cta {
+            display: none;
+        }
+
+        .nav-mobile-toggle {
+            display: flex;
+        }
+    }
 </style>
 
+<script>
+    // Scroll effect
+    const nav = document.getElementById("main-nav");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            nav?.classList.add("scrolled");
+        } else {
+            nav?.classList.remove("scrolled");
+        }
+    });
+
+    // Mobile menu toggle
+    const toggle = document.getElementById("mobile-toggle");
+    const menu = document.getElementById("mobile-menu");
+
+    toggle?.addEventListener("click", () => {
+        menu?.classList.toggle("active");
+    });
+
+    // Close menu on link click
+    document.querySelectorAll(".nav-mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+            menu?.classList.remove("active");
+        });
+    });
+</script>

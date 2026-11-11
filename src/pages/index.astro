@@ -6,6 +6,12 @@ import HalloweenWelcome from "../components/HalloweenWelcome.astro";
 import HalloweenDecorations from "../components/HalloweenDecorations.astro";
 import HalloweenLottie from "../components/HalloweenLottie.astro";
 import HalloweenLottie2 from "../components/HalloweenLottie2.astro";
+import CyberDeerBanner from "../components/CyberDeerBanner.astro";
+import ChristmasNavigation from "../components/ChristmasNavigation.astro";
+import ChristmasDeployBox from "../components/ChristmasDeployBox.astro";
+import SantaWebDev from "../components/SantaWebDev.astro";
+import ChristmasTree from "../components/ChristmasTree.astro";
+import PekosEmblem from "../components/PekosEmblem.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppFloat from "../components/WhatsAppFloat.astro";
 import TestimonialsSection from "../components/TestimonialsSection";
@@ -15,7 +21,7 @@ import Counter from "../components/Counter";
 import TiltCard from "../components/TiltCard";
 import { Image } from "astro:assets";
 import escuelapgiImage from "../assets/escuelapgi.webp";
-import { isHalloween } from "../config/theme";
+import { isHalloween, isChristmas } from "../config/theme";
 // 📌 Preguntas Frecuentes Reales para SEO On-Page y Datos Estructurados Schema.org
 const faqs = [
   {
@@ -46,11 +52,14 @@ const faqs = [
   description="Diseño y desarrollo de páginas web profesionales, tiendas online y landing pages de alta conversión en Chile. Optimizado para Google SEO, móviles y resultados reales."
   faqData={faqs}
 >
+  <!-- 🦌 Barra Superior Navideña con Reno Ciber-Navideño (arriba del nav) -->
+  {isChristmas && <CyberDeerBanner />}
+
   <!-- 🎃 Banner de bienvenida de Halloween (arriba del nav) -->
   {isHalloween && <HalloweenWelcome />}
 
   <!-- Navegación -->
-  {isHalloween ? <HalloweenNavigation /> : <NavModern />}
+  {isChristmas ? <ChristmasNavigation /> : (isHalloween ? <HalloweenNavigation /> : <NavModern />)}
 
   <!-- Decoraciones y animaciones de Halloween -->
   {isHalloween && (
@@ -70,9 +79,16 @@ const faqs = [
 
     <div class="hero-content">
       <!-- Badge -->
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Disponible para proyectos en Chile
+      <div class="hero-badge-container">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Disponible para proyectos en Chile
+        </div>
+        {isChristmas && (
+          <div class="hero-emblem-badge" title="Peko's Studio - Edición Navidad">
+            <PekosEmblem withText={false} />
+          </div>
+        )}
       </div>
 
       <!-- Banner Colegio Digital -->
@@ -381,6 +397,13 @@ const faqs = [
         </TiltCard>
       </ScrollReveal>
     </div>
+
+    <!-- 🎁 Promoción Navideña Caja Deploy 98+ -->
+    {isChristmas && (
+      <ScrollReveal client:load delay={0.2} duration={0.8}>
+        <ChristmasDeployBox />
+      </ScrollReveal>
+    )}
   </section>
 
   <!-- ========================================
@@ -728,6 +751,28 @@ const faqs = [
         Cuéntame sobre tu proyecto o deja tu testimonio si ya hemos trabajado
       </p>
     </div>
+
+    <!-- 🎅 Santa Web Dev Navideño junto al formulario -->
+    {isChristmas && (
+      <div class="santa-quote-banner max-w-xl mx-auto mb-8 px-4">
+        <div class="santa-quote-card bg-slate-900/60 border border-emerald-500/30 rounded-2xl p-4 sm:p-6 backdrop-blur-md flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left shadow-lg">
+          <div class="w-40 sm:w-48 flex-shrink-0">
+            <SantaWebDev maxWidth="180px" />
+          </div>
+          <div>
+            <span class="inline-block text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2.5 py-0.5 rounded-full mb-1">
+              🎅 Santa Web Dev listo
+            </span>
+            <h4 class="text-base sm:text-lg font-bold text-white mb-1">
+              ¡Tu web lista con Deploy 100% OK!
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-300">
+              Pasa el mouse sobre Santa para ver el deploy en vivo. Completa el formulario y conversemos sobre tu proyecto para estas fiestas.
+            </p>
+          </div>
+        </div>
+      </div>
+    )}
 
     <div class="form-container">
       <FormularioSelector client:load />
@@ -1157,5 +1202,32 @@ const faqs = [
     .school-program-visual {
       display: none;
     }
+  }
+
+  /* ===== ESTILOS MODO NAVIDEÑO ===== */
+  .hero-badge-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-emblem-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 9999px;
+    padding: 0.2rem 0.6rem;
+    height: 36px;
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+  }
+
+  .santa-quote-banner {
+    position: relative;
+    z-index: 5;
   }
 </style>

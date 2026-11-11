@@ -1,0 +1,146 @@
+---
+// 🦌 Barra Superior Navideña con Reno Ciber-Navideño - Peko's
+---
+
+<div id="pekos-holiday-bar" class="pekos-holiday-bar relative z-50 bg-gradient-to-r from-indigo-950 via-[#131b36] to-slate-900 border-b border-indigo-500/30 px-3 sm:px-4 py-2 text-slate-100 overflow-visible">
+  <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-3 text-xs sm:text-sm relative min-h-[38px]">
+    
+    {/* Reno Ciber-Navideño asomándose sobre la barra */}
+    <div class="deer-peek-wrapper" aria-hidden="true">
+      <svg viewBox="0 0 400 360" class="cyber-deer-svg" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .cyber-deer-peek { transform-origin: 200px 360px; animation: cyberPeek 4.2s ease-in-out infinite; }
+          .cyber-nose-pulse { animation: noseBeacon 1.5s ease-in-out infinite alternate; }
+          .antler-bulb-1 { animation: bulbBlink 1.2s infinite alternate; }
+          .antler-bulb-2 { animation: bulbBlink 1.2s 0.4s infinite alternate; }
+          .antler-bulb-3 { animation: bulbBlink 1.2s 0.8s infinite alternate; }
+          @keyframes cyberPeek { 0%, 100% { transform: translateY(0px) rotate(0deg); } 35% { transform: translateY(-10px) rotate(-2deg); } 70% { transform: translateY(-5px) rotate(2deg); } }
+          @keyframes noseBeacon { from { filter: drop-shadow(0 0 3px #f43f5e); } to { filter: drop-shadow(0 0 14px #fb7185); } }
+          @keyframes bulbBlink { from { opacity: 0.4; } to { opacity: 1; } }
+        </style>
+        <defs>
+          <linearGradient id="deerFurGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#d97706"></stop>
+            <stop offset="60%" stop-color="#b45309"></stop>
+            <stop offset="100%" stop-color="#78350f"></stop>
+          </linearGradient>
+          <linearGradient id="muzzleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fef3c7"></stop>
+            <stop offset="100%" stop-color="#fde68a"></stop>
+          </linearGradient>
+        </defs>
+
+        <g class="cyber-deer-peek">
+          <!-- Astas con guirnalda de luces LED -->
+          <g stroke="#451a03" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <path d="M162 135 C154 92, 122 75, 110 52"></path>
+            <path d="M138 92 C118 88, 108 98, 102 104"></path>
+            <path d="M238 135 C246 92, 278 75, 290 52"></path>
+            <path d="M262 92 C282 88, 292 98, 298 104"></path>
+          </g>
+
+          <!-- Cable y luces LED en las astas -->
+          <path d="M115 62 Q150 110 200 118 Q250 110 285 62" stroke="#1e293b" stroke-width="2.5" fill="none"></path>
+          <circle cx="122" cy="72" r="5" fill="#38bdf8" color="#38bdf8" class="antler-bulb-1"></circle>
+          <circle cx="155" cy="105" r="5" fill="#a855f7" color="#a855f7" class="antler-bulb-2"></circle>
+          <circle cx="245" cy="105" r="5" fill="#10b981" color="#10b981" class="antler-bulb-3"></circle>
+          <circle cx="278" cy="72" r="5" fill="#f43f5e" color="#f43f5e" class="antler-bulb-1"></circle>
+
+          <!-- Orejas -->
+          <ellipse cx="142" cy="178" rx="24" ry="11" fill="#92400e" transform="rotate(-28 142 178)"></ellipse>
+          <ellipse cx="258" cy="178" rx="24" ry="11" fill="#92400e" transform="rotate(28 258 178)"></ellipse>
+
+          <!-- Cuello y Bufanda Tech -->
+          <path d="M152 245 L172 340 H228 L248 245 Z" fill="url(#deerFurGrad)"></path>
+          <rect x="142" y="258" width="116" height="22" rx="11" fill="#4f46e5"></rect>
+          <rect x="142" y="266" width="116" height="5" fill="#38bdf8" opacity="0.7"></rect>
+
+          <!-- Cabeza esculpida -->
+          <ellipse cx="200" cy="185" rx="54" ry="60" fill="url(#deerFurGrad)"></ellipse>
+          <!-- Hocico -->
+          <ellipse cx="200" cy="222" rx="38" ry="28" fill="url(#muzzleGrad)"></ellipse>
+
+          <!-- Visor / Ojos expresivos -->
+          <ellipse cx="177" cy="176" rx="7" ry="9.5" fill="#0f172a"></ellipse>
+          <circle cx="175" cy="172" r="2.8" fill="#ffffff"></circle>
+          <ellipse cx="223" cy="176" rx="7" ry="9.5" fill="#0f172a"></ellipse>
+          <circle cx="221" cy="172" r="2.8" fill="#ffffff"></circle>
+
+          <!-- Sonrisa -->
+          <path d="M191 236 Q200 245 209 236" stroke="#78350f" stroke-width="3" stroke-linecap="round" fill="none"></path>
+
+          <!-- Nariz Beacon luminosa -->
+          <ellipse class="cyber-nose-pulse" cx="200" cy="212" rx="14" ry="11" fill="#f43f5e"></ellipse>
+          <ellipse cx="196" cy="208" rx="4.5" ry="2.5" fill="#ffffff" opacity="0.85"></ellipse>
+
+          <!-- Pezuñas apoyadas en el borde inferior -->
+          <g transform="translate(0, 315)">
+            <rect x="128" y="0" width="40" height="20" rx="10" fill="#451a03" stroke="#78350f" stroke-width="2"></rect>
+            <rect x="232" y="0" width="40" height="20" rx="10" fill="#451a03" stroke="#78350f" stroke-width="2"></rect>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    {/* Mensaje principal */}
+    <div class="flex items-center gap-2 mx-auto text-center pl-12 sm:pl-16 pr-2">
+      <span class="text-base">🎅</span>
+      <span>
+        <strong class="text-cyan-300 font-bold">¡Feliz Navidad 2026!</strong> Les desea <strong class="text-white">Peko's</strong> — <span class="hidden sm:inline text-slate-300">Impulsa tu negocio este nuevo año con una web rápida y moderna</span> ✨
+      </span>
+      <a
+        href="https://wa.me/+56973650208?text=Hola!%20Me%20interesa%20cotizar%20un%20proyecto%20web%20en%20modo%20navideño"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex items-center gap-1 bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs px-2.5 py-0.5 rounded-full transition shadow-sm ml-2"
+      >
+        Cotizar 🎁
+      </a>
+    </div>
+
+    {/* Botón cerrar */}
+    <button
+      onclick="document.getElementById('pekos-holiday-bar').remove(); sessionStorage.setItem('pekos-holiday-bar-closed', 'true');"
+      aria-label="Cerrar anuncio"
+      class="text-slate-400 hover:text-white transition text-lg leading-none px-1.5 flex-shrink-0"
+    >
+      &times;
+    </button>
+  </div>
+</div>
+
+<style>
+  .deer-peek-wrapper {
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 58px;
+    height: 52px;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 10;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.4));
+  }
+
+  .cyber-deer-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: block;
+  }
+
+  @media (min-width: 640px) {
+    .deer-peek-wrapper {
+      width: 66px;
+      height: 58px;
+      bottom: -8px;
+    }
+  }
+</style>
+
+<script>
+  if (sessionStorage.getItem('pekos-holiday-bar-closed')) {
+    const bar = document.getElementById('pekos-holiday-bar');
+    if (bar) bar.remove();
+  }
+</script>

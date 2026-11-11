@@ -1,5 +1,7 @@
 ---
 // Footer moderno cyberpunk para el portafolio
+import { isChristmas } from "../config/theme";
+import PekosEmblem from "./PekosEmblem.astro";
 ---
 
 <footer class="modern-footer">
@@ -110,6 +112,11 @@
         <p>&copy; 2026 Kevin González Lister. Hecho con ❤️ y mucho ☕</p>
       </div>
       <div class="footer-tech">
+        {isChristmas && (
+          <div class="footer-emblem-container" title="Peko's Studio">
+            <PekosEmblem withText={false} />
+          </div>
+        )}
         <span class="tech-text">Powered by</span>
         <div class="tech-stack">
           <span class="tech-item">Astro</span>
@@ -349,6 +356,14 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+  }
+
+  .footer-emblem-container {
+    display: inline-flex;
+    align-items: center;
+    width: 38px;
+    height: 24px;
+    overflow: hidden;
   }
 
   .tech-text {

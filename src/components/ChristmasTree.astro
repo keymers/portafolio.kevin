@@ -1,0 +1,106 @@
+---
+// 🎄 Árbol de Navidad Ciber-Tech - Peko's
+interface Props {
+  className?: string;
+  size?: number;
+}
+
+const { className = "", size = 320 } = Astro.props;
+---
+
+<div class={`christmas-tree-container ${className}`}>
+  <svg
+    viewBox="0 0 400 400"
+    width={size}
+    height={size}
+    class="christmas-tree-svg"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="Árbol de Navidad Tecnológico con luces LED y estrella neón"
+  >
+    <style>
+      .tree-star-spin { transform-box: fill-box; transform-origin: center; animation: starPulse 3.2s ease-in-out infinite; }
+      .tree-ornament-1, .tree-ornament-2, .tree-ornament-3 { transform-box: fill-box; transform-origin: center; }
+      .tree-ornament-1 { animation: ornamentGlow 1.8s infinite alternate; }
+      .tree-ornament-2 { animation: ornamentGlow 1.8s 0.6s infinite alternate; }
+      .tree-ornament-3 { animation: ornamentGlow 1.8s 1.2s infinite alternate; }
+      @keyframes starPulse { 0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 8px #fde047); } 50% { transform: scale(1.12) rotate(8deg); filter: drop-shadow(0 0 18px #fef08a); } }
+      @keyframes ornamentGlow { from { opacity: 0.5; filter: none; } to { opacity: 1; filter: drop-shadow(0 0 6px currentColor); } }
+    </style>
+    <defs>
+      <linearGradient id="treeTier1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#10b981"></stop>
+        <stop offset="100%" stop-color="#047857"></stop>
+      </linearGradient>
+      <linearGradient id="treeTier2" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#059669"></stop>
+        <stop offset="100%" stop-color="#065f46"></stop>
+      </linearGradient>
+      <linearGradient id="treeTier3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#047857"></stop>
+        <stop offset="100%" stop-color="#064e3b"></stop>
+      </linearGradient>
+      <linearGradient id="starGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fef08a"></stop>
+        <stop offset="100%" stop-color="#f59e0b"></stop>
+      </linearGradient>
+    </defs>
+
+    <!-- Sombra base -->
+    <ellipse cx="200" cy="368" rx="105" ry="12" fill="#000000" opacity="0.45"></ellipse>
+
+    <!-- Tronco -->
+    <rect x="182" y="315" width="36" height="48" rx="8" fill="#78350f"></rect>
+    <rect x="200" y="315" width="18" height="48" rx="4" fill="#451a03" opacity="0.4"></rect>
+
+    <!-- Nivel Inferior del Pino -->
+    <path d="M200 185 L312 318 C316 323, 312 330, 305 330 H95 C88 330, 84 323, 88 318 Z" fill="url(#treeTier3)"></path>
+    <!-- Nivel Medio del Pino -->
+    <path d="M200 128 L288 242 C292 247, 288 254, 281 254 H119 C112 254, 108 247, 112 242 Z" fill="url(#treeTier2)"></path>
+    <!-- Nivel Superior del Pino -->
+    <path d="M200 76 L262 168 C266 173, 262 180, 255 180 H145 C138 180, 134 173, 138 168 Z" fill="url(#treeTier1)"></path>
+
+    <!-- Guirnaldas Luminosas Neon -->
+    <path d="M152 158 Q200 182 248 158" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.85"></path>
+    <path d="M126 225 Q200 258 274 225" stroke="#818cf8" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.85"></path>
+    <path d="M104 298 Q200 336 296 298" stroke="#38bdf8" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.85"></path>
+
+    <!-- Esferas LED animadas -->
+    <circle cx="176" cy="146" r="6" fill="#f43f5e" color="#f43f5e" class="tree-ornament-1"></circle>
+    <circle cx="224" cy="148" r="6" fill="#fde047" color="#fde047" class="tree-ornament-2"></circle>
+    <circle cx="158" cy="212" r="7" fill="#38bdf8" color="#38bdf8" class="tree-ornament-3"></circle>
+    <circle cx="202" cy="222" r="7.5" fill="#f43f5e" color="#f43f5e" class="tree-ornament-1"></circle>
+    <circle cx="242" cy="210" r="7" fill="#a855f7" color="#a855f7" class="tree-ornament-2"></circle>
+    <circle cx="142" cy="285" r="8" fill="#fde047" color="#fde047" class="tree-ornament-2"></circle>
+    <circle cx="182" cy="300" r="8" fill="#38bdf8" color="#38bdf8" class="tree-ornament-3"></circle>
+    <circle cx="222" cy="296" r="8" fill="#f43f5e" color="#f43f5e" class="tree-ornament-1"></circle>
+    <circle cx="258" cy="284" r="8" fill="#10b981" color="#10b981" class="tree-ornament-3"></circle>
+
+    <!-- Estrella Superior -->
+    <g class="tree-star-spin">
+      <polygon points="200,36 208,54 228,56 213,69 217,88 200,78 183,88 187,69 172,56 192,54" fill="url(#starGold)"></polygon>
+    </g>
+  </svg>
+</div>
+
+<style>
+  .christmas-tree-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    filter: drop-shadow(0 10px 25px rgba(16, 185, 129, 0.2));
+    transition: transform 0.3s ease;
+  }
+
+  .christmas-tree-container:hover {
+    transform: scale(1.04);
+  }
+
+  .christmas-tree-svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>
+
