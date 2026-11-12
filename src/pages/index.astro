@@ -184,6 +184,13 @@ const faqs = [
        SERVICIOS SECTION
        ======================================== -->
   <section id="servicios" class="services-section">
+    <!-- 🎅 El Viejo Pascuero Web Dev en el lateral izquierdo (Desktop) -->
+    {isChristmas && (
+      <aside class="christmas-side-santa" aria-label="Viejo Pascuero Web Dev" title="¡El Viejo Pascuero programando tu web!">
+        <SantaWebDev maxWidth="340px" />
+      </aside>
+    )}
+
     <div class="section-header">
       <span class="section-badge">Servicios</span>
       <h2 class="section-title">Soluciones digitales a tu medida</h2>
@@ -745,13 +752,6 @@ const faqs = [
       </p>
     </div>
 
-    <!-- 🎅 Santa Web Dev Easter Egg -->
-    {isChristmas && (
-      <div class="flex justify-center -mt-2 mb-6" title="Santa Web Dev">
-        <SantaWebDev maxWidth="170px" />
-      </div>
-    )}
-
     <div class="form-container">
       <FormularioSelector client:load />
     </div>
@@ -1206,6 +1206,28 @@ const faqs = [
 
   @media (max-width: 1140px) {
     .christmas-side-gift {
+      display: none;
+    }
+  }
+
+  /* 🎅 El Viejo Pascuero en el lateral izquierdo de Soluciones Digitales */
+  .christmas-side-santa {
+    position: absolute;
+    left: 2%;
+    top: 3.5rem;
+    z-index: 20;
+    pointer-events: auto;
+  }
+
+  @media (max-width: 1380px) {
+    .christmas-side-santa {
+      left: 1%;
+      max-width: 270px;
+    }
+  }
+
+  @media (max-width: 1180px) {
+    .christmas-side-santa {
       display: none;
     }
   }
