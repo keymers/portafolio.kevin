@@ -124,10 +124,21 @@ const isHome = Astro.url.pathname === "/";
     }
 
     .logo-text {
-        background: linear-gradient(135deg, #ef4444 0%, #fde047 50%, #34d399 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #ffffff;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-shadow: 
+            0 0 10px rgba(239, 68, 68, 0.8),
+            0 0 20px rgba(220, 38, 38, 0.5),
+            0 0 30px rgba(185, 28, 28, 0.35);
+        transition: text-shadow 0.3s ease;
+    }
+
+    .christmas-logo:hover .logo-text {
+        text-shadow: 
+            0 0 14px rgba(239, 68, 68, 1),
+            0 0 28px rgba(220, 38, 38, 0.8),
+            0 0 40px rgba(185, 28, 28, 0.5);
     }
 
     .nav-links {
@@ -157,7 +168,8 @@ const isHome = Astro.url.pathname === "/";
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(135deg, #ef4444, #fde047, #10b981);
+        background: linear-gradient(90deg, #ef4444, #dc2626);
+        box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
         transition: width 0.3s ease;
     }
 
