@@ -80,7 +80,7 @@ const faqs = [
     <!-- 🎁 Regalo navideño interactivo en el lateral (Desktop) -->
     {isChristmas && (
       <aside class="christmas-side-gift" aria-label="Regalo navideño interactivo" title="¡Haz hover para abrir tu regalo!">
-        <ChristmasGiftBox maxWidth="155px" />
+        <ChristmasGiftBox maxWidth="310px" />
       </aside>
     )}
 
@@ -1190,14 +1190,21 @@ const faqs = [
   /* 🎁 Caja de regalo navideña flotante en el lateral */
   .christmas-side-gift {
     position: absolute;
-    right: 3.5%;
+    right: 2%;
     top: 50%;
     transform: translateY(-50%);
     z-index: 20;
     pointer-events: auto;
   }
 
-  @media (max-width: 1180px) {
+  @media (max-width: 1320px) {
+    .christmas-side-gift {
+      right: 1%;
+      max-width: 250px;
+    }
+  }
+
+  @media (max-width: 1140px) {
     .christmas-side-gift {
       display: none;
     }
