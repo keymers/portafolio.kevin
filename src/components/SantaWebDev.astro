@@ -9,8 +9,7 @@ const { className = "", maxWidth = "320px" } = Astro.props;
 ---
 
 <div class={`santa-web-dev-wrapper ${className}`} style={`max-width: ${maxWidth};`}>
-  <div class="santa-tooltip">Pasa el mouse para hacer deploy 👇</div>
-  <svg viewBox="0 0 400 400" class="santa-web-dev-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Santa Claus desarrollador web programando en su laptop">
+  <svg viewBox="0 0 400 400" class="santa-web-dev-svg" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Santa Claus desarrollador web">
     <style>
       .dev-santa-body { transform-origin: 200px 360px; animation: devBreathe 3.2s ease-in-out infinite; }
       .dev-santa-head { transform-origin: 200px 190px; animation: devHeadNod 3.2s ease-in-out infinite; }
@@ -194,34 +193,9 @@ const { className = "", maxWidth = "320px" } = Astro.props;
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     position: relative;
     cursor: pointer;
-  }
-
-  .santa-tooltip {
-    font-size: 0.75rem;
-    font-family: 'JetBrains Mono', monospace;
-    color: #38bdf8;
-    background: rgba(15, 23, 42, 0.85);
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    padding: 0.25rem 0.6rem;
-    border-radius: 9999px;
-    margin-bottom: 0.5rem;
-    opacity: 0.85;
-    transition: all 0.3s ease;
-    animation: bounceTooltip 2.5s ease-in-out infinite;
-  }
-
-  .santa-web-dev-wrapper:hover .santa-tooltip {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-
-  @keyframes bounceTooltip {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
   }
 
   .santa-web-dev-svg {
@@ -236,4 +210,3 @@ const { className = "", maxWidth = "320px" } = Astro.props;
     transform: translateY(-4px);
   }
 </style>
-
