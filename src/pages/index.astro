@@ -8,7 +8,7 @@ import HalloweenLottie from "../components/HalloweenLottie.astro";
 import HalloweenLottie2 from "../components/HalloweenLottie2.astro";
 import CyberDeerBanner from "../components/CyberDeerBanner.astro";
 import ChristmasNavigation from "../components/ChristmasNavigation.astro";
-import ChristmasDeployBox from "../components/ChristmasDeployBox.astro";
+import ChristmasGiftBox from "../components/ChristmasGiftBox.astro";
 import SantaWebDev from "../components/SantaWebDev.astro";
 import ChristmasTree from "../components/ChristmasTree.astro";
 import PekosEmblem from "../components/PekosEmblem.astro";
@@ -92,6 +92,13 @@ const faqs = [
         >
         <span class="school-banner-arrow">→</span>
       </a>
+
+      <!-- 🎁 Caja de regalo navideña al principio -->
+      {isChristmas && (
+        <div class="hero-gift-container">
+          <ChristmasGiftBox maxWidth="140px" />
+        </div>
+      )}
 
       <!-- Título Principal -->
       <ScrollReveal client:load direction="down" duration={0.8}>
@@ -390,13 +397,6 @@ const faqs = [
         </TiltCard>
       </ScrollReveal>
     </div>
-
-    <!-- 🎁 Promoción Navideña Caja Deploy 98+ -->
-    {isChristmas && (
-      <ScrollReveal client:load delay={0.2} duration={0.8}>
-        <ChristmasDeployBox />
-      </ScrollReveal>
-    )}
   </section>
 
   <!-- ========================================
@@ -1185,5 +1185,13 @@ const faqs = [
   .hero-holiday-tag {
     font-size: 0.85rem;
     margin-left: 0.25rem;
+  }
+
+  .hero-gift-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.25rem auto 1.5rem;
+    position: relative;
+    z-index: 10;
   }
 </style>
