@@ -1,5 +1,5 @@
 ---
-// ✨ Emblema Peko's Luminoso - Peko's Studio
+// ✨ Emblema Peko's Luminoso - Peko's
 interface Props {
   className?: string;
   withText?: boolean;
@@ -14,7 +14,7 @@ const { className = "", withText = true } = Astro.props;
     class="pekos-emblem-svg"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
-    aria-label="Emblema luminoso Peko's Studio"
+    aria-label="Emblema luminoso Peko's"
   >
     <defs>
       <filter id="neonCyanEmblem" x="-20%" y="-20%" width="140%" height="140%">
@@ -30,7 +30,7 @@ const { className = "", withText = true } = Astro.props;
     </g>
     
     {withText && (
-      <text x="85" y="80" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="10" fill="#94a3b8" text-anchor="middle" letter-spacing="2" class="emblem-text">PEKO'S STUDIO</text>
+      <text x="85" y="80" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="11" fill="#94a3b8" text-anchor="middle" letter-spacing="2" class="emblem-text">PEKO'S</text>
     )}
   </svg>
 </div>
