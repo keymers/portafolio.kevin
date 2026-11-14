@@ -64,7 +64,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
       <span
         key={i}
         className={`text-xl transition-colors duration-300 ${
-          i < rating ? 'text-pink-400 drop-shadow-[0_0_6px_rgba(236,72,153,0.7)]' : 'text-accent/40'
+          i < rating ? 'text-amber-300' : 'text-slate-600'
         }`}
       >
         ★
@@ -77,19 +77,13 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
   }
 
   if (supabaseError) {
+    // Los errores técnicos se registran en consola, nunca se muestran al visitante.
+    console.error('No se pudieron cargar los testimonios:', supabaseError)
     return (
-      <section className="py-16 bg-gray-800/50 backdrop-blur-sm rounded-lg border border-gray-600/30">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <p className="text-red-300">{supabaseError}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
-            >
-              Recargar página
-            </button>
-          </div>
-        </div>
+      <section className="py-10 text-center">
+        <p className="text-slate-400">
+          Pronto publicaremos aquí las opiniones de clientes.
+        </p>
       </section>
     )
   }
@@ -128,7 +122,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
             <p className="text-red-300">{error}</p>
             <button
               onClick={loadTestimonials}
-              className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors duration-200"
             >
               Reintentar
             </button>
@@ -194,7 +188,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
                         "{textoMostrar}"
                         {isLong && (
                           <span
-                            className="ml-2 text-pink-400 cursor-pointer font-semibold hover:underline"
+                            className="ml-2 text-blue-300 cursor-pointer font-semibold hover:underline"
                             onClick={() => toggleExpand(testimonial.id)}
                           >
                             {isExpanded ? "Ver menos" : "Ver más"}
@@ -222,11 +216,11 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
                       />
                     ) : null}
                     {/* Placeholder cuando no hay imagen o falla */}
-                    <div className={`w-12 h-12 rounded-full mr-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-lg border-2 border-accent/30 shadow-md ${testimonial.image_url ? 'hidden image-placeholder' : ''}`}>
+                    <div className={`w-12 h-12 rounded-full mr-4 bg-blue-600 flex items-center justify-center text-white font-bold text-lg border-2 border-accent/30 shadow-md ${testimonial.image_url ? 'hidden image-placeholder' : ''}`}>
                       {testimonial.name.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <div className="font-semibold text-pink-400 drop-shadow-[0_0_4px_rgba(236,72,153,0.7)]">
+                      <div className="font-semibold text-slate-100">
                         {testimonial.name}
                       </div>
                       {testimonial.position && (
@@ -250,7 +244,7 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
                   href="/testimonios"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 border border-accent/30 hover:border-pink-400/60"
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-lg"
                 >
                   Ver todos los testimonios
                   <svg
@@ -271,9 +265,9 @@ export default function TestimonialsSection({ limit }: { limit?: number } = {}) 
             )}
           </>
         ) : (
-          <div className="text-center py-12">
-            <p className="text-accent/80 text-lg">
-              Aún no hay testimonios. ¡Sé el primero en compartir tu experiencia!
+          <div className="text-center py-10">
+            <p className="text-slate-400">
+              Pronto publicaremos aquí las opiniones de clientes.
             </p>
           </div>
         )}

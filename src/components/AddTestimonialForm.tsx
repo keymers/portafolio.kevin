@@ -142,7 +142,7 @@ export default function AddTestimonialForm() {
 
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-lg p-6 border border-gray-600/30 max-w-4xl mx-auto">
-      <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
+      <h3 className="text-2xl font-bold text-white mb-6">
         Comparte tu experiencia
       </h3>
 
@@ -272,7 +272,7 @@ export default function AddTestimonialForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-md hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 shadow-lg"
         >
           {loading ? 'Enviando...' : 'Enviar testimonio'}
         </button>

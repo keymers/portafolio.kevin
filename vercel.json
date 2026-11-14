@@ -62,5 +62,6 @@
       "destination": "/testimonios/index.html"
     }
   ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "trailingSlash": false
 }

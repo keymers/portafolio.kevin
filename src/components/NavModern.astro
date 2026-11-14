@@ -100,10 +100,7 @@ const isHome = Astro.url.pathname === "/";
     .nav-logo {
         font-size: 1.5rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #f8fafc;
         text-decoration: none;
         letter-spacing: 2px;
     }
@@ -135,7 +132,7 @@ const isHome = Astro.url.pathname === "/";
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+        background: #bfdbfe;
         transition: width 0.3s ease;
     }
 
@@ -145,18 +142,17 @@ const isHome = Astro.url.pathname === "/";
 
     .nav-cta {
         padding: 0.625rem 1.5rem;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        color: white;
+        background: #2563eb;
+        color: #ffffff;
         font-weight: 600;
         border-radius: 8px;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: background-color 0.2s ease;
         font-size: 0.9rem;
     }
 
     .nav-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        background: #1d4ed8;
     }
 
     .nav-mobile-toggle {
@@ -219,8 +215,8 @@ const isHome = Astro.url.pathname === "/";
     .nav-mobile-cta {
         display: block;
         padding: 0.75rem 1rem;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        color: white;
+        background: #2563eb;
+        color: #ffffff;
         text-decoration: none;
         font-weight: 600;
         border-radius: 8px;

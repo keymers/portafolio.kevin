@@ -4,6 +4,7 @@ import EnvScript from "../components/EnvScript.astro";
 import Analytics from "@vercel/analytics/astro";
 import { isChristmas } from "../config/theme";
 import PekosSnow from "../components/PekosSnow.astro";
+import "../styles/redesign.css";
 
 interface Props {
 	title: string;
@@ -81,9 +82,9 @@ const siteName = "Peko's Desarrollo Web";
 			"@type": "ProfessionalService",
 			"name": "Peko's - Diseño y Desarrollo Web en Chile",
 			"alternateName": "Peko's Desarrollo Web",
-			"image": "https://pekos.cl/og-image.jpg",
-			"@id": "https://pekos.cl/#service",
-			"url": "https://pekos.cl",
+			"image": "https://www.pekos.cl/og-image.jpg",
+			"@id": "https://www.pekos.cl/#service",
+			"url": "https://www.pekos.cl",
 			"telephone": "+56973650208",
 			"priceRange": "$$",
 			"currenciesAccepted": "CLP",
@@ -166,13 +167,13 @@ const siteName = "Peko's Desarrollo Web";
 		<meta http-equiv="x-dns-prefetch-control" content="on" />
 		<link
 			rel="preload"
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Public+Sans:wght@400;500;600;700&display=swap"
 			as="style"
 			onload="this.onload=null;this.rel='stylesheet'"
 		/>
 		<noscript>
 			<link
-				href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+				href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Public+Sans:wght@400;500;600;700&display=swap"
 				rel="stylesheet"
 			/>
 		</noscript>
@@ -260,7 +261,7 @@ const siteName = "Peko's Desarrollo Web";
 
 	body {
 		font-family:
-			"Inter",
+			"Public Sans",
 			system-ui,
 			-apple-system,
 			BlinkMacSystemFont,
@@ -272,16 +273,44 @@ const siteName = "Peko's Desarrollo Web";
 			"Open Sans",
 			"Helvetica Neue",
 			sans-serif;
+		text-wrap: pretty;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	.hero-title,
+	.section-title,
+	.cta-title {
+		font-family: "Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
+		letter-spacing: -0.02em;
+	}
+
+	/* Reveal al hacer scroll: solo transformación, nunca oculta el contenido */
+	@media (prefers-reduced-motion: no-preference) {
+		@supports (animation-timeline: view()) {
+			.reveal {
+				animation: reveal-up linear both;
+				animation-timeline: view();
+				animation-range: entry 10% cover 30%;
+			}
+		}
+	}
+
+	@keyframes reveal-up {
+		from {
+			transform: translateY(18px);
+		}
+		to {
+			transform: translateY(0);
+		}
 	}
 
 	.fondo-chipset {
 		width: 100%;
 		height: 100vh;
-		background: radial-gradient(
-			ellipse at 60% 40%,
-			#232946 60%,
-			#0f172a 100%
-		);
+		background: #0b1220;
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -292,32 +321,15 @@ const siteName = "Peko's Desarrollo Web";
 		content: "";
 		position: absolute;
 		inset: 0;
-		background:
-			radial-gradient(circle at 20% 30%, #3b82f6 0%, transparent 60%),
-			radial-gradient(circle at 80% 70%, #e11d74 0%, transparent 60%),
-			radial-gradient(circle at 50% 90%, #3b82f6 0%, transparent 70%),
-			radial-gradient(circle at 70% 20%, #e11d74 0%, transparent 70%);
-		opacity: 0.25;
+		background: linear-gradient(
+			180deg,
+			#101a2e 0%,
+			#0b1220 60%,
+			#080e18 100%
+		);
 		pointer-events: none;
-		z-index: 1;
 	}
 	.fondo-chipset::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background-image:
-			repeating-linear-gradient(
-				120deg,
-				rgba(59, 130, 246, 0.08) 0 2px,
-				transparent 2px 40px
-			),
-			repeating-linear-gradient(
-				60deg,
-				rgba(225, 29, 116, 0.08) 0 2px,
-				transparent 2px 40px
-			);
-		opacity: 0.3;
-		pointer-events: none;
-		z-index: 2;
+		content: none;
 	}
 </style>

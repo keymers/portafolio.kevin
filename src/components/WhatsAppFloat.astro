@@ -25,12 +25,34 @@
     </div>
 </div>
 
+<script is:inline>
+    (() => {
+        const el = document.querySelector('.whatsapp-float');
+        if (!el) return;
+
+        const sync = () => {
+            el.classList.toggle('is-hidden', window.scrollY < 480);
+        };
+
+        sync();
+        window.addEventListener('scroll', sync, { passive: true });
+    })();
+</script>
+
 <style>
     .whatsapp-float {
         position: fixed;
         bottom: 2rem;
         right: 2rem;
         z-index: 999;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    /* En el hero ya existe el CTA principal: el botón aparece al bajar */
+    .whatsapp-float.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(8px);
     }
 
     .whatsapp-btn {
@@ -38,19 +60,17 @@
         align-items: center;
         gap: 0.75rem;
         padding: 1rem 1.5rem;
-        background: linear-gradient(135deg, #25d366, #128c7e);
-        color: white;
-        font-weight: 600;
+        background: #25d366;
+        color: #062b16;
+        font-weight: 700;
         border-radius: 50px;
         text-decoration: none;
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-        transition: all 0.3s ease;
-        animation: whatsappPulse 2s ease-in-out infinite;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        transition: transform 0.2s ease;
     }
 
     .whatsapp-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+        transform: translateY(-2px);
     }
 
     .whatsapp-icon {
@@ -67,7 +87,7 @@
         bottom: calc(100% + 1rem);
         right: 0;
         background: #1e293b;
-        border: 1px solid rgba(139, 92, 246, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.25);
         border-radius: 12px;
         padding: 1rem;
         min-width: 220px;
@@ -104,18 +124,6 @@
     .whatsapp-tooltip span {
         color: #94a3b8;
         font-size: 0.8rem;
-    }
-
-    @keyframes whatsappPulse {
-        0%,
-        100% {
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-        }
-        50% {
-            box-shadow:
-                0 4px 30px rgba(37, 211, 102, 0.6),
-                0 0 0 10px rgba(37, 211, 102, 0.1);
-        }
     }
 
     @media (max-width: 768px) {

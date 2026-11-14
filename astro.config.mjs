@@ -6,7 +6,7 @@ import react from '@astrojs/react';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://pekos.cl',
+  site: 'https://www.pekos.cl',
   integrations: [tailwind(), react()],
   publicDir: 'public',
   vite: {

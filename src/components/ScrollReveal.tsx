@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 interface Props {
   children: React.ReactNode;
@@ -11,48 +10,20 @@ interface Props {
   scale?: number;
 }
 
-const ScrollReveal: React.FC<Props> = ({
-  children,
-  delay = 0,
-  direction = 'up',
-  className = '',
-  duration = 0.6,
-  distance = 40,
-  scale = 1
-}) => {
-  const directions: Record<string, object> = {
-    up: { y: distance },
-    down: { y: -distance },
-    left: { x: distance },
-    right: { x: -distance },
-    none: {},
-  };
-
-  return (
-    <motion.div
-      className={className}
-      initial={{
-        opacity: 0,
-        scale: scale !== 1 ? scale : 1,
-        ...directions[direction],
-      }}
-      whileInView={{
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0,
-      }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.25, 0.1, 0.25, 1],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
+/**
+ * Reveal al hacer scroll, 100% CSS.
+ *
+ * El contenido SIEMPRE existe y es visible en el HTML: no dependemos de
+ * JavaScript ni de IntersectionObserver, así que Google, un navegador lento
+ * o alguien con JS desactivado ve la página completa. Donde el navegador
+ * soporta animaciones por scroll (animation-timeline) se añade un desplazamiento
+ * sutil; donde no, no pasa nada.
+ *
+ * Las props de animación se mantienen por compatibilidad con las páginas que
+ * ya usan <ScrollReveal delay=... direction=...>.
+ */
+const ScrollReveal: React.FC<Props> = ({ children, className = '' }) => {
+  return <div className={`reveal ${className}`.trim()}>{children}</div>;
 };
 
 export default ScrollReveal;
-

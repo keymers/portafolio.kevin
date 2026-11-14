@@ -765,7 +765,6 @@ const faqs = [
 </Layout>
 
 <style>
-  @import "../styles/redesign.css";
 
   /* Additional page-specific styles */
 
@@ -785,11 +784,10 @@ const faqs = [
   }
 
   .faq-card {
-    background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: var(--surface);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 16px;
     padding: 2rem;
-    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     height: 100%;
     display: flex;
@@ -797,10 +795,10 @@ const faqs = [
   }
 
   .faq-card:hover {
-    border-color: rgba(59, 130, 246, 0.5);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.15);
-    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(148, 163, 184, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+    background: #1b2b46;
   }
 
   .faq-question {
@@ -821,8 +819,8 @@ const faqs = [
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    color: white;
+    background: var(--accent);
+    color: #ffffff;
     font-size: 0.85rem;
     font-weight: 800;
     flex-shrink: 0;
@@ -863,7 +861,7 @@ const faqs = [
   .scroll-mouse {
     width: 24px;
     height: 40px;
-    border: 2px solid rgba(139, 92, 246, 0.3);
+    border: 2px solid rgba(148, 163, 184, 0.3);
     border-radius: 12px;
     display: flex;
     justify-content: center;
@@ -873,7 +871,7 @@ const faqs = [
   .scroll-wheel {
     width: 4px;
     height: 8px;
-    background: var(--accent-purple);
+    background: var(--accent-ink);
     border-radius: 2px;
     animation: scrollWheel 2s ease-in-out infinite;
   }
@@ -893,9 +891,8 @@ const faqs = [
   .badge-dot {
     width: 8px;
     height: 8px;
-    background: #10b981;
+    background: #34d399;
     border-radius: 50%;
-    animation: pulse 2s ease-in-out infinite;
   }
 
   .portfolio-image-wrapper {
@@ -953,14 +950,10 @@ const faqs = [
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1.25rem;
-    background: linear-gradient(
-      135deg,
-      rgba(16, 185, 129, 0.15),
-      rgba(59, 130, 246, 0.15)
-    );
-    border: 1px solid rgba(16, 185, 129, 0.3);
+    background: rgba(148, 163, 184, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.28);
     border-radius: 50px;
-    color: #10b981;
+    color: #6ee7b7;
     font-size: 0.9rem;
     text-decoration: none;
     margin-bottom: 1.5rem;
@@ -969,14 +962,9 @@ const faqs = [
   }
 
   .school-banner:hover {
-    background: linear-gradient(
-      135deg,
-      rgba(16, 185, 129, 0.25),
-      rgba(59, 130, 246, 0.25)
-    );
-    border-color: rgba(16, 185, 129, 0.5);
+    background: rgba(148, 163, 184, 0.16);
+    border-color: rgba(148, 163, 184, 0.45);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
   }
 
   .school-banner-icon {
@@ -988,11 +976,11 @@ const faqs = [
   }
 
   .school-banner-text strong {
-    color: #10b981;
+    color: #6ee7b7;
   }
 
   .school-banner-arrow {
-    color: #10b981;
+    color: #6ee7b7;
     transition: transform 0.3s ease;
   }
 
@@ -1008,12 +996,8 @@ const faqs = [
   .school-program-card {
     max-width: 1000px;
     margin: 0 auto;
-    background: linear-gradient(
-      135deg,
-      rgba(16, 185, 129, 0.08),
-      rgba(59, 130, 246, 0.08)
-    );
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: var(--surface);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 24px;
     padding: 3rem;
     display: grid;
@@ -1025,18 +1009,7 @@ const faqs = [
   }
 
   .school-program-card::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(
-      circle,
-      rgba(16, 185, 129, 0.1) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
+    content: none;
   }
 
   .school-program-content {
@@ -1047,9 +1020,9 @@ const faqs = [
   .school-program-badge {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: rgba(16, 185, 129, 0.15);
+    background: rgba(148, 163, 184, 0.14);
     border-radius: 50px;
-    color: #10b981;
+    color: #6ee7b7;
     font-size: 0.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
@@ -1071,7 +1044,7 @@ const faqs = [
   }
 
   .school-program-description strong {
-    color: #10b981;
+    color: #6ee7b7;
   }
 
   .school-program-features {
@@ -1083,8 +1056,8 @@ const faqs = [
 
   .school-feature {
     padding: 0.5rem 1rem;
-    background: rgba(16, 185, 129, 0.1);
-    color: #10b981;
+    background: rgba(148, 163, 184, 0.12);
+    color: #d1fae5;
     font-size: 0.875rem;
     font-weight: 500;
     border-radius: 50px;
@@ -1095,19 +1068,19 @@ const faqs = [
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
-    background: linear-gradient(135deg, #10b981, #3b82f6);
-    color: white;
+    background: var(--accent);
+    color: #ffffff;
     font-weight: 600;
     font-size: 1rem;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   }
 
   .school-program-cta:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+    background: var(--accent-strong);
+    transform: translateY(-2px);
   }
 
   .school-program-visual {
@@ -1118,9 +1091,8 @@ const faqs = [
   }
 
   .school-visual-icon {
-    font-size: 5rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
   }
 
   .school-visual-text {

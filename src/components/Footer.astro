@@ -146,7 +146,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   .modern-footer {
     position: relative;
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    border-top: 1px solid rgba(225, 29, 116, 0.3);
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
     color: #e2e8f0;
     overflow: hidden;
     margin-top: auto;
@@ -183,8 +183,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   .logo-text {
     font-size: 1.5rem;
     font-weight: 800;
-    color: #e11d74;
-    text-shadow: 0 0 10px rgba(225, 29, 116, 0.5);
+    color: #f8fafc;
   }
 
   .logo-subtitle {
@@ -223,7 +222,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     left: 0;
     width: 30px;
     height: 2px;
-    background: linear-gradient(90deg, #e11d74, #3b82f6);
+    background: #60a5fa;
     border-radius: 1px;
   }
 
@@ -248,7 +247,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     content: "▶";
     position: absolute;
     left: 0;
-    color: #e11d74;
+    color: #bfdbfe;
     font-size: 0.75rem;
     opacity: 0;
     transform: translateX(-5px);
@@ -256,7 +255,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .footer-link:hover {
-    color: #e11d74;
+    color: #ffffff;
     padding-left: 1.5rem;
   }
 
@@ -290,7 +289,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .contact-link:hover {
-    color: #e11d74;
+    color: #ffffff;
   }
 
   /* Social links */
@@ -305,8 +304,8 @@ import PekosEmblem from "./PekosEmblem.astro";
     justify-content: center;
     width: 40px;
     height: 40px;
-    background: rgba(225, 29, 116, 0.1);
-    border: 1px solid rgba(225, 29, 116, 0.3);
+    background: rgba(148, 163, 184, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.22);
     border-radius: 8px;
     color: #94a3b8;
     transition: all 0.3s ease;
@@ -319,11 +318,10 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .social-link:hover {
-    background: rgba(225, 29, 116, 0.2);
-    border-color: #e11d74;
-    color: #e11d74;
+    background: rgba(148, 163, 184, 0.16);
+    border-color: #bfdbfe;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(225, 29, 116, 0.3);
   }
 
   /* Divider */
@@ -332,7 +330,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     background: linear-gradient(
       90deg,
       transparent,
-      rgba(225, 29, 116, 0.5),
+      rgba(148, 163, 184, 0.35),
       transparent
     );
     margin: 2rem 0;
@@ -348,7 +346,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .footer-copyright {
-    color: #64748b;
+    color: #aab8ca;
     font-size: 0.875rem;
   }
 
@@ -367,7 +365,7 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .tech-text {
-    color: #64748b;
+    color: #93a3b8;
     font-size: 0.875rem;
   }
 
@@ -377,8 +375,8 @@ import PekosEmblem from "./PekosEmblem.astro";
   }
 
   .tech-item {
-    background: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
+    background: rgba(148, 163, 184, 0.14);
+    color: #bfdbfe;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -392,10 +390,10 @@ import PekosEmblem from "./PekosEmblem.astro";
     right: 2rem;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #e11d74, #3b82f6);
+    background: var(--accent, #2563eb);
     border: none;
     border-radius: 50%;
-    color: white;
+    color: #ffffff;
     cursor: pointer;
     opacity: 0;
     visibility: hidden;
@@ -405,7 +403,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(225, 29, 116, 0.3);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   }
 
   .scroll-to-top.visible {
@@ -416,7 +414,6 @@ import PekosEmblem from "./PekosEmblem.astro";
 
   .scroll-to-top:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(225, 29, 116, 0.4);
   }
 
   .scroll-to-top svg {
@@ -442,12 +439,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     transform: translateX(-50%);
     width: 200%;
     height: 200%;
-    background: radial-gradient(
-      circle,
-      rgba(225, 29, 116, 0.05) 0%,
-      transparent 70%
-    );
-    animation: footerGlow 8s ease-in-out infinite alternate;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
   }
 
   @keyframes footerGlow {
@@ -467,28 +459,7 @@ import PekosEmblem from "./PekosEmblem.astro";
     left: 0;
     right: 0;
     bottom: 0;
-    background-image:
-      radial-gradient(
-        circle at 20% 20%,
-        rgba(225, 29, 116, 0.1) 1px,
-        transparent 1px
-      ),
-      radial-gradient(
-        circle at 80% 80%,
-        rgba(59, 130, 246, 0.1) 1px,
-        transparent 1px
-      );
-    background-size: 50px 50px;
-    animation: footerParticles 20s linear infinite;
-  }
-
-  @keyframes footerParticles {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50px);
-    }
+    background-image: none;
   }
 
   /* Responsive */

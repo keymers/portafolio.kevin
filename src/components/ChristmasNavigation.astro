@@ -127,18 +127,11 @@ const isHome = Astro.url.pathname === "/";
         color: #ffffff;
         font-weight: 800;
         letter-spacing: 2px;
-        text-shadow: 
-            0 0 10px rgba(239, 68, 68, 0.8),
-            0 0 20px rgba(220, 38, 38, 0.5),
-            0 0 30px rgba(185, 28, 28, 0.35);
-        transition: text-shadow 0.3s ease;
+        transition: color 0.2s ease;
     }
 
     .christmas-logo:hover .logo-text {
-        text-shadow: 
-            0 0 14px rgba(239, 68, 68, 1),
-            0 0 28px rgba(220, 38, 38, 0.8),
-            0 0 40px rgba(185, 28, 28, 0.5);
+        color: #fecaca;
     }
 
     .nav-links {
@@ -168,8 +161,7 @@ const isHome = Astro.url.pathname === "/";
         left: 0;
         width: 0;
         height: 2px;
-        background: linear-gradient(90deg, #ef4444, #dc2626);
-        box-shadow: 0 0 8px rgba(239, 68, 68, 0.7);
+        background: #ef4444;
         transition: width 0.3s ease;
     }
 
@@ -179,20 +171,17 @@ const isHome = Astro.url.pathname === "/";
 
     .christmas-cta {
         padding: 0.625rem 1.4rem;
-        background: linear-gradient(135deg, #ef4444, #dc2626);
-        color: white;
+        background: #dc2626;
+        color: #ffffff;
         font-weight: 600;
         border-radius: 8px;
         text-decoration: none;
-        transition: all 0.3s ease;
+        transition: background-color 0.2s ease;
         font-size: 0.9rem;
-        box-shadow: 0 0 15px rgba(239, 68, 68, 0.35);
     }
 
     .christmas-cta:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 20px rgba(239, 68, 68, 0.6);
-        background: linear-gradient(135deg, #f87171, #ef4444);
+        background: #b91c1c;
     }
 
     .nav-mobile-toggle {
